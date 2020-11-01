@@ -14,6 +14,6 @@ public class Destruible extends Actor
     
     
     public void dibujamuro(){
-        setImage("images/MuroDestruible.png");
+        setImage("images/MuroDestruible3.png");
     }
 }

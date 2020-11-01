@@ -1,11 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Mapa here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Mapa extends World
 {
     private final int columnas = 49;//Tamaño i
@@ -27,13 +21,13 @@ public class Mapa extends World
         for(int i = 0; i < columnas; i++){
             for(int j = 0; j < filas;j++){
                 if((i==0) ||(j==0) || (i==columnas-1) || (j==filas-1)){
-                    mapa[i][j] = 1;
-                } else if(i%2 == 0 && j%2 == 0){
-                    mapa[i][j] = 1;
+                    mapa[i][j] = 1; //muro fijo
+                } else if(i%2 == 0 && j%2 == 0){ // Muros interiores del mapa
+                    mapa[i][j] = 1; 
                 } else if((i ==1 && j == 1) || (i ==2 && j==1) || (i==1 && j==2)){//Para las posiciones iniciales del jugador
                     mapa[i][j] = 0;
                 } else{
-                    mapa[i][j] =  Greenfoot.getRandomNumber(2)+2;
+                    mapa[i][j] =  Greenfoot.getRandomNumber(2)+2; // Posiciones al azar, para destruible o suelo
                 }
             }
         }
