@@ -2,14 +2,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class Mapa extends World
 {
-    private final int columnas = 49;//Tamaño i
-    private final int filas = 35; // Tamaño j
+    private final int columnas = 17;//Tamaño i
+    private final int filas = 19; // Tamaño j
     private int mapa[][];
 
     public Mapa()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1);
+        super(800, 550, 1);
         mapa = new int [columnas][filas];
         generaMapa();
         dibujaSuelo();
