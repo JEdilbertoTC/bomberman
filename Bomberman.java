@@ -25,7 +25,7 @@ public class Bomberman extends Actor
         bombermanarriba[1] = new GreenfootImage("images/atras2.png");
         bombermanarriba[2] = new GreenfootImage("images/atras3.png");
         bombermanarriba[3] = new GreenfootImage("images/atras4.png");
-        
+        bombermanarriba[0].scale(20,30);
         bombermanderecha[0] = new GreenfootImage("images/vueltaDerecha.png");
         bombermanderecha[1] = new GreenfootImage("images/paradoDerecha.png");
         bombermanderecha[2] = new GreenfootImage("images/derecha1.png");
