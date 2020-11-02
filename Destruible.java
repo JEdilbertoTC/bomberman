@@ -8,12 +8,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Destruible extends Actor
 {
+    private GreenfootImage destruible = new GreenfootImage("images/MuroDestruible.png");
     public Destruible(){
         dibujamuro();
     }
     
     
     public void dibujamuro(){
-        setImage("images/MuroDestruible.png");
+        destruible.scale(50,50);
+        setImage(destruible);
     }
 }

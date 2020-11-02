@@ -8,10 +8,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Suelo extends Actor
 {
+    private GreenfootImage suelo = new GreenfootImage("images/Suelo.png"); 
     public Suelo(){
         dibujamuro();
     }
     public void dibujamuro(){
-        setImage("images/Suelo.png");
+        suelo.scale(50,50);
+        setImage(suelo);
     }   
 }

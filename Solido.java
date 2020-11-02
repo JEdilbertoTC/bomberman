@@ -8,15 +8,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Solido extends Actor
 {
-    /**
-     * Act - do whatever the Muro wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    private GreenfootImage solido = new GreenfootImage("images/MuroSolido.png");
     public Solido(){
         dibujamuro();
     }
     
     public void dibujamuro(){
-        setImage("images/MuroSolido.png");
+        solido.scale(50,50);
+        setImage(solido);
     }
 }

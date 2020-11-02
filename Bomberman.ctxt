@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Bomberman
+comment1.params=
+comment1.target=Bomberman()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=tecla
+comment3.target=void\ MueveBomberman(java.lang.String)
+comment4.params=direccion
+comment4.target=void\ CambiaSprites(Bomberman.Direccion)
+numComments=5
