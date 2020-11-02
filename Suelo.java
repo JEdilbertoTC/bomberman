@@ -13,7 +13,7 @@ public class Suelo extends Actor
         dibujamuro();
     }
     public void dibujamuro(){
-        suelo.scale(50,50);
+        suelo.scale(30,30);
         setImage(suelo);
     }   
 }

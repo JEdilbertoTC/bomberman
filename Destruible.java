@@ -15,7 +15,7 @@ public class Destruible extends Actor
     
     
     public void dibujamuro(){
-        destruible.scale(50,50);
+        destruible.scale(30,30);
         setImage(destruible);
     }
 }
