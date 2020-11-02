@@ -1,3 +1,4 @@
+
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class Bomberman extends Actor
@@ -26,6 +27,7 @@ public class Bomberman extends Actor
         bombermanarriba[2] = new GreenfootImage("images/atras3.png");
         bombermanarriba[3] = new GreenfootImage("images/atras4.png");
         bombermanarriba[0].scale(20,30);
+        
         bombermanderecha[0] = new GreenfootImage("images/vueltaDerecha.png");
         bombermanderecha[1] = new GreenfootImage("images/paradoDerecha.png");
         bombermanderecha[2] = new GreenfootImage("images/derecha1.png");
@@ -43,13 +45,33 @@ public class Bomberman extends Actor
     }
     public void act(){
         String tecla = Greenfoot.getKey();
-        CambiaSprites(direccion);
+        
         setLocation(getX() + dx, getY() + dy);
-        if(tecla != null){
+        if(tecla!=null){
             MueveBomberman(tecla);
         }
         
-        
+        CambiaSprites(direccion);   
+        //BombermanQuieto(direccion,tecla);
+    }
+    
+    public void BombermanQuieto(Direccion direccion, String tecla){
+        if(tecla== null){
+        switch(direccion){
+            case IZQUIERDA:
+            setImage(bombermanizquierda[1]);
+            break;
+            case DERECHA:
+            setImage(bombermanderecha[1]);
+            break;
+            case ARRIBA:
+            setImage(bombermanarriba[0]);
+            break;
+            case ABAJO:
+            setImage(bombermanabajo[0]);
+            break;
+        }
+        }
     }
     public void MueveBomberman(String tecla){
         dx = dy = 0;
@@ -77,7 +99,7 @@ public class Bomberman extends Actor
         
         switch(direccion){
             case IZQUIERDA:
-            if(delaySprite >= 20){
+            if(delaySprite >= 15){
                 currentSprite = ((++currentSprite) % bombermanizquierda.length);
                 if(currentSprite == 0){
                     currentSprite++;
@@ -87,7 +109,7 @@ public class Bomberman extends Actor
             }
             break;
             case DERECHA:
-            if(delaySprite >= 20){
+            if(delaySprite >= 15){
                 currentSprite = ((++currentSprite) % bombermanderecha.length);
                 if(currentSprite == 0){
                     currentSprite++;
@@ -97,7 +119,7 @@ public class Bomberman extends Actor
             }
             break;
             case ARRIBA:
-            if(delaySprite >= 20){
+            if(delaySprite >= 15){
                 currentSprite = (++currentSprite) % bombermanarriba.length;
                 setImage(bombermanarriba[currentSprite]);
                 delaySprite = 0;
@@ -105,7 +127,7 @@ public class Bomberman extends Actor
         
             break;
             case ABAJO:
-            if(delaySprite >= 20){
+            if(delaySprite >= 15){
                 currentSprite = ((++currentSprite) % bombermanabajo.length);
                 if(currentSprite == 0){
                     currentSprite++;
@@ -114,6 +136,7 @@ public class Bomberman extends Actor
                 delaySprite = 0;
             }
             break;
+
         }
         delaySprite++;
     }
