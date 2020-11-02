@@ -2,8 +2,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class Mapa extends World
 {
-    private final int columnas = 19;//Tamaño i
-    private final int filas = 21; // Tamaño j
+    private final int columnas = 29;//Tamaño i
+    private final int filas = 31; // Tamaño j
     private int mapa[][];
     private Bomberman bomberman = new Bomberman();
     public Mapa()
@@ -12,9 +12,8 @@ public class Mapa extends World
         super(800, 600, 1);
         mapa = new int [columnas][filas];
         generaMapa();
-
         dibujaMapa();
-        addObject(new Bomberman(), 50,50);
+        addObject(new Bomberman(), 30,30);
         
         
     }
@@ -47,9 +46,10 @@ public class Mapa extends World
                 }else if(mapa[i][j] ==0 || mapa[i][j] == 2){
                     addObject(new Suelo(),x, y);
                 }
-                x+= 50;
+                x+= 30;
             }
-            y+= 50;
+            y+= 30;
         }
+
     }
 }

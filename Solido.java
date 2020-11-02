@@ -14,7 +14,7 @@ public class Solido extends Actor
     }
     
     public void dibujamuro(){
-        solido.scale(50,50);
+        solido.scale(30,30);
         setImage(solido);
     }
 }
