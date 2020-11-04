@@ -8,6 +8,7 @@ public class Bomberman extends Actor
     private GreenfootImage bombermanabajo[];
     private GreenfootImage bombermanizquierda[];
     private GreenfootImage bombermanderecha[];
+    private Bomba bomba;
     private int currentX;
     private int currentY;
     private int velocidad;
@@ -19,7 +20,7 @@ public class Bomberman extends Actor
     public Bomberman(){
 
         bombermanarriba = new GreenfootImage[4];
-        bombermanabajo = new GreenfootImage[3];
+        bombermanabajo = new GreenfootImage[4];
         bombermanizquierda = new GreenfootImage[4];
         bombermanderecha = new GreenfootImage[4];
 
@@ -28,50 +29,51 @@ public class Bomberman extends Actor
         bombermanarriba[2] = new GreenfootImage("images/atras3.png");
         bombermanarriba[3] = new GreenfootImage("images/atras4.png");
 
-        bombermanarriba[0].scale(20,30);
-        bombermanarriba[1].scale(20,30);
-        bombermanarriba[2].scale(20,30);
-        bombermanarriba[3].scale(20,30);
+        bombermanarriba[0].scale(25,35);
+        bombermanarriba[1].scale(25,35);
+        bombermanarriba[2].scale(25,35);
+        bombermanarriba[3].scale(25,35);
 
         bombermanderecha[0] = new GreenfootImage("images/vueltaDerecha.png");
         bombermanderecha[1] = new GreenfootImage("images/paradoDerecha.png");
         bombermanderecha[2] = new GreenfootImage("images/derecha1.png");
         bombermanderecha[3] = new GreenfootImage("images/derecha2.png");
 
-        bombermanderecha[0].scale(20,30);
-        bombermanderecha[1].scale(20,30);
-        bombermanderecha[2].scale(20,30);
-        bombermanderecha[3].scale(20,30);  
+        bombermanderecha[0].scale(25,35);
+        bombermanderecha[1].scale(25,35);
+        bombermanderecha[2].scale(25,35);
+        bombermanderecha[3].scale(25,35);  
 
         bombermanizquierda[0] = new GreenfootImage("images/vueltaIzquierda.png");
         bombermanizquierda[1] = new GreenfootImage("images/paradoIzquierda.png");
         bombermanizquierda[2] = new GreenfootImage("images/izquierda1.png");
         bombermanizquierda[3] = new GreenfootImage("images/izquierda2.png");
 
-        bombermanizquierda[0].scale(20,30);
-        bombermanizquierda[1].scale(20,30);
-        bombermanizquierda[2].scale(20,30);
-        bombermanizquierda[3].scale(20,30);
+        bombermanizquierda[0].scale(25,35);
+        bombermanizquierda[1].scale(25,35);
+        bombermanizquierda[2].scale(25,35);
+        bombermanizquierda[3].scale(25,35);
 
         bombermanabajo[0] = new GreenfootImage("images/paradoAbajo.png");    
         bombermanabajo[1] = new GreenfootImage("images/abajo1.png");
         bombermanabajo[2] = new GreenfootImage("images/abajo2.png");
+        bombermanabajo[3] = new GreenfootImage("vueltaIzquierda.png");
 
-        bombermanabajo[0].scale(20,30);
-        bombermanabajo[1].scale(20,30);
-        bombermanabajo[2].scale(20,30);
+        bombermanabajo[0].scale(25,35);
+        bombermanabajo[1].scale(25,35);
+        bombermanabajo[2].scale(25,35);
+        bombermanabajo[3].scale(25,35); 
+
     }
-
     public void act(){
         String tecla = Greenfoot.getKey();
-
         setLocation(getX() + dx, getY() + dy);
         if(tecla!=null){
             MueveBomberman(tecla);
         }
-
         CambiaSprites(direccion);  
         ChecaParedes();
+
         //BombermanQuieto(direccion,tecla);
     }
 
@@ -96,6 +98,7 @@ public class Bomberman extends Actor
 
     public void MueveBomberman(String tecla){
         dx = dy = 0;
+
         switch(tecla){
             case "up":
             dy = -1;
@@ -113,11 +116,30 @@ public class Bomberman extends Actor
             dx = 1;
             direccion = Direccion.DERECHA;
             break;
+            case "space":
+            bombermanPoneBomba(direccion);
+            break;
+        }
+    }
+
+    public void bombermanPoneBomba(Direccion direccion){
+        switch(direccion){
+            case IZQUIERDA:
+            getWorld().addObject(new Bomba(), getX(),getY());
+            break;
+            case DERECHA:
+            getWorld().addObject(new Bomba(), getX(),getY()+3);
+            break;
+            case ARRIBA:
+            getWorld().addObject(new Bomba(), getX(),getY()+3);
+            break;
+            case ABAJO:
+            getWorld().addObject(new Bomba(), getX(),getY());
+            break;
         }
     }
 
     public void CambiaSprites(Direccion direccion){
-
         switch(direccion){
             case IZQUIERDA:
             if(delaySprite >= 15){
@@ -172,16 +194,16 @@ public class Bomberman extends Actor
             solido = (Solido)getOneObjectAtOffset(0, -10, Solido.class);
             break;
             case ABAJO:
-            destruible = (Destruible)getOneObjectAtOffset(0, 15, Destruible.class);
-            solido = (Solido)getOneObjectAtOffset(0, 15, Solido.class);
+            destruible = (Destruible)getOneObjectAtOffset(0, 17, Destruible.class);
+            solido = (Solido)getOneObjectAtOffset(0, 17, Solido.class);
             break;
             case DERECHA:
-            destruible = (Destruible)getOneObjectAtOffset(10, 0, Destruible.class);
-            solido = (Solido)getOneObjectAtOffset(10,0, Solido.class);
+            destruible = (Destruible)getOneObjectAtOffset(15,0, Destruible.class);
+            solido = (Solido)getOneObjectAtOffset(15,0, Solido.class);
             break;
             case IZQUIERDA:
-            destruible = (Destruible)getOneObjectAtOffset(-10, 0, Destruible.class);
-            solido = (Solido)getOneObjectAtOffset(-10, 0, Solido.class);
+            destruible = (Destruible)getOneObjectAtOffset(-15, 0, Destruible.class);
+            solido = (Solido)getOneObjectAtOffset(-15, 0, Solido.class);
             break;
         }
         if(destruible != null || solido != null){

@@ -6,6 +6,7 @@ public class Mapa extends World
     private final int filas = 31; // Tamaño j
     private int mapa[][];
     private Bomberman bomberman = new Bomberman();
+    
     public Mapa()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -13,8 +14,7 @@ public class Mapa extends World
         mapa = new int [columnas][filas];
         generaMapa();
         dibujaMapa();
-        addObject(new Bomberman(), 30,30);
-        
+        addObject(bomberman, 30,30);
         
     }
 
@@ -23,11 +23,11 @@ public class Mapa extends World
             for(int j = 0; j < filas;j++){
                 if((i==0) ||(j==0) || (i==columnas-1) || (j==filas-1)){
                     mapa[i][j] = 1; //muro fijo
-                } else if(i%2 == 0 && j%2 == 0){ // Muros interiores del mapa
+                }else if(i%2 == 0 && j%2 == 0){ // Muros interiores del mapa
                     mapa[i][j] = 1; 
-                } else if((i ==1 && j == 1) || (i ==2 && j==1) || (i==1 && j==2)){//Para las posiciones iniciales del jugador
+                }else if((i ==1 && j == 1) || (i ==2 && j==1) || (i==1 && j==2)){//Para las posiciones iniciales del jugador
                     mapa[i][j] = 0;
-                } else{
+                }else{
                     mapa[i][j] =  Greenfoot.getRandomNumber(2)+2; // Posiciones al azar, para destruible o suelo
                 }
             }
