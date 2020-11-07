@@ -69,7 +69,7 @@ public class Bomberman extends Actor
     public void act(){
         String tecla = Greenfoot.getKey();
         setLocation(getX() + dx, getY() + dy);
-        MueveBomberman();
+        MueveBomberman(tecla);
         CambiaSprites(direccion);  
         ChecaParedes();
         //DestruirMuros();
@@ -98,7 +98,7 @@ public class Bomberman extends Actor
         }
     }
 
-    public void MueveBomberman(){
+    public void MueveBomberman(String tecla){
         dx = dy = 0;
         if(Greenfoot.isKeyDown("up")){
             dy = -1;
@@ -117,6 +117,9 @@ public class Bomberman extends Actor
             direccion = Direccion.DERECHA;
         } else{
             BombermanQuieto(direccion);
+        }
+        if(tecla == "space"){
+            PonBomba(direccion);
         }
     }
 
