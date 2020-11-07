@@ -65,30 +65,32 @@ public class Bomberman extends Actor
         bombermanabajo[3].scale(25,35); 
 
     }
+
     public void act(){
         String tecla = Greenfoot.getKey();
         setLocation(getX() + dx, getY() + dy);
-        if(tecla!=null){
-            MueveBomberman(tecla);
-        }
+        MueveBomberman();
         CambiaSprites(direccion);  
         ChecaParedes();
         //DestruirMuros();
-        //BombermanQuieto(direccion,tecla);
     }
-    
-    public void BombermanQuieto(Direccion direccion, String tecla){
-        if(tecla== null){
+
+    public void BombermanQuieto(Direccion direccion){
+        if(dx == 0  && dy == 0){
             switch(direccion){
                 case IZQUIERDA:
                 setImage(bombermanizquierda[1]);
                 break;
+
                 case DERECHA:
                 setImage(bombermanderecha[1]);
+
                 break;
+
                 case ARRIBA:
                 setImage(bombermanarriba[0]);
                 break;
+
                 case ABAJO:
                 setImage(bombermanabajo[0]);
                 break;
@@ -96,33 +98,25 @@ public class Bomberman extends Actor
         }
     }
 
-    public void MueveBomberman(String tecla){
+    public void MueveBomberman(){
         dx = dy = 0;
-
-        switch(tecla){
-            case "up":
+        if(Greenfoot.isKeyDown("up")){
             dy = -1;
-
             direccion = Direccion.ARRIBA;
-            break;
-            case "down":
+
+        } else if(Greenfoot.isKeyDown("down")){
             dy = 1;
-
             direccion = Direccion.ABAJO;
-            break;
-            case "left":
+
+        } else if(Greenfoot.isKeyDown("left")){
             dx = -1;
-
             direccion = Direccion.IZQUIERDA;
-            break;
-            case "right":
-            dx = 1;
 
+        } else if(Greenfoot.isKeyDown("right")){
+            dx = 1;
             direccion = Direccion.DERECHA;
-            break;
-            case "space":
-            PonBomba(direccion);
-            break;
+        } else{
+            BombermanQuieto(direccion);
         }
     }
 
@@ -131,88 +125,99 @@ public class Bomberman extends Actor
             case IZQUIERDA:
             getWorld().addObject(new Bomba(), getX(),getY()+3);
             break;
+
             case DERECHA:
             getWorld().addObject(new Bomba(), getX(),getY()+5);
             break;
+
             case ARRIBA:
             getWorld().addObject(new Bomba(), getX(),getY()+3);
             break;
+
             case ABAJO:
             getWorld().addObject(new Bomba(), getX(),getY()+3);
             break;
         }
     }
-    
+
     //public void DestruirMuros(){
-      //  bomba = (Bomba)getNeighbours(10, false, Destruible.class);
+    //  bomba = (Bomba)getNeighbours(10, false, Destruible.class);
     //}
 
     public void CambiaSprites(Direccion direccion){
-        switch(direccion){
-            case IZQUIERDA:
-            if(delaySprite >= 15){
-                currentSprite = ((++currentSprite) % bombermanizquierda.length);
-                if(currentSprite == 0){
-                    currentSprite++;
-                }
-                setImage(bombermanizquierda[currentSprite]);
-                delaySprite = 0;
-            }
-            break;
-            case DERECHA:
-            if(delaySprite >= 15){
-                currentSprite = ((++currentSprite) % bombermanderecha.length);
-                if(currentSprite == 0){
-                    currentSprite++;
-                }
-                setImage(bombermanderecha[currentSprite]);
-                delaySprite = 0;
-            }
-            break;
-            case ARRIBA:
-            if(delaySprite >= 15){
-                currentSprite = (++currentSprite) % bombermanarriba.length;
-                setImage(bombermanarriba[currentSprite]);
-                delaySprite = 0;
-            }
+        if(dx != 0 || dy !=0){
+            switch(direccion){
 
-            break;
-            case ABAJO:
-            if(delaySprite >= 15){
-                currentSprite = ((++currentSprite) % bombermanabajo.length);
-                if(currentSprite == 0){
-                    currentSprite++;
-                }
-                setImage(bombermanabajo[currentSprite]);
-                delaySprite = 0;
-            }
-            break;
+                case IZQUIERDA:
+                if(delaySprite >= 15){
+                    currentSprite = ((++currentSprite) % bombermanizquierda.length);
+                    if(currentSprite == 0){
+                        currentSprite++;
+                    }
+                    setImage(bombermanizquierda[currentSprite]);
+                    delaySprite = 0;
 
+                }
+                break;
+
+                case DERECHA:
+                if(delaySprite >= 15){
+                    currentSprite = ((++currentSprite) % bombermanderecha.length);
+                    if(currentSprite == 0){
+                        currentSprite++;
+                    }
+                    setImage(bombermanderecha[currentSprite]);
+                    delaySprite = 0;
+                }
+                break;
+
+                case ARRIBA:
+                if(delaySprite >= 15){
+                    currentSprite = (++currentSprite) % bombermanarriba.length;
+                    setImage(bombermanarriba[currentSprite]);
+                    delaySprite = 0;
+                }
+                break;
+
+                case ABAJO:
+                if(delaySprite >= 15){
+                    currentSprite = ((++currentSprite) % bombermanabajo.length);
+                    if(currentSprite == 0){
+                        currentSprite++;
+                    }
+                    setImage(bombermanabajo[currentSprite]);
+                    delaySprite = 0;
+                }
+                break;
+            }
+            delaySprite++;
         }
-        delaySprite++;
     }
 
     public void ChecaParedes(){
         Destruible destruible = null;
         Solido solido = null;
         Bomba bomba2 = null;
-
         switch(direccion){
+
             case ARRIBA:
             destruible = (Destruible)getOneObjectAtOffset(0, -10, Destruible.class);
             solido = (Solido)getOneObjectAtOffset(0, -10, Solido.class);
             bomba2 = (Bomba)getOneObjectAtOffset(0, -10, Bomba.class);
             break;
+
             case ABAJO:
             destruible = (Destruible)getOneObjectAtOffset(0, 17, Destruible.class);
             solido = (Solido)getOneObjectAtOffset(0, 17, Solido.class);
             bomba2 = (Bomba)getOneObjectAtOffset(0, 17, Bomba.class);
             break;
+
             case DERECHA:
             destruible = (Destruible)getOneObjectAtOffset(15,0, Destruible.class);
             solido = (Solido)getOneObjectAtOffset(15,0, Solido.class);
             bomba2 = (Bomba)getOneObjectAtOffset(15, 0, Bomba.class);
             break;
+
             case IZQUIERDA:
             destruible = (Destruible)getOneObjectAtOffset(-15, 0, Destruible.class);
             solido = (Solido)getOneObjectAtOffset(-15, 0, Solido.class);
@@ -220,9 +225,8 @@ public class Bomberman extends Actor
             break;
         }
         if(destruible != null || solido != null || bomba2!= null){
-            dx = 0;
-            dy = 0;
-        }
+            dx = dy = 0;
+        } 
     }
 
 }
