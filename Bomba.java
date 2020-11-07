@@ -1,13 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.*;
 public class Bomba extends Actor{
     private GreenfootImage bomba[];
     private int currentSprite;
     private int delaySprite;
     private boolean estado = false;
     private int tiempoExplosion = 0;
-    private Mundo mundo;
+    
+    private final  ArrayList<Bomba> bombas = new ArrayList<Bomba>(3);
     public Bomba(){
+
         bomba = new GreenfootImage[3];
 
         bomba[0] = new GreenfootImage("images/bomba1.png");
@@ -20,11 +22,12 @@ public class Bomba extends Actor{
 
     public void act(){
         ponBomba();
+        animaExplosion();
         quitaBomba();
-        
     }  
 
     protected void ponBomba(){
+        
         if(delaySprite >= 15){
             currentSprite = ((++currentSprite) % bomba.length);
             setImage(bomba[currentSprite]);
@@ -32,6 +35,7 @@ public class Bomba extends Actor{
         }
         tiempoExplosion++;
         delaySprite++;
+        
     }
     
     public void animaExplosion(){
@@ -42,8 +46,12 @@ public class Bomba extends Actor{
         if(tiempoExplosion > 220){
             getWorld().removeObject(this);
             tiempoExplosion = 0;
+            Bomberman.bombas.removeFirst();
         }
         tiempoExplosion++;
+        
     }
+    
+  
 
 }

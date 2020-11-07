@@ -1,5 +1,6 @@
 
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.*; 
 
 public class Bomberman extends Actor
 {
@@ -8,7 +9,6 @@ public class Bomberman extends Actor
     private GreenfootImage bombermanabajo[];
     private GreenfootImage bombermanizquierda[];
     private GreenfootImage bombermanderecha[];
-    private Bomba bomba;
     private int currentX;
     private int currentY;
     private int velocidad;
@@ -17,8 +17,10 @@ public class Bomberman extends Actor
     private int delaySprite;
     private Direccion direccion = Direccion.DERECHA;
     private int currentSprite;
+    public static LinkedList<Bomba> bombas = new LinkedList<Bomba>();
+    private int limiteBombas;
     public Bomberman(){
-
+        limiteBombas = 3;
         bombermanarriba = new GreenfootImage[4];
         bombermanabajo = new GreenfootImage[4];
         bombermanizquierda = new GreenfootImage[4];
@@ -69,10 +71,14 @@ public class Bomberman extends Actor
     public void act(){
         String tecla = Greenfoot.getKey();
         setLocation(getX() + dx, getY() + dy);
-        MueveBomberman(tecla);
+        MueveBomberman();
+
+        PonBomba(direccion,tecla);
+
         CambiaSprites(direccion);  
         ChecaParedes();
-        //DestruirMuros();
+        DestruirMuros();
+
     }
 
     public void BombermanQuieto(Direccion direccion){
@@ -98,7 +104,7 @@ public class Bomberman extends Actor
         }
     }
 
-    public void MueveBomberman(String tecla){
+    public void MueveBomberman(){
         dx = dy = 0;
         if(Greenfoot.isKeyDown("up")){
             dy = -1;
@@ -118,34 +124,40 @@ public class Bomberman extends Actor
         } else{
             BombermanQuieto(direccion);
         }
+    }
+
+    public void PonBomba(Direccion direccion, String tecla){
         if(tecla == "space"){
-            PonBomba(direccion);
+            if(bombas.size() < limiteBombas ){
+                switch(direccion){
+                    case IZQUIERDA:
+                    getWorld().addObject(new Bomba(), getX(),getY()+3);
+                    break;
+
+                    case DERECHA:
+                    getWorld().addObject(new Bomba(), getX(),getY()+5);
+                    break;
+
+                    case ARRIBA:
+                    getWorld().addObject(new Bomba(), getX(),getY()+3);
+                    break;
+
+                    case ABAJO:
+                    getWorld().addObject(new Bomba(), getX(),getY()+3);
+                    break;
+                }
+                bombas.add(new Bomba());
+            }
         }
+
     }
 
-    public void PonBomba(Direccion direccion){
-        switch(direccion){
-            case IZQUIERDA:
-            getWorld().addObject(new Bomba(), getX(),getY()+3);
-            break;
-
-            case DERECHA:
-            getWorld().addObject(new Bomba(), getX(),getY()+5);
-            break;
-
-            case ARRIBA:
-            getWorld().addObject(new Bomba(), getX(),getY()+3);
-            break;
-
-            case ABAJO:
-            getWorld().addObject(new Bomba(), getX(),getY()+3);
-            break;
+    public void DestruirMuros(){
+        if(Mundo.mapa[getX()/30][getY()/30] == 1 || Mundo.mapa[getX()/30][getY()/30] == 3){
+            Mundo.mapa[getX()/30][getY()/30]= 1;
         }
-    }
 
-    //public void DestruirMuros(){
-    //  bomba = (Bomba)getNeighbours(10, false, Destruible.class);
-    //}
+    }
 
     public void CambiaSprites(Direccion direccion){
         if(dx != 0 || dy !=0){

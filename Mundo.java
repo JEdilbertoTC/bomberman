@@ -3,20 +3,22 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Mundo extends World
 {
     private final int columnas = 29;//Tamaño i
-    private final int filas = 31; // Tamaño j
-    protected int mapa[][];
+    private final int filas = 33; // Tamaño j
+    public static int mapa[][];
     private Bomberman bomberman = new Bomberman();
-    
+    public static GreenfootSound rola = new GreenfootSound("sounds/MusicaFondo.wav");
     public Mundo()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(800, 600, 1);
+        // Create a new world with 600x400 cells with a cell size of 1x1 pixels  
+        super(900, 600, 1);
+
         mapa = new int [columnas][filas];
         generaMapa();
         dibujaMapa();
         addObject(bomberman, 30,30);
-        
-        
+        rola.setVolume(40);
+        rola.playLoop();
+
     }
 
     public void generaMapa(){
@@ -34,7 +36,7 @@ public class Mundo extends World
             }
         }
     }
-    
+
     public void dibujaMapa(){
         int x, y=0;
         for(int i = 0; i < columnas; i++){
