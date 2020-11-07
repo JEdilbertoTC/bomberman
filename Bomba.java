@@ -6,21 +6,22 @@ public class Bomba extends Actor{
     private int delaySprite;
     private boolean estado = false;
     private int tiempoExplosion = 0;
-
+    private Mundo mundo;
     public Bomba(){
         bomba = new GreenfootImage[3];
 
         bomba[0] = new GreenfootImage("images/bomba1.png");
         bomba[1] = new GreenfootImage("images/bomba2.png");
         bomba[2] = new GreenfootImage("images/bomba3.png");
-        bomba[0].scale(20,20);
-        bomba[2].scale(20,20);
-        bomba[1].scale(20,20);
+        bomba[0].scale(25,25);
+        bomba[2].scale(25,25);
+        bomba[1].scale(25,25);
     }
 
     public void act(){
         ponBomba();
         quitaBomba();
+        
     }  
 
     protected void ponBomba(){
@@ -32,7 +33,11 @@ public class Bomba extends Actor{
         tiempoExplosion++;
         delaySprite++;
     }
-
+    
+    public void animaExplosion(){
+        
+    }
+   
     public void quitaBomba(){
         if(tiempoExplosion > 220){
             getWorld().removeObject(this);

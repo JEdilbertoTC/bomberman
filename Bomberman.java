@@ -73,10 +73,10 @@ public class Bomberman extends Actor
         }
         CambiaSprites(direccion);  
         ChecaParedes();
-
+        //DestruirMuros();
         //BombermanQuieto(direccion,tecla);
     }
-
+    
     public void BombermanQuieto(Direccion direccion, String tecla){
         if(tecla== null){
             switch(direccion){
@@ -102,42 +102,50 @@ public class Bomberman extends Actor
         switch(tecla){
             case "up":
             dy = -1;
+
             direccion = Direccion.ARRIBA;
             break;
             case "down":
             dy = 1;
+
             direccion = Direccion.ABAJO;
             break;
             case "left":
             dx = -1;
+
             direccion = Direccion.IZQUIERDA;
             break;
             case "right":
             dx = 1;
+
             direccion = Direccion.DERECHA;
             break;
             case "space":
-            bombermanPoneBomba(direccion);
+            PonBomba(direccion);
             break;
         }
     }
 
-    public void bombermanPoneBomba(Direccion direccion){
+    public void PonBomba(Direccion direccion){
         switch(direccion){
             case IZQUIERDA:
-            getWorld().addObject(new Bomba(), getX(),getY());
+            getWorld().addObject(new Bomba(), getX(),getY()+3);
             break;
             case DERECHA:
-            getWorld().addObject(new Bomba(), getX(),getY()+3);
+            getWorld().addObject(new Bomba(), getX(),getY()+5);
             break;
             case ARRIBA:
             getWorld().addObject(new Bomba(), getX(),getY()+3);
             break;
             case ABAJO:
-            getWorld().addObject(new Bomba(), getX(),getY());
+            getWorld().addObject(new Bomba(), getX(),getY()+3);
             break;
         }
     }
+    
+    //public void DestruirMuros(){
+      //  bomba = (Bomba)getNeighbours(10, false, Destruible.class);
+    //}
 
     public void CambiaSprites(Direccion direccion){
         switch(direccion){
@@ -187,26 +195,31 @@ public class Bomberman extends Actor
     public void ChecaParedes(){
         Destruible destruible = null;
         Solido solido = null;
+        Bomba bomba2 = null;
 
         switch(direccion){
             case ARRIBA:
             destruible = (Destruible)getOneObjectAtOffset(0, -10, Destruible.class);
             solido = (Solido)getOneObjectAtOffset(0, -10, Solido.class);
+            bomba2 = (Bomba)getOneObjectAtOffset(0, -10, Bomba.class);
             break;
             case ABAJO:
             destruible = (Destruible)getOneObjectAtOffset(0, 17, Destruible.class);
             solido = (Solido)getOneObjectAtOffset(0, 17, Solido.class);
+            bomba2 = (Bomba)getOneObjectAtOffset(0, 17, Bomba.class);
             break;
             case DERECHA:
             destruible = (Destruible)getOneObjectAtOffset(15,0, Destruible.class);
             solido = (Solido)getOneObjectAtOffset(15,0, Solido.class);
+            bomba2 = (Bomba)getOneObjectAtOffset(15, 0, Bomba.class);
             break;
             case IZQUIERDA:
             destruible = (Destruible)getOneObjectAtOffset(-15, 0, Destruible.class);
             solido = (Solido)getOneObjectAtOffset(-15, 0, Solido.class);
+            bomba2 = (Bomba)getOneObjectAtOffset(-15, 0, Bomba.class);
             break;
         }
-        if(destruible != null || solido != null){
+        if(destruible != null || solido != null || bomba2!= null){
             dx = 0;
             dy = 0;
         }
