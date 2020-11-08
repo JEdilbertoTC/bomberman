@@ -15,7 +15,8 @@ public class Mundo extends World
         mapa = new int [columnas][filas];
         generaMapa();
         dibujaMapa();
-        addObject(bomberman, 30,30);
+        addObject(new Bomberman(), 30, 30);
+        addObject(new Cronometro(), 0, 0);
         rola.setVolume(40);
         rola.playLoop();
 
@@ -36,11 +37,22 @@ public class Mundo extends World
             }
         }
     }
-
-    public void dibujaMapa(){
-        int x, y=0;
+    public void dibujaBase(){
+        int x, y = 0;
         for(int i = 0; i < columnas; i++){
-            x =0;
+            x = 0;
+            for(int j = 0; j<filas; j++){
+                addObject(new Suelo(), x, y);
+                x+= 30;
+            }
+            y+= 30;
+        }
+    }
+    public void dibujaMapa(){
+        dibujaBase();
+        int x, y =0;
+        for(int i = 0; i < columnas; i++){
+            x = 0;
             for(int j = 0; j < filas;j++){
                 if(mapa[i][j] == 1){
                     addObject(new Solido(),x,y);

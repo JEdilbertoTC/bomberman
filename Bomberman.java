@@ -72,16 +72,11 @@ public class Bomberman extends Actor
         String tecla = Greenfoot.getKey();
         setLocation(getX() + dx, getY() + dy);
         MueveBomberman();
-
-        PonBomba(direccion,tecla);
-
-        CambiaSprites(direccion);  
+        PonBomba(tecla); 
         ChecaParedes();
-        DestruirMuros();
-
     }
 
-    public void BombermanQuieto(Direccion direccion){
+    public void BombermanQuieto(){
         if(dx == 0  && dy == 0){
             switch(direccion){
                 case IZQUIERDA:
@@ -105,6 +100,7 @@ public class Bomberman extends Actor
     }
 
     public void MueveBomberman(){
+        CambiaSprites();
         dx = dy = 0;
         if(Greenfoot.isKeyDown("up")){
             dy = -1;
@@ -122,15 +118,16 @@ public class Bomberman extends Actor
             dx = 1;
             direccion = Direccion.DERECHA;
         } else{
-            BombermanQuieto(direccion);
+            BombermanQuieto();
         }
     }
-
-    public void PonBomba(Direccion direccion, String tecla){
+    
+    public void PonBomba(String tecla){
         if(tecla == "space"){
             if(bombas.size() < limiteBombas ){
                 switch(direccion){
                     case IZQUIERDA:
+                    
                     getWorld().addObject(new Bomba(), getX(),getY()+3);
                     break;
 
@@ -152,14 +149,8 @@ public class Bomberman extends Actor
 
     }
 
-    public void DestruirMuros(){
-        if(Mundo.mapa[getX()/30][getY()/30] == 1 || Mundo.mapa[getX()/30][getY()/30] == 3){
-            Mundo.mapa[getX()/30][getY()/30]= 1;
-        }
-
-    }
-
-    public void CambiaSprites(Direccion direccion){
+    public void CambiaSprites(){
+        
         if(dx != 0 || dy !=0){
             switch(direccion){
 
@@ -210,9 +201,11 @@ public class Bomberman extends Actor
     }
 
     public void ChecaParedes(){
+
         Destruible destruible = null;
         Solido solido = null;
         Bomba bomba2 = null;
+
         switch(direccion){
 
             case ARRIBA:
@@ -228,9 +221,9 @@ public class Bomberman extends Actor
             break;
 
             case DERECHA:
-            destruible = (Destruible)getOneObjectAtOffset(15,0, Destruible.class);
-            solido = (Solido)getOneObjectAtOffset(15,0, Solido.class);
-            bomba2 = (Bomba)getOneObjectAtOffset(15, 0, Bomba.class);
+            destruible = (Destruible)getOneObjectAtOffset(12,0, Destruible.class);
+            solido = (Solido)getOneObjectAtOffset(12,0, Solido.class);
+            bomba2 = (Bomba)getOneObjectAtOffset(12, 0, Bomba.class);
             break;
 
             case IZQUIERDA:
@@ -239,6 +232,7 @@ public class Bomberman extends Actor
             bomba2 = (Bomba)getOneObjectAtOffset(-15, 0, Bomba.class);
             break;
         }
+
         if(destruible != null || solido != null || bomba2!= null){
             dx = dy = 0;
         } 

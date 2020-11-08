@@ -23,6 +23,7 @@ public class Bomba extends Actor{
     public void act(){
         ponBomba();
         animaExplosion();
+        DestruirMuros();
         quitaBomba();
     }  
 
@@ -38,10 +39,17 @@ public class Bomba extends Actor{
         
     }
     
+    
+    
     public void animaExplosion(){
         
     }
-   
+    public void DestruirMuros(){
+        ArrayList <Object>objetos = (ArrayList)getObjectsInRange(10,Destruible.class);
+        for(int i = 0; i< objetos.size();i++){
+            getWorld().removeObject((Actor) objetos.get(i));
+        }
+    }
     public void quitaBomba(){
         if(tiempoExplosion > 220){
             getWorld().removeObject(this);
@@ -52,6 +60,4 @@ public class Bomba extends Actor{
         
     }
     
-  
-
 }
