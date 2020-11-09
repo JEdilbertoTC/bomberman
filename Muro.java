@@ -6,8 +6,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Muro extends Actor
-{
+public class Muro extends Actor{
+    
     protected GreenfootImage sprite;
     public void act() 
     {
