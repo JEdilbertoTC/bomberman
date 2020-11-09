@@ -109,7 +109,6 @@ public class Bomberman extends Actor
             if(bombas.size() < limiteBombas ){
                 switch(direccion){
                     case IZQUIERDA:
-                    
                     getWorld().addObject(new Bomba(), getX(),getY()+3);
                     break;
 

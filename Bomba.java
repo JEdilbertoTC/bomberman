@@ -6,8 +6,7 @@ public class Bomba extends Actor{
     private int delaySprite;
     private boolean estado = false;
     private int tiempoExplosion = 0;
-    
-    private final  ArrayList<Bomba> bombas = new ArrayList<Bomba>(3);
+    private Bomberman bomberman;
     public Bomba(){
 
         bomba = new GreenfootImage[3];
@@ -15,20 +14,22 @@ public class Bomba extends Actor{
         bomba[0] = new GreenfootImage("images/bomba1.png");
         bomba[1] = new GreenfootImage("images/bomba2.png");
         bomba[2] = new GreenfootImage("images/bomba3.png");
-        bomba[0].scale(25,25);
-        bomba[2].scale(25,25);
-        bomba[1].scale(25,25);
+        bomba[0].scale(20,20);
+        bomba[2].scale(20,20);
+        bomba[1].scale(20,20);
     }
 
     public void act(){
+
         ponBomba();
-        animaExplosion();
-        DestruirMuros();
         quitaBomba();
+
+        //DestruirMuros();
+
     }  
 
     protected void ponBomba(){
-        
+
         if(delaySprite >= 15){
             currentSprite = ((++currentSprite) % bomba.length);
             setImage(bomba[currentSprite]);
@@ -36,20 +37,16 @@ public class Bomba extends Actor{
         }
         tiempoExplosion++;
         delaySprite++;
-        
+
     }
-    
-    
-    
-    public void animaExplosion(){
-        
-    }
+
     public void DestruirMuros(){
         ArrayList <Object>objetos = (ArrayList)getObjectsInRange(10,Destruible.class);
         for(int i = 0; i< objetos.size();i++){
             getWorld().removeObject((Actor) objetos.get(i));
         }
     }
+
     public void quitaBomba(){
         if(tiempoExplosion > 220){
             getWorld().removeObject(this);
@@ -57,7 +54,7 @@ public class Bomba extends Actor{
             Bomberman.bombas.removeFirst();
         }
         tiempoExplosion++;
-        
+
     }
-    
+
 }

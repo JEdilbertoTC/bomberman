@@ -17,9 +17,14 @@ public class Mundo extends World
         dibujaMapa();
         addObject(new Bomberman(), 30, 30);
         addObject(new Cronometro(), 0, 0);
+        addObject(new Enemigo(), 300,300);
         rola.setVolume(40);
         rola.playLoop();
 
+    }
+    
+    public static int[][] getMapa(){
+        return mapa;
     }
 
     public void generaMapa(){
