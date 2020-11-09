@@ -21,14 +21,11 @@ public class Bomba extends Actor{
 
     public void act(){
 
-        ponBomba();
-        quitaBomba();
-
-        //DestruirMuros();
-
+        dibujaBomba();
+        verificaExplosion();
     }  
 
-    protected void ponBomba(){
+    protected void dibujaBomba(){
 
         if(delaySprite >= 15){
             currentSprite = ((++currentSprite) % bomba.length);
@@ -40,21 +37,21 @@ public class Bomba extends Actor{
 
     }
 
-    public void DestruirMuros(){
-        ArrayList <Object>objetos = (ArrayList)getObjectsInRange(10,Destruible.class);
+    public void destruirMuros(){
+        ArrayList <Object>objetos = (ArrayList)getObjectsInRange(30,Destruible.class);
         for(int i = 0; i< objetos.size();i++){
             getWorld().removeObject((Actor) objetos.get(i));
         }
     }
 
-    public void quitaBomba(){
+    public void verificaExplosion(){
         if(tiempoExplosion > 220){
+            destruirMuros();
+            Bomberman.bombas.removeFirst();
             getWorld().removeObject(this);
             tiempoExplosion = 0;
-            Bomberman.bombas.removeFirst();
         }
         tiempoExplosion++;
-
     }
 
 }

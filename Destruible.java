@@ -6,16 +6,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Destruible extends Actor
-{
-    private GreenfootImage destruible = new GreenfootImage("images/MuroDestruible.png");
+public class Destruible extends Muro{
+    
     public Destruible(){
+        sprite = new GreenfootImage("images/MuroDestruible.png");
         dibujamuro();
     }
     
-    
     public void dibujamuro(){
-        destruible.scale(30,30);
-        setImage(destruible);
+        sprite.scale(30,30);
+        setImage(sprite);
     }
 }

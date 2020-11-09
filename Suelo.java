@@ -6,14 +6,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Suelo extends Actor
+public class Suelo extends Muro
 {
-    private GreenfootImage suelo = new GreenfootImage("images/Suelo.png"); 
+    
     public Suelo(){
+        sprite = new GreenfootImage("images/Suelo.png"); 
         dibujamuro();
     }
     public void dibujamuro(){
-        suelo.scale(30,30);
-        setImage(suelo);
+        sprite.scale(30,30);
+        setImage(sprite);
     }   
 }

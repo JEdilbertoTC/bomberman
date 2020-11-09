@@ -2,26 +2,21 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*; 
 
-public class Bomberman extends Actor
+public class Bomberman extends Personaje
 {
     private final int DERECHA = 1;
     private final int IZQUIERDA = 2;
     private final int ARRIBA = 0;
     private final int ABAJO = 3;
-    private enum Direccion{IZQUIERDA,DERECHA,ARRIBA,ABAJO};
     private GreenfootImage bomberman[][];
     private int currentX;
     private int currentY;
     private int velocidad;
-    private int dx;
-    private int dy;
-    private int delaySprite;
     private Direccion direccion = Direccion.DERECHA;
-    private int currentSprite;
     public static LinkedList<Bomba> bombas = new LinkedList<Bomba>();
     private int limiteBombas;
     public Bomberman(){
-        limiteBombas = 3;
+        limiteBombas = 1;
         bomberman = new GreenfootImage[4][4];
         
         bomberman[ARRIBA][0] = new GreenfootImage("images/ParadoArriba.png");
@@ -218,6 +213,4 @@ public class Bomberman extends Actor
             dx = dy = 0;
         } 
     }
-   
-
 }

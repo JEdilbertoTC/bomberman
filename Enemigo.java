@@ -1,12 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.lang.Math; 
 
-public class Enemigo extends Actor
+public class Enemigo extends Personaje
 {
     GreenfootImage enemigo[];
-    private int delaySprite;
-    private int currentSprite;
-    private int dx;
     public Enemigo(){
         enemigo = new GreenfootImage[6];
         enemigo[0] = new GreenfootImage("images/enemigo1.png");
