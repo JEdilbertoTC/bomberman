@@ -126,7 +126,7 @@ public class Bomberman extends Personaje{
             switch(direccion){
 
                 case IZQUIERDA:
-                if(delaySprite >= 15){
+                if(delaySprite >= 7){
                     currentSprite = ((++currentSprite) % 4);
                     if(currentSprite == 0){
                         currentSprite++;
@@ -138,7 +138,7 @@ public class Bomberman extends Personaje{
                 break;
 
                 case DERECHA:
-                if(delaySprite >= 15){
+                if(delaySprite >= 7){
                     currentSprite = ((++currentSprite) % 4);
                     if(currentSprite == 0){
                         currentSprite++;
@@ -149,7 +149,7 @@ public class Bomberman extends Personaje{
                 break;
 
                 case ARRIBA:
-                if(delaySprite >= 15){
+                if(delaySprite >= 7){
                     currentSprite = (++currentSprite) % 4;
                     setImage(sprites[ARRIBA][currentSprite]);
                     delaySprite = 0;
@@ -157,7 +157,7 @@ public class Bomberman extends Personaje{
                 break;
 
                 case ABAJO:
-                if(delaySprite >= 15){
+                if(delaySprite >= 7){
                     currentSprite = ((++currentSprite) % 4);
                     if(currentSprite == 0){
                         currentSprite++;
@@ -174,32 +174,33 @@ public class Bomberman extends Personaje{
     public void checaParedes(){
 
         Destruible destruible = null;
-        Solido solido = null;
+        List<Solido>solido = null;
         Bomba bomba2 = null;
 
         switch(direccion){
 
             case ARRIBA:
-            destruible = (Destruible)getOneObjectAtOffset(0, -10, Destruible.class);
-            solido = (Solido)getOneObjectAtOffset(0, -10, Solido.class);
+            destruible = (Destruible)getOneObjectAtOffset(0, -15,Destruible.class);
+            solido = (List<Solido>)getOneObjectAtOffset(8, -10, Solido.class);
+            solido = (List<Solido>)getOneObjectAtOffset(0, -10, Solido.class);
             bomba2 = (Bomba)getOneObjectAtOffset(0, -10, Bomba.class);
             break;
 
             case ABAJO:
             destruible = (Destruible)getOneObjectAtOffset(0, 17, Destruible.class);
-            solido = (Solido)getOneObjectAtOffset(0, 17, Solido.class);
+            solido = (List<Solido>)getOneObjectAtOffset(0, 17, Solido.class);
             bomba2 = (Bomba)getOneObjectAtOffset(0, 17, Bomba.class);
             break;
 
             case DERECHA:
             destruible = (Destruible)getOneObjectAtOffset(12,0, Destruible.class);
-            solido = (Solido)getOneObjectAtOffset(12,0, Solido.class);
+            solido = (List<Solido>)getOneObjectAtOffset(12,0, Solido.class);
             bomba2 = (Bomba)getOneObjectAtOffset(12, 0, Bomba.class);
             break;
 
             case IZQUIERDA:
             destruible = (Destruible)getOneObjectAtOffset(-15, 0, Destruible.class);
-            solido = (Solido)getOneObjectAtOffset(-15, 0, Solido.class);
+            solido = (List<Solido>)getOneObjectAtOffset(-15, 0, Solido.class);
             bomba2 = (Bomba)getOneObjectAtOffset(-15, 0, Bomba.class);
             break;
         }
