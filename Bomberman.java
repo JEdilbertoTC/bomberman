@@ -1,110 +1,78 @@
-
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*; 
 
-public class Bomberman extends Actor
-{
-    private enum Direccion{IZQUIERDA,DERECHA,ARRIBA,ABAJO};
-    private GreenfootImage bombermanarriba[];
-    private GreenfootImage bombermanabajo[];
-    private GreenfootImage bombermanizquierda[];
-    private GreenfootImage bombermanderecha[];
-    private int currentX;
-    private int currentY;
-    private int velocidad;
-    private int dx;
-    private int dy;
-    private int delaySprite;
+public class Bomberman extends Personaje{
+    
+    private final int DERECHA = 1;
+    private final int IZQUIERDA = 2;
+    private final int ARRIBA = 0;
+    private final int ABAJO = 3;
+    private GreenfootImage bomberman[][];
     private Direccion direccion = Direccion.DERECHA;
-    private int currentSprite;
     public static LinkedList<Bomba> bombas = new LinkedList<Bomba>();
     private int limiteBombas;
     public Bomberman(){
-        limiteBombas = 3;
-        bombermanarriba = new GreenfootImage[4];
-        bombermanabajo = new GreenfootImage[4];
-        bombermanizquierda = new GreenfootImage[4];
-        bombermanderecha = new GreenfootImage[4];
+        limiteBombas = 1;
+        sprites = new GreenfootImage[4][4];
+        sprites[ARRIBA][0] = new GreenfootImage("images/ParadoArriba.png");
+        sprites[ARRIBA][1] = new GreenfootImage("images/atras2.png");
+        sprites[ARRIBA][2] = new GreenfootImage("images/atras3.png");
+        sprites[ARRIBA][3] = new GreenfootImage("images/atras4.png");
+        
+        sprites[DERECHA][0] = new GreenfootImage("images/vueltaDerecha.png");
+        sprites[DERECHA][1] = new GreenfootImage("images/paradoDerecha.png");
+        sprites[DERECHA][2] = new GreenfootImage("images/derecha1.png");
+        sprites[DERECHA][3] = new GreenfootImage("images/derecha2.png");
 
-        bombermanarriba[0] = new GreenfootImage("images/ParadoArriba.png");
-        bombermanarriba[1] = new GreenfootImage("images/atras2.png");
-        bombermanarriba[2] = new GreenfootImage("images/atras3.png");
-        bombermanarriba[3] = new GreenfootImage("images/atras4.png");
-
-        bombermanarriba[0].scale(25,35);
-        bombermanarriba[1].scale(25,35);
-        bombermanarriba[2].scale(25,35);
-        bombermanarriba[3].scale(25,35);
-
-        bombermanderecha[0] = new GreenfootImage("images/vueltaDerecha.png");
-        bombermanderecha[1] = new GreenfootImage("images/paradoDerecha.png");
-        bombermanderecha[2] = new GreenfootImage("images/derecha1.png");
-        bombermanderecha[3] = new GreenfootImage("images/derecha2.png");
-
-        bombermanderecha[0].scale(25,35);
-        bombermanderecha[1].scale(25,35);
-        bombermanderecha[2].scale(25,35);
-        bombermanderecha[3].scale(25,35);  
-
-        bombermanizquierda[0] = new GreenfootImage("images/vueltaIzquierda.png");
-        bombermanizquierda[1] = new GreenfootImage("images/paradoIzquierda.png");
-        bombermanizquierda[2] = new GreenfootImage("images/izquierda1.png");
-        bombermanizquierda[3] = new GreenfootImage("images/izquierda2.png");
-
-        bombermanizquierda[0].scale(25,35);
-        bombermanizquierda[1].scale(25,35);
-        bombermanizquierda[2].scale(25,35);
-        bombermanizquierda[3].scale(25,35);
-
-        bombermanabajo[0] = new GreenfootImage("images/paradoAbajo.png");    
-        bombermanabajo[1] = new GreenfootImage("images/abajo1.png");
-        bombermanabajo[2] = new GreenfootImage("images/abajo2.png");
-        bombermanabajo[3] = new GreenfootImage("vueltaIzquierda.png");
-
-        bombermanabajo[0].scale(25,35);
-        bombermanabajo[1].scale(25,35);
-        bombermanabajo[2].scale(25,35);
-        bombermanabajo[3].scale(25,35); 
-
+        sprites[IZQUIERDA][0] = new GreenfootImage("images/vueltaIzquierda.png");
+        sprites[IZQUIERDA][1] = new GreenfootImage("images/paradoIzquierda.png");
+        sprites[IZQUIERDA][2] = new GreenfootImage("images/izquierda1.png");
+        sprites[IZQUIERDA][3] = new GreenfootImage("images/izquierda2.png");
+        
+        sprites[ABAJO][0] = new GreenfootImage("images/paradoAbajo.png");    
+        sprites[ABAJO][1] = new GreenfootImage("images/abajo1.png");
+        sprites[ABAJO][2] = new GreenfootImage("images/abajo2.png");
+        sprites[ABAJO][3] = new GreenfootImage("vueltaIzquierda.png");
+        for(int i = 0; i < 4;i++){
+            for(int j = 0; j <4;j++){
+                sprites[i][j].scale(25,35);
+            }
+        }
     }
 
     public void act(){
         String tecla = Greenfoot.getKey();
         setLocation(getX() + dx, getY() + dy);
-        MueveBomberman();
-
-        PonBomba(direccion,tecla);
-
-        CambiaSprites(direccion);  
-        ChecaParedes();
-        DestruirMuros();
-
+        mueveBomberman();
+        verificaBomba(tecla); 
+        checaParedes();
     }
 
-    public void BombermanQuieto(Direccion direccion){
+    public void BombermanQuieto(){
         if(dx == 0  && dy == 0){
             switch(direccion){
                 case IZQUIERDA:
-                setImage(bombermanizquierda[1]);
+                setImage(sprites[IZQUIERDA][1]);
                 break;
 
                 case DERECHA:
-                setImage(bombermanderecha[1]);
+                setImage(sprites[DERECHA][1]);
 
                 break;
 
                 case ARRIBA:
-                setImage(bombermanarriba[0]);
+                setImage(sprites[ARRIBA][0]);
                 break;
 
                 case ABAJO:
-                setImage(bombermanabajo[0]);
+                setImage(sprites[ABAJO][0]);
                 break;
             }
         }
     }
 
-    public void MueveBomberman(){
+    public void mueveBomberman(){
+        cambiaSprites();
         dx = dy = 0;
         if(Greenfoot.isKeyDown("up")){
             dy = -1;
@@ -122,11 +90,11 @@ public class Bomberman extends Actor
             dx = 1;
             direccion = Direccion.DERECHA;
         } else{
-            BombermanQuieto(direccion);
+            BombermanQuieto();
         }
     }
-
-    public void PonBomba(Direccion direccion, String tecla){
+    
+    public void verificaBomba(String tecla){
         if(tecla == "space"){
             if(bombas.size() < limiteBombas ){
                 switch(direccion){
@@ -152,24 +120,18 @@ public class Bomberman extends Actor
 
     }
 
-    public void DestruirMuros(){
-        if(Mundo.mapa[getX()/30][getY()/30] == 1 || Mundo.mapa[getX()/30][getY()/30] == 3){
-            Mundo.mapa[getX()/30][getY()/30]= 1;
-        }
-
-    }
-
-    public void CambiaSprites(Direccion direccion){
+    public void cambiaSprites(){
+        
         if(dx != 0 || dy !=0){
             switch(direccion){
 
                 case IZQUIERDA:
                 if(delaySprite >= 15){
-                    currentSprite = ((++currentSprite) % bombermanizquierda.length);
+                    currentSprite = ((++currentSprite) % 4);
                     if(currentSprite == 0){
                         currentSprite++;
                     }
-                    setImage(bombermanizquierda[currentSprite]);
+                    setImage(sprites[IZQUIERDA][currentSprite]);
                     delaySprite = 0;
 
                 }
@@ -177,30 +139,30 @@ public class Bomberman extends Actor
 
                 case DERECHA:
                 if(delaySprite >= 15){
-                    currentSprite = ((++currentSprite) % bombermanderecha.length);
+                    currentSprite = ((++currentSprite) % 4);
                     if(currentSprite == 0){
                         currentSprite++;
                     }
-                    setImage(bombermanderecha[currentSprite]);
+                    setImage(sprites[DERECHA][currentSprite]);
                     delaySprite = 0;
                 }
                 break;
 
                 case ARRIBA:
                 if(delaySprite >= 15){
-                    currentSprite = (++currentSprite) % bombermanarriba.length;
-                    setImage(bombermanarriba[currentSprite]);
+                    currentSprite = (++currentSprite) % 4;
+                    setImage(sprites[ARRIBA][currentSprite]);
                     delaySprite = 0;
                 }
                 break;
 
                 case ABAJO:
                 if(delaySprite >= 15){
-                    currentSprite = ((++currentSprite) % bombermanabajo.length);
+                    currentSprite = ((++currentSprite) % 4);
                     if(currentSprite == 0){
                         currentSprite++;
                     }
-                    setImage(bombermanabajo[currentSprite]);
+                    setImage(sprites[ABAJO][currentSprite]);
                     delaySprite = 0;
                 }
                 break;
@@ -209,10 +171,12 @@ public class Bomberman extends Actor
         }
     }
 
-    public void ChecaParedes(){
+    public void checaParedes(){
+
         Destruible destruible = null;
         Solido solido = null;
         Bomba bomba2 = null;
+
         switch(direccion){
 
             case ARRIBA:
@@ -228,9 +192,9 @@ public class Bomberman extends Actor
             break;
 
             case DERECHA:
-            destruible = (Destruible)getOneObjectAtOffset(15,0, Destruible.class);
-            solido = (Solido)getOneObjectAtOffset(15,0, Solido.class);
-            bomba2 = (Bomba)getOneObjectAtOffset(15, 0, Bomba.class);
+            destruible = (Destruible)getOneObjectAtOffset(12,0, Destruible.class);
+            solido = (Solido)getOneObjectAtOffset(12,0, Solido.class);
+            bomba2 = (Bomba)getOneObjectAtOffset(12, 0, Bomba.class);
             break;
 
             case IZQUIERDA:
@@ -239,9 +203,9 @@ public class Bomberman extends Actor
             bomba2 = (Bomba)getOneObjectAtOffset(-15, 0, Bomba.class);
             break;
         }
+
         if(destruible != null || solido != null || bomba2!= null){
             dx = dy = 0;
         } 
     }
-
 }

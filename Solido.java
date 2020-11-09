@@ -6,15 +6,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Solido extends Actor
-{
-    private GreenfootImage solido = new GreenfootImage("images/MuroSolido.png");
+public class Solido extends Muro{
     public Solido(){
+        sprite = new GreenfootImage("images/MuroSolido.png");
         dibujamuro();
     }
     
     public void dibujamuro(){
-        solido.scale(30,30);
-        setImage(solido);
+        sprite.scale(30,30);
+        setImage(sprite);
     }
 }
