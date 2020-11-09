@@ -4,11 +4,12 @@ import java.util.*;
 
 public class Bomberman extends Actor
 {
+    private final int DERECHA = 1;
+    private final int IZQUIERDA = 2;
+    private final int ARRIBA = 0;
+    private final int ABAJO = 3;
     private enum Direccion{IZQUIERDA,DERECHA,ARRIBA,ABAJO};
-    private GreenfootImage bombermanarriba[];
-    private GreenfootImage bombermanabajo[];
-    private GreenfootImage bombermanizquierda[];
-    private GreenfootImage bombermanderecha[];
+    private GreenfootImage bomberman[][];
     private int currentX;
     private int currentY;
     private int velocidad;
@@ -21,51 +22,32 @@ public class Bomberman extends Actor
     private int limiteBombas;
     public Bomberman(){
         limiteBombas = 3;
-        bombermanarriba = new GreenfootImage[4];
-        bombermanabajo = new GreenfootImage[4];
-        bombermanizquierda = new GreenfootImage[4];
-        bombermanderecha = new GreenfootImage[4];
+        bomberman = new GreenfootImage[4][4];
+        
+        bomberman[ARRIBA][0] = new GreenfootImage("images/ParadoArriba.png");
+        bomberman[ARRIBA][1] = new GreenfootImage("images/atras2.png");
+        bomberman[ARRIBA][2] = new GreenfootImage("images/atras3.png");
+        bomberman[ARRIBA][3] = new GreenfootImage("images/atras4.png");
+        
+        bomberman[DERECHA][0] = new GreenfootImage("images/vueltaDerecha.png");
+        bomberman[DERECHA][1] = new GreenfootImage("images/paradoDerecha.png");
+        bomberman[DERECHA][2] = new GreenfootImage("images/derecha1.png");
+        bomberman[DERECHA][3] = new GreenfootImage("images/derecha2.png");
 
-        bombermanarriba[0] = new GreenfootImage("images/ParadoArriba.png");
-        bombermanarriba[1] = new GreenfootImage("images/atras2.png");
-        bombermanarriba[2] = new GreenfootImage("images/atras3.png");
-        bombermanarriba[3] = new GreenfootImage("images/atras4.png");
-
-        bombermanarriba[0].scale(25,35);
-        bombermanarriba[1].scale(25,35);
-        bombermanarriba[2].scale(25,35);
-        bombermanarriba[3].scale(25,35);
-
-        bombermanderecha[0] = new GreenfootImage("images/vueltaDerecha.png");
-        bombermanderecha[1] = new GreenfootImage("images/paradoDerecha.png");
-        bombermanderecha[2] = new GreenfootImage("images/derecha1.png");
-        bombermanderecha[3] = new GreenfootImage("images/derecha2.png");
-
-        bombermanderecha[0].scale(25,35);
-        bombermanderecha[1].scale(25,35);
-        bombermanderecha[2].scale(25,35);
-        bombermanderecha[3].scale(25,35);  
-
-        bombermanizquierda[0] = new GreenfootImage("images/vueltaIzquierda.png");
-        bombermanizquierda[1] = new GreenfootImage("images/paradoIzquierda.png");
-        bombermanizquierda[2] = new GreenfootImage("images/izquierda1.png");
-        bombermanizquierda[3] = new GreenfootImage("images/izquierda2.png");
-
-        bombermanizquierda[0].scale(25,35);
-        bombermanizquierda[1].scale(25,35);
-        bombermanizquierda[2].scale(25,35);
-        bombermanizquierda[3].scale(25,35);
-
-        bombermanabajo[0] = new GreenfootImage("images/paradoAbajo.png");    
-        bombermanabajo[1] = new GreenfootImage("images/abajo1.png");
-        bombermanabajo[2] = new GreenfootImage("images/abajo2.png");
-        bombermanabajo[3] = new GreenfootImage("vueltaIzquierda.png");
-
-        bombermanabajo[0].scale(25,35);
-        bombermanabajo[1].scale(25,35);
-        bombermanabajo[2].scale(25,35);
-        bombermanabajo[3].scale(25,35); 
-
+        bomberman[IZQUIERDA][0] = new GreenfootImage("images/vueltaIzquierda.png");
+        bomberman[IZQUIERDA][1] = new GreenfootImage("images/paradoIzquierda.png");
+        bomberman[IZQUIERDA][2] = new GreenfootImage("images/izquierda1.png");
+        bomberman[IZQUIERDA][3] = new GreenfootImage("images/izquierda2.png");
+        
+        bomberman[ABAJO][0] = new GreenfootImage("images/paradoAbajo.png");    
+        bomberman[ABAJO][1] = new GreenfootImage("images/abajo1.png");
+        bomberman[ABAJO][2] = new GreenfootImage("images/abajo2.png");
+        bomberman[ABAJO][3] = new GreenfootImage("vueltaIzquierda.png");
+        for(int i = 0; i < 4;i++){
+            for(int j = 0; j <4;j++){
+                bomberman[i][j].scale(25,35);
+            }
+        }
     }
 
     public void act(){
@@ -80,20 +62,20 @@ public class Bomberman extends Actor
         if(dx == 0  && dy == 0){
             switch(direccion){
                 case IZQUIERDA:
-                setImage(bombermanizquierda[1]);
+                setImage(bomberman[IZQUIERDA][1]);
                 break;
 
                 case DERECHA:
-                setImage(bombermanderecha[1]);
+                setImage(bomberman[DERECHA][1]);
 
                 break;
 
                 case ARRIBA:
-                setImage(bombermanarriba[0]);
+                setImage(bomberman[ARRIBA][0]);
                 break;
 
                 case ABAJO:
-                setImage(bombermanabajo[0]);
+                setImage(bomberman[ABAJO][0]);
                 break;
             }
         }
@@ -156,11 +138,11 @@ public class Bomberman extends Actor
 
                 case IZQUIERDA:
                 if(delaySprite >= 15){
-                    currentSprite = ((++currentSprite) % bombermanizquierda.length);
+                    currentSprite = ((++currentSprite) % 4);
                     if(currentSprite == 0){
                         currentSprite++;
                     }
-                    setImage(bombermanizquierda[currentSprite]);
+                    setImage(bomberman[IZQUIERDA][currentSprite]);
                     delaySprite = 0;
 
                 }
@@ -168,30 +150,30 @@ public class Bomberman extends Actor
 
                 case DERECHA:
                 if(delaySprite >= 15){
-                    currentSprite = ((++currentSprite) % bombermanderecha.length);
+                    currentSprite = ((++currentSprite) % 4);
                     if(currentSprite == 0){
                         currentSprite++;
                     }
-                    setImage(bombermanderecha[currentSprite]);
+                    setImage(bomberman[DERECHA][currentSprite]);
                     delaySprite = 0;
                 }
                 break;
 
                 case ARRIBA:
                 if(delaySprite >= 15){
-                    currentSprite = (++currentSprite) % bombermanarriba.length;
-                    setImage(bombermanarriba[currentSprite]);
+                    currentSprite = (++currentSprite) % 4;
+                    setImage(bomberman[ARRIBA][currentSprite]);
                     delaySprite = 0;
                 }
                 break;
 
                 case ABAJO:
                 if(delaySprite >= 15){
-                    currentSprite = ((++currentSprite) % bombermanabajo.length);
+                    currentSprite = ((++currentSprite) % 4);
                     if(currentSprite == 0){
                         currentSprite++;
                     }
-                    setImage(bombermanabajo[currentSprite]);
+                    setImage(bomberman[ABAJO][currentSprite]);
                     delaySprite = 0;
                 }
                 break;
@@ -237,5 +219,6 @@ public class Bomberman extends Actor
             dx = dy = 0;
         } 
     }
+   
 
 }
