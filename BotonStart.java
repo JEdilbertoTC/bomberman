@@ -11,9 +11,8 @@ public class BotonStart extends Boton
         checkMouse();
 
         if(Greenfoot.mouseClicked(this)){
-
-            Greenfoot.setWorld(new Mundo());
-            Menu.rola.pause();
+            Greenfoot.setWorld(new Instrucciones());
+            //Menu.rola.pause();
         }
     }    
 }

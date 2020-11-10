@@ -204,7 +204,7 @@ public class Bomberman extends Personaje{
             bomba2 = (Bomba)getOneObjectAtOffset(-15, 0, Bomba.class);
             break;
         }
-
+        Iterator it = solido.iterator();
         if(destruible != null || solido != null || bomba2!= null){
             dx = dy = 0;
         } 
