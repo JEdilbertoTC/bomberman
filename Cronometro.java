@@ -20,7 +20,6 @@ public class Cronometro extends Actor
             
         }
         if(tiempoLimite < 60*40){// 40 Segundos
-
             Mundo.rola[1].playLoop();
             Mundo.rola[0].stop();
         }
