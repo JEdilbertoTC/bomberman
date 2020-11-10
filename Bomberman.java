@@ -11,6 +11,7 @@ public class Bomberman extends Personaje{
     private Direccion direccion = Direccion.DERECHA;
     public static LinkedList<Bomba> bombas = new LinkedList<Bomba>();
     private int limiteBombas;
+    private int vida;
     public Bomberman(){
         limiteBombas = 1;
         sprites = new GreenfootImage[4][4];
@@ -208,4 +209,35 @@ public class Bomberman extends Personaje{
             dx = dy = 0;
         } 
     }
+    
+    public boolean tocadoPorEnemigo(){
+        boolean bandera = false;
+        Actor Enemigo;
+        Enemigo = getOneObjectAtOffset(0,0,Enemigo.class);
+        if(Enemigo != null){
+            World detect;
+            detect = getWorld();
+            bandera = true;
+        }
+        return bandera;
+    }
+    
+    public boolean sinVida(){
+        boolean bandera = false;
+        if(getVida() == 0){
+            bandera = true;
+        }
+        return bandera;
+    }
+    
+    public void setVida(int vida){
+        this.vida = vida;
+        System.out.println("Vida: "+vida);
+    }
+    
+    public int getVida(){
+        return vida;
+    }
+    
+    
 }
