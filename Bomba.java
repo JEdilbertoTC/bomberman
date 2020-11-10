@@ -1,12 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 public class Bomba extends Actor{
+    
     private GreenfootImage bomba[];
     private int currentSprite;
     private int delaySprite;
     private boolean estado = false;
     private int tiempoExplosion = 0;
     private Bomberman bomberman;
+    
     public Bomba(){
 
         bomba = new GreenfootImage[3];
@@ -47,9 +49,9 @@ public class Bomba extends Actor{
     public void verificaExplosion(){
         if(tiempoExplosion > 220){
             destruirMuros();
+            tiempoExplosion = 0;
             Bomberman.bombas.removeFirst();
             getWorld().removeObject(this);
-            tiempoExplosion = 0;
         }
         tiempoExplosion++;
     }

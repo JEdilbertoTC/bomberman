@@ -127,7 +127,7 @@ public class Bomberman extends Personaje{
             switch(direccion){
 
                 case IZQUIERDA:
-                if(delaySprite >= 15){
+                if(delaySprite >= 7){
                     currentSprite = ((++currentSprite) % 4);
                     if(currentSprite == 0){
                         currentSprite++;
@@ -139,7 +139,7 @@ public class Bomberman extends Personaje{
                 break;
 
                 case DERECHA:
-                if(delaySprite >= 15){
+                if(delaySprite >= 7){
                     currentSprite = ((++currentSprite) % 4);
                     if(currentSprite == 0){
                         currentSprite++;
@@ -150,7 +150,7 @@ public class Bomberman extends Personaje{
                 break;
 
                 case ARRIBA:
-                if(delaySprite >= 15){
+                if(delaySprite >= 7){
                     currentSprite = (++currentSprite) % 4;
                     setImage(sprites[ARRIBA][currentSprite]);
                     delaySprite = 0;
@@ -158,7 +158,7 @@ public class Bomberman extends Personaje{
                 break;
 
                 case ABAJO:
-                if(delaySprite >= 15){
+                if(delaySprite >= 7){
                     currentSprite = ((++currentSprite) % 4);
                     if(currentSprite == 0){
                         currentSprite++;
@@ -181,8 +181,9 @@ public class Bomberman extends Personaje{
         switch(direccion){
 
             case ARRIBA:
-            destruible = (Destruible)getOneObjectAtOffset(0, -10, Destruible.class);
-            solido = (Solido)getOneObjectAtOffset(0, -10, Solido.class);
+            destruible = (Destruible)getOneObjectAtOffset(0, -15,Destruible.class);
+            solido = (Solido)getOneObjectAtOffset(8, -10, Solido.class);
+            //solido = (List<Solido>)getOneObjectAtOffset(0, -10, Solido.class);
             bomba2 = (Bomba)getOneObjectAtOffset(0, -10, Bomba.class);
             break;
 
