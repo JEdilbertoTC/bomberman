@@ -4,7 +4,6 @@ comment1.params=
 comment1.target=Mundo()
 comment2.params=
 comment2.target=int[][]\ getMapa()
-comment2.text=public\ void\ act(){\r\n\r\n\ \ \ \ \ \ \ \ if(bomberman.tocadoPorEnemigo()){\r\n\r\n\ \ \ \ \ \ \ \ \ \ \ \ if(vida\ \=\=\ 0){\r\n\ \ \ \ \ \ \ \ \ \ \ \ }else{\ \ \ \ \ \ \ \ \r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vida\ \=\ vida\ -\ 1;\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bomberman.setVida(vida);\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hud.hudStatus(vida);\r\n\ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ }\r\n\r\n\ \ \ \ \ \ \ \ if(bomberman.sinVida()){\r\n\ \ \ \ \ \ \ \ \ \ \ \ //PIERDE\r\n\ \ \ \ \ \ \ \ }\r\n}
 comment3.params=
 comment3.target=void\ generaMapa()
 comment4.params=

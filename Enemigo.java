@@ -83,6 +83,7 @@ public class Enemigo extends Personaje{
     }
     
     public void mueveAleatorio(int cambio){
+        
         if(CambiaDireccion==0){
             DireccionX = Direccion.nextInt(2); //Numero aleatorio entre 0 y 1
             DireccionY = Direccion.nextInt(2); //Numero aleatorio entre 0 y 1

@@ -2,7 +2,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class Hud extends Actor
 {
-    private int vida;
     
     public Hud(){
 
@@ -10,10 +9,10 @@ public class Hud extends Actor
     
     public void act() 
     {
-        // Add your action code here.
+        hudStatus();
     }
     
-    public void hudStatus(int vida){
-        setImage("HUD/HUD"+vida+".png");
+    public void hudStatus(){
+        setImage("HUD/HUD"+Bomberman.vida+".png");
     }
 }
