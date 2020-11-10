@@ -181,27 +181,26 @@ public class Bomberman extends Personaje{
         switch(direccion){
 
             case ARRIBA:
-            destruible = (Destruible)getOneObjectAtOffset(0, -15,Destruible.class);
-            solido = (Solido)getOneObjectAtOffset(8, -10, Solido.class);
-            //solido = (List<Solido>)getOneObjectAtOffset(0, -10, Solido.class);
+            destruible = (Destruible)getOneObjectAtOffset(6, -10,Destruible.class);//3
+            solido = (Solido)getOneObjectAtOffset(6, -10, Solido.class);//3
             bomba2 = (Bomba)getOneObjectAtOffset(0, -10, Bomba.class);
             break;
 
             case ABAJO:
-            destruible = (Destruible)getOneObjectAtOffset(0, 17, Destruible.class);
-            solido = (Solido)getOneObjectAtOffset(0, 17, Solido.class);
+            destruible = (Destruible)getOneObjectAtOffset(6, 19, Destruible.class);
+            solido = (Solido)getOneObjectAtOffset(6, 19, Solido.class);
             bomba2 = (Bomba)getOneObjectAtOffset(0, 17, Bomba.class);
             break;
 
             case DERECHA:
-            destruible = (Destruible)getOneObjectAtOffset(12,0, Destruible.class);
-            solido = (Solido)getOneObjectAtOffset(12,0, Solido.class);
+            destruible = (Destruible)getOneObjectAtOffset(15,12, Destruible.class);
+            solido = (Solido)getOneObjectAtOffset(15,12, Solido.class);
             bomba2 = (Bomba)getOneObjectAtOffset(12, 0, Bomba.class);
             break;
 
             case IZQUIERDA:
-            destruible = (Destruible)getOneObjectAtOffset(-15, 0, Destruible.class);
-            solido = (Solido)getOneObjectAtOffset(-15, 0, Solido.class);
+            destruible = (Destruible)getOneObjectAtOffset(-15, 13, Destruible.class);
+            solido = (Solido)getOneObjectAtOffset(-15, 13, Solido.class);
             bomba2 = (Bomba)getOneObjectAtOffset(-15, 0, Bomba.class);
             break;
         }
