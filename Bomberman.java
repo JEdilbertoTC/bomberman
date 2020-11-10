@@ -229,7 +229,7 @@ public class Bomberman extends Personaje{
         }
         return bandera;
     }
-    
+   
     public void setVida(int vida){
         this.vida = vida;
         System.out.println("Vida: "+vida);

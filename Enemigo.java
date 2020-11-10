@@ -52,8 +52,7 @@ public class Enemigo extends Personaje{
         Actor bomberman = getWorld().getObjects(Bomberman.class).get(0);
         int xBomberman = bomberman.getX();
         int yBomberman = bomberman.getY();
-        
-        mueveAleatorio(15);      
+        //mueveAleatorio(15);      
         //perseguir(xBomberman, x, yBomberman, y);
     
         /*--- Controles de frameStill ---
