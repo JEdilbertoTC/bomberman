@@ -11,30 +11,30 @@ public class Bomberman extends Personaje{
     private Direccion direccion = Direccion.DERECHA;
     public static LinkedList<Bomba> bombas = new LinkedList<Bomba>();
     private int limiteBombas;
-    protected static int vida;
+    protected static int vidas;
     public Bomberman(){
         limiteBombas = 1;
-        vida = 3;
+        vidas = 3;
         sprites = new GreenfootImage[4][4];
-        sprites[ARRIBA][0] = new GreenfootImage("images/ParadoArriba.png");
-        sprites[ARRIBA][1] = new GreenfootImage("images/atras2.png");
-        sprites[ARRIBA][2] = new GreenfootImage("images/atras3.png");
-        sprites[ARRIBA][3] = new GreenfootImage("images/atras4.png");
+        sprites[ARRIBA][0] = new GreenfootImage("images/BOMBERMAN/ParadoArriba.png");
+        sprites[ARRIBA][1] = new GreenfootImage("images/BOMBERMAN/atras2.png");
+        sprites[ARRIBA][2] = new GreenfootImage("images/BOMBERMAN/atras3.png");
+        sprites[ARRIBA][3] = new GreenfootImage("images/BOMBERMAN/atras4.png");
         
-        sprites[DERECHA][0] = new GreenfootImage("images/vueltaDerecha.png");
-        sprites[DERECHA][1] = new GreenfootImage("images/paradoDerecha.png");
-        sprites[DERECHA][2] = new GreenfootImage("images/derecha1.png");
-        sprites[DERECHA][3] = new GreenfootImage("images/derecha2.png");
+        sprites[DERECHA][0] = new GreenfootImage("images/BOMBERMAN/vueltaDerecha.png");
+        sprites[DERECHA][1] = new GreenfootImage("images/BOMBERMAN/paradoDerecha.png");
+        sprites[DERECHA][2] = new GreenfootImage("images/BOMBERMAN/derecha1.png");
+        sprites[DERECHA][3] = new GreenfootImage("images/BOMBERMAN/derecha2.png");
 
-        sprites[IZQUIERDA][0] = new GreenfootImage("images/vueltaIzquierda.png");
-        sprites[IZQUIERDA][1] = new GreenfootImage("images/paradoIzquierda.png");
-        sprites[IZQUIERDA][2] = new GreenfootImage("images/izquierda1.png");
-        sprites[IZQUIERDA][3] = new GreenfootImage("images/izquierda2.png");
+        sprites[IZQUIERDA][0] = new GreenfootImage("images/BOMBERMAN/vueltaIzquierda.png");
+        sprites[IZQUIERDA][1] = new GreenfootImage("images/BOMBERMAN/paradoIzquierda.png");
+        sprites[IZQUIERDA][2] = new GreenfootImage("images/BOMBERMAN/izquierda1.png");
+        sprites[IZQUIERDA][3] = new GreenfootImage("images/BOMBERMAN/izquierda2.png");
         
-        sprites[ABAJO][0] = new GreenfootImage("images/paradoAbajo.png");    
-        sprites[ABAJO][1] = new GreenfootImage("images/abajo1.png");
-        sprites[ABAJO][2] = new GreenfootImage("images/abajo2.png");
-        sprites[ABAJO][3] = new GreenfootImage("vueltaIzquierda.png");
+        sprites[ABAJO][0] = new GreenfootImage("images/BOMBERMAN/paradoAbajo.png");    
+        sprites[ABAJO][1] = new GreenfootImage("images/BOMBERMAN/abajo1.png");
+        sprites[ABAJO][2] = new GreenfootImage("images/BOMBERMAN/abajo2.png");
+        sprites[ABAJO][3] = new GreenfootImage("BOMBERMAN/vueltaIzquierda.png");
         for(int i = 0; i < 4;i++){
             for(int j = 0; j <4;j++){
                 sprites[i][j].scale(25,35);
@@ -49,10 +49,9 @@ public class Bomberman extends Personaje{
         verificaBomba(tecla); 
         checaParedes();
         if(tocadoPorEnemigo()){
-            vida--;
+            vidas--;
             setLocation(100,100);
         }
-        System.out.println(vida);
     }
 
     public void BombermanQuieto(){
@@ -236,13 +235,13 @@ public class Bomberman extends Personaje{
         return bandera;
     }
    
-    public void setVida(int vida){
-        this.vida = vida;
-        System.out.println("Vida: "+vida);
+    public void setVida(int vidas){
+        this.vidas = vidas;
+        System.out.println("Vida: "+vidas);
     }
     
     public int getVida(){
-        return vida;
+        return vidas;
     }
     
     

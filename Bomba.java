@@ -13,9 +13,9 @@ public class Bomba extends Actor{
 
         bomba = new GreenfootImage[3];
 
-        bomba[0] = new GreenfootImage("images/bomba1.png");
-        bomba[1] = new GreenfootImage("images/bomba2.png");
-        bomba[2] = new GreenfootImage("images/bomba3.png");
+        bomba[0] = new GreenfootImage("images/BOMBA/bomba1.png");
+        bomba[1] = new GreenfootImage("images/BOMBA/bomba2.png");
+        bomba[2] = new GreenfootImage("images/BOMBA/bomba3.png");
         bomba[0].scale(20,20);
         bomba[2].scale(20,20);
         bomba[1].scale(20,20);
@@ -40,9 +40,9 @@ public class Bomba extends Actor{
     }
 
     public void destruirMuros(){
-        ArrayList <Object>objetos = (ArrayList)getObjectsInRange(30,Destruible.class);
+        List objetos = (List)getObjectsAtOffset(50,0,Destruible.class);
         for(int i = 0; i< objetos.size();i++){
-            getWorld().removeObject((Actor) objetos.get(i));
+            getWorld().removeObject((Actor)objetos.get(i));
         }
     }
 

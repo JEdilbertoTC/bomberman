@@ -7,12 +7,11 @@ public class Hud extends Actor
 
     }
     
-    public void act() 
-    {
+    public void act(){
         hudStatus();
     }
     
     public void hudStatus(){
-        setImage("HUD/HUD"+Bomberman.vida+".png");
+        setImage("HUD/HUD"+Bomberman.vidas+".png");
     }
 }

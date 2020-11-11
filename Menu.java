@@ -1,11 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Algo2 here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Menu extends World
 {
 
@@ -20,7 +14,7 @@ public class Menu extends World
     }
 
     private void prepare(){
-
+        
         BotonStart botonStart = new BotonStart();
         addObject(botonStart,204,168);
 

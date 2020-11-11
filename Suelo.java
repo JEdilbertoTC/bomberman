@@ -1,15 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Suelo here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Suelo extends Muro{
     
     public Suelo(){
-        sprite = new GreenfootImage("images/Suelo.png"); 
+        sprite = new GreenfootImage("images/MATERIALES/Suelo.png"); 
         dibujamuro();
     }
     

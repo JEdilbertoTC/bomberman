@@ -2,7 +2,7 @@
 comment0.target=Bomberman
 comment1.params=
 comment1.target=Bomberman()
-comment10.params=vida
+comment10.params=vidas
 comment10.target=void\ setVida(int)
 comment11.params=
 comment11.target=int\ getVida()

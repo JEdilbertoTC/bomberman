@@ -3,7 +3,6 @@ import java.io.*;
 import java.util.*;
 public class Mundo extends World
 {   
-    private int vida = 3;
     private final int columnas = 29;//Tamaño i
     private final int filas = 33; // Tamaño j
     public static int mapa[][];
@@ -23,7 +22,7 @@ public class Mundo extends World
         dibujaMapa();
         addObject(new Bomberman(), 30, 30);
         addObject(new Cronometro(), 0, 0);
-        addObject(new Enemigo(), 0,30);
+        addObject(new Enemigo(), 200,200);
 
         //Creacion del HUD//
         //bomberman.setVida(vida);
