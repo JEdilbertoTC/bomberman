@@ -2,7 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*; 
 
 public class Bomberman extends Personaje{
-    
+
     private final int DERECHA = 1;
     private final int IZQUIERDA = 2;
     private final int ARRIBA = 0;
@@ -20,7 +20,7 @@ public class Bomberman extends Personaje{
         sprites[ARRIBA][1] = new GreenfootImage("images/BOMBERMAN/atras2.png");
         sprites[ARRIBA][2] = new GreenfootImage("images/BOMBERMAN/atras3.png");
         sprites[ARRIBA][3] = new GreenfootImage("images/BOMBERMAN/atras4.png");
-        
+
         sprites[DERECHA][0] = new GreenfootImage("images/BOMBERMAN/vueltaDerecha.png");
         sprites[DERECHA][1] = new GreenfootImage("images/BOMBERMAN/paradoDerecha.png");
         sprites[DERECHA][2] = new GreenfootImage("images/BOMBERMAN/derecha1.png");
@@ -30,7 +30,7 @@ public class Bomberman extends Personaje{
         sprites[IZQUIERDA][1] = new GreenfootImage("images/BOMBERMAN/paradoIzquierda.png");
         sprites[IZQUIERDA][2] = new GreenfootImage("images/BOMBERMAN/izquierda1.png");
         sprites[IZQUIERDA][3] = new GreenfootImage("images/BOMBERMAN/izquierda2.png");
-        
+
         sprites[ABAJO][0] = new GreenfootImage("images/BOMBERMAN/paradoAbajo.png");    
         sprites[ABAJO][1] = new GreenfootImage("images/BOMBERMAN/abajo1.png");
         sprites[ABAJO][2] = new GreenfootImage("images/BOMBERMAN/abajo2.png");
@@ -99,7 +99,7 @@ public class Bomberman extends Personaje{
             BombermanQuieto();
         }
     }
-    
+
     public void verificaBomba(String tecla){
         if(tecla == "space"){
             if(bombas.size() < limiteBombas ){
@@ -127,7 +127,7 @@ public class Bomberman extends Personaje{
     }
 
     public void cambiaSprites(){
-        
+
         if(dx != 0 || dy !=0){
             switch(direccion){
 
@@ -214,7 +214,7 @@ public class Bomberman extends Personaje{
             dx = dy = 0;
         } 
     }
-    
+
     public boolean tocadoPorEnemigo(){
         boolean bandera = false;
         Actor Enemigo;
@@ -226,7 +226,7 @@ public class Bomberman extends Personaje{
         }
         return bandera;
     }
-    
+
     public boolean sinVida(){
         boolean bandera = false;
         if(getVida() == 0){
@@ -234,15 +234,14 @@ public class Bomberman extends Personaje{
         }
         return bandera;
     }
-   
+
     public void setVida(int vidas){
         this.vidas = vidas;
         System.out.println("Vida: "+vidas);
     }
-    
+
     public int getVida(){
         return vidas;
     }
-    
-    
+
 }

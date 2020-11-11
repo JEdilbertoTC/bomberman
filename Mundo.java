@@ -7,8 +7,6 @@ public class Mundo extends World
     private final int filas = 33; // Tamaño j
     public static int mapa[][];
     private Bomberman bomberman = new Bomberman();
-
-    Hud hud = new Hud();
     public static GreenfootSound rola[] = new GreenfootSound[2];
 
     public Mundo()
@@ -23,11 +21,7 @@ public class Mundo extends World
         addObject(new Bomberman(), 30, 30);
         addObject(new Cronometro(), 0, 0);
         addObject(new Enemigo(), 200,200);
-
-        //Creacion del HUD//
-        //bomberman.setVida(vida);
-        hud.hudStatus();
-        addObject(hud,520,750);
+        addObject(new Hud(),520,750);
 
         rola[0].setVolume(40);
         rola[1].setVolume(40);
