@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.*;
 
 public class Explosion extends Personaje{
     private int tiempoExplosion;
@@ -48,29 +49,25 @@ public class Explosion extends Personaje{
     public void act(){
         animaExplosion(0);
         verificaExplosion();
-
     }
 
     public void animaExplosion(int i){
         if(delaySprite >= 8){
             currentSprite = ((++currentSprite) % 4);
             setImage(sprites[i][currentSprite]);
-            //setImage(sprites[1][currentSprite]);
             delaySprite = 0;
-
         }
         delaySprite++;
     }
 
     public void verificaExplosion(){
         if(tiempoExplosion > 100){
-            getWorld().removeObject(this);    
+            getWorld().removeObject(this);
         }
         tiempoExplosion++;
     }
 
-    /*public void verificaMuros(){
-    //Destruible destruible = null;
-    //destruible = (Destruible)getOneObjectAtOffset(0,0,Destruible.class);
-    }*/
+    public void quitaVida(){
+        
+    }
 }

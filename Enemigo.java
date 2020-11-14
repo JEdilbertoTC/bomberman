@@ -1,9 +1,16 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.lang.Math; 
 import java.util.*;
+
 public class Enemigo extends Personaje{
     /*---Random---*/
     private String key;
+    private final int DERECHA = 1;
+    private final int IZQUIERDA = 2;
+    private final int ARRIBA = 0;
+    private final int ABAJO = 3;
+    private int direccion = DERECHA;
+
     protected Random Direccion;
     protected int DireccionX;
     protected int DireccionY;
@@ -25,11 +32,9 @@ public class Enemigo extends Personaje{
     }
 
     public void act(){
-        setLocation(getX()+dx, getY());
-        dx = 1;
-        dibujaEnemigo();  
-        mueveEnemigo();
-        IAenemigo();
+
+        dibujaEnemigo();
+        muevete();
     }
 
     public void dibujaEnemigo(){
@@ -37,12 +42,8 @@ public class Enemigo extends Personaje{
             currentSprite = ((++currentSprite) % 6);
             setImage(sprites[0][currentSprite]);
             delaySprite = 0;
-
         }
         delaySprite++;
-    }
-
-    public void mueveEnemigo(){
     }
 
     public void IAenemigo(){
@@ -80,6 +81,42 @@ public class Enemigo extends Personaje{
         else{
             this.y = y;
         }
+    }
+
+    public void muevete(){
+        dx = dy = 0;
+        Actor muro = null;
+
+        switch(direccion){
+            case DERECHA: 
+            muro = (Muro)getOneObjectAtOffset(15,12,Muro.class);
+            dx = 1;
+            dy = 0;
+            break;
+
+            case IZQUIERDA:
+            muro = (Muro)getOneObjectAtOffset(-15, 13, Muro.class);
+            dx = -1;
+            dy = 0;
+            break;
+            
+            case ARRIBA:
+            muro = (Muro)getOneObjectAtOffset(6, -10,Muro.class);//3
+            dx = 0;
+            dy = -1;
+            break;
+
+            case ABAJO:
+            muro = (Muro)getOneObjectAtOffset(6, 15, Muro.class);
+            dx = 0;
+            dy = 1;
+            break;
+        }
+        if(muro != null ){
+            dx = dy = 0;
+            direccion = Greenfoot.getRandomNumber(4);
+        }
+        setLocation(getX()+dx, getY()+dy);
     }
 
     public void mueveAleatorio(int cambio){

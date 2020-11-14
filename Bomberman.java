@@ -10,7 +10,7 @@ public class Bomberman extends Personaje{
     private GreenfootImage bomberman[][];
     private Direccion direccion = Direccion.DERECHA;
     public static LinkedList<Bomba> bombas = new LinkedList<Bomba>();
-    private int limiteBombas;
+    protected static int limiteBombas;
     protected static int vidas;
     public Bomberman(){
         limiteBombas = 1;
@@ -50,7 +50,7 @@ public class Bomberman extends Personaje{
         checaParedes();
         if(tocadoPorEnemigo()){
             vidas--;
-            setLocation(100,100);
+            setLocation(30,30);
         }
     }
 
@@ -178,39 +178,26 @@ public class Bomberman extends Personaje{
     }
 
     public void checaParedes(){
-
-        Destruible destruible = null;
-        Solido solido = null;
-        Bomba bomba2 = null;
+        Actor muro = null;
 
         switch(direccion){
-
             case ARRIBA:
-            destruible = (Destruible)getOneObjectAtOffset(6, -10,Destruible.class);//3
-            solido = (Solido)getOneObjectAtOffset(6, -10, Solido.class);//3
-            bomba2 = (Bomba)getOneObjectAtOffset(0, -10, Bomba.class);
+            muro = (Muro)getOneObjectAtOffset(6, -10,Muro.class);//3
             break;
 
             case ABAJO:
-            destruible = (Destruible)getOneObjectAtOffset(6, 19, Destruible.class);
-            solido = (Solido)getOneObjectAtOffset(6, 19, Solido.class);
-            bomba2 = (Bomba)getOneObjectAtOffset(0, 17, Bomba.class);
+            muro = (Muro)getOneObjectAtOffset(6, 19, Muro.class);
             break;
 
             case DERECHA:
-            destruible = (Destruible)getOneObjectAtOffset(15,12, Destruible.class);
-            solido = (Solido)getOneObjectAtOffset(15,12, Solido.class);
-            bomba2 = (Bomba)getOneObjectAtOffset(12, 0, Bomba.class);
+            muro = (Muro)getOneObjectAtOffset(15,12, Muro.class);
             break;
 
             case IZQUIERDA:
-            destruible = (Destruible)getOneObjectAtOffset(-15, 13, Destruible.class);
-            solido = (Solido)getOneObjectAtOffset(-15, 13, Solido.class);
-            bomba2 = (Bomba)getOneObjectAtOffset(-15, 0, Bomba.class);
+            muro = (Muro)getOneObjectAtOffset(-15, 13, Muro.class);
             break;
         }
-
-        if(destruible != null || solido != null || bomba2!= null){
+        if(muro != null){
             dx = dy = 0;
         } 
     }

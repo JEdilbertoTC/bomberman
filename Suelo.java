@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-public class Suelo extends Muro{
-    
+public class Suelo extends Actor{
+    private GreenfootImage sprite;
     public Suelo(){
         sprite = new GreenfootImage("images/MATERIALES/Suelo.png"); 
         dibujamuro();

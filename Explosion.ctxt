@@ -8,4 +8,6 @@ comment3.params=i
 comment3.target=void\ animaExplosion(int)
 comment4.params=
 comment4.target=void\ verificaExplosion()
-numComments=5
+comment5.params=
+comment5.target=void\ quitaVida()
+numComments=6

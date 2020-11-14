@@ -1,28 +1,30 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.io.*;
 import java.util.*;
 public class Mundo extends World
 {   
     private final int columnas = 29;//Tamaño i
     private final int filas = 33; // Tamaño j
-    public static int mapa[][];
+    public int mapa[][];
     private Bomberman bomberman = new Bomberman();
     public static GreenfootSound rola[] = new GreenfootSound[2];
-
+    private LinkedList<Enemigo> enemigos = new LinkedList<Enemigo>();
+    private int numEnemigos = 1;
     public Mundo()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels  
         super(900, 600, 1);
+        
         rola[0] = new GreenfootSound("sounds/MusicaFondo.wav");
         rola[1] = new GreenfootSound("sounds/Time_Running_Out.wav");
         mapa = new int [columnas][filas];
         generaMapa();
         dibujaMapa();
+        dibujaEnemigos();
+        addObject(new Mejora(), 400,400);
         addObject(new Bomberman(), 30, 30);
         addObject(new Cronometro(), 0, 0);
-        addObject(new Enemigo(), 200,200);
         addObject(new Hud(),520,750);
-
+        
         rola[0].setVolume(40);
         rola[1].setVolume(40);
         rola[0].playLoop();
@@ -30,13 +32,14 @@ public class Mundo extends World
         rola[0].setVolume(40);
         rola[1].setVolume(40);
         rola[0].playLoop();
-
     }
-
-    public static int[][] getMapa(){
-        return mapa;
+    public void dibujaEnemigos(){
+        while(numEnemigos > enemigos.size()){
+            addObject(new Enemigo(), Greenfoot.getRandomNumber(getWidth()), Greenfoot.getRandomNumber(getHeight()));
+            enemigos.add(new Enemigo());
+        }
     }
-
+    
     public void generaMapa(){
         for(int i = 0; i < columnas; i++){
             for(int j = 0; j < filas;j++){
@@ -75,13 +78,14 @@ public class Mundo extends World
                     addObject(new Solido(),x,y);
                 }else if(mapa[i][j] ==3){
                     addObject(new Destruible(),x,y);
-                }else if(mapa[i][j] ==0 || mapa[i][j] == 2){
+                }else if(mapa[i][j] ==0 || mapa[i][j] == 2){        
                     addObject(new Suelo(),x, y);
+                    
                 }
                 x+= 30;
             }
             y+= 30;
         }
-
+        
     }
 }

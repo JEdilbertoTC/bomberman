@@ -10,8 +10,10 @@ public class ExDerecha extends Explosion{
 
     public void verificaMuros(){
         Actor destruible = null;
+        Actor actor = null;
         destruible = (Destruible)getOneObjectAtOffset(5, 0,Destruible.class);
-
+        actor = (Bomberman)getOneObjectAtOffset(5, 0,Bomberman.class);
+        
         if(destruible != null){
             getWorld().removeObject(destruible);
         }
