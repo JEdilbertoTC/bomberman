@@ -48,6 +48,7 @@ public class Bomberman extends Personaje{
         mueveBomberman();
         verificaBomba(tecla); 
         checaParedes();
+        verificaMejora();
         if(tocadoPorEnemigo()){
             vidas--;
             setLocation(30,30);
@@ -213,22 +214,11 @@ public class Bomberman extends Personaje{
         }
         return bandera;
     }
-
-    public boolean sinVida(){
-        boolean bandera = false;
-        if(getVida() == 0){
-            bandera = true;
+    
+    public void verificaMejora(){
+        if(isTouching(Mejora.class)){
+            removeTouching(Mejora.class);
         }
-        return bandera;
-    }
-
-    public void setVida(int vidas){
-        this.vidas = vidas;
-        System.out.println("Vida: "+vidas);
-    }
-
-    public int getVida(){
-        return vidas;
     }
 
 }

@@ -1,7 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-public class Mejora extends Personaje{
+public class Mejora extends Actor{
+    protected GreenfootImage sprites [][];
+    protected int delaySprite;
+    protected int currentSprite;
+    protected final int MEJORA_CALAVERA = 0;
+    protected final int MEJORA_VIDA = 1;
+    protected final int MEJORA_BOMBA = 2;
     public Mejora(){
+        
         sprites = new GreenfootImage[3][2];
         sprites[0][0] = new GreenfootImage("POWERUPS/pCalavera1.png");
         sprites[0][1] = new GreenfootImage("POWERUPS/pCalavera2.png");
@@ -15,16 +22,13 @@ public class Mejora extends Personaje{
                 sprites[i][j].scale(30,30);
             }
         }
+        
     }
 
-    public void act(){
-        animaMejora();
-    }
-
-    public void animaMejora(){
+    public void animaMejora(int tipo){
         if(delaySprite >= 5){
             currentSprite = ((++currentSprite) % 2);
-            setImage(sprites[2][currentSprite]);
+            setImage(sprites[tipo][currentSprite]);
             delaySprite = 0;
 
         }

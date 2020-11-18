@@ -2,8 +2,6 @@
 comment0.target=Mejora
 comment1.params=
 comment1.target=Mejora()
-comment2.params=
-comment2.target=void\ act()
-comment3.params=
-comment3.target=void\ animaMejora()
-numComments=4
+comment2.params=tipo
+comment2.target=void\ animaMejora(int)
+numComments=3

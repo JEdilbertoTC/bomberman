@@ -20,7 +20,6 @@ public class Mundo extends World
         generaMapa();
         dibujaMapa();
         //dibujaEnemigos();
-        addObject(new Mejora(), 500,400);
         addObject(new Bomberman(), 30, 30);
         addObject(new Cronometro(), 0, 0);
         addObject(new Hud(),350,550);
