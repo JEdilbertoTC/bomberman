@@ -8,8 +8,5 @@ public class Personaje extends Actor{
     protected int dx;
     protected int dy;
     protected GreenfootImage sprites[][];
-    public void act() 
-    {
-        // Add your action code here.
-    }    
+
 }

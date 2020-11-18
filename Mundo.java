@@ -19,11 +19,11 @@ public class Mundo extends World
         mapa = new int [columnas][filas];
         generaMapa();
         dibujaMapa();
-        dibujaEnemigos();
-        addObject(new Mejora(), 400,400);
+        //dibujaEnemigos();
+        addObject(new Mejora(), 500,400);
         addObject(new Bomberman(), 30, 30);
         addObject(new Cronometro(), 0, 0);
-        addObject(new Hud(),520,750);
+        addObject(new Hud(),350,550);
         
         rola[0].setVolume(40);
         rola[1].setVolume(40);
@@ -33,9 +33,9 @@ public class Mundo extends World
         rola[1].setVolume(40);
         rola[0].playLoop();
     }
-    public void dibujaEnemigos(){
+    public void dibujaEnemigos(int x, int y){
         while(numEnemigos > enemigos.size()){
-            addObject(new Enemigo(), Greenfoot.getRandomNumber(getWidth()), Greenfoot.getRandomNumber(getHeight()));
+            addObject(new Enemigo(),x,y);
             enemigos.add(new Enemigo());
         }
     }
@@ -78,9 +78,8 @@ public class Mundo extends World
                     addObject(new Solido(),x,y);
                 }else if(mapa[i][j] ==3){
                     addObject(new Destruible(),x,y);
-                }else if(mapa[i][j] ==0 || mapa[i][j] == 2){        
-                    addObject(new Suelo(),x, y);
-                    
+                }else if(mapa[i][j] != 0 && mapa[i][j] !=3 && mapa[i][j] != 1 && mapa[i][j] ==2){
+                    dibujaEnemigos(Greenfoot.getRandomNumber(getWidth()),Greenfoot.getRandomNumber(getHeight()));
                 }
                 x+= 30;
             }
