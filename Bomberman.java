@@ -209,7 +209,7 @@ public class Bomberman extends Personaje{
             dx = dy = 0;
         } 
     }
-    
+    /*
     public boolean tocadoPorEnemigo(){
         boolean bandera = false;
         Actor Enemigo;
@@ -238,6 +238,6 @@ public class Bomberman extends Personaje{
     public int getVida(){
         return vida;
     }
-    
+    */
     
 }

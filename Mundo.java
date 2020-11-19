@@ -8,16 +8,14 @@ public class Mundo extends World
     private final int filas = 33; // Tamaño j
     public static int mapa[][];
     private Bomberman bomberman = new Bomberman();
-<<<<<<< HEAD
+
     public static GreenfootSound rola = new GreenfootSound("sounds/MusicaFondo.wav");
     Hud hud = new Hud();
     public static GreenfootSound rola[] = new GreenfootSound[2];
-    
-=======
+
     Hud hud = new Hud();
     public static GreenfootSound rola[] = new GreenfootSound[2];
 
->>>>>>> 95796807f5ee606f4a536490b08b0251b4ff18bb
     public Mundo()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels  
@@ -33,10 +31,9 @@ public class Mundo extends World
 
         //Creacion del HUD//
         //bomberman.setVida(vida);
-        hud.hudStatus(vida);
-        addObject(hud,520,750);
+        //hud.hudStatus(vida);
+        //addObject(hud,520,750);
 
-<<<<<<< HEAD
         rola.setVolume(40);
         rola.playLoop();
 
@@ -44,11 +41,9 @@ public class Mundo extends World
         rola[1].setVolume(40);
         rola[0].playLoop();
 
-=======
         rola[0].setVolume(40);
         rola[1].setVolume(40);
         rola[0].playLoop();
->>>>>>> 95796807f5ee606f4a536490b08b0251b4ff18bb
 
     }
 
@@ -69,6 +64,7 @@ public class Mundo extends World
         }
     }*/
 
+    
     public static int[][] getMapa(){
         return mapa;
     }

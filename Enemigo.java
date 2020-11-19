@@ -29,7 +29,7 @@ public class Enemigo extends Personaje{
         dx = 1;
         dibujaEnemigo();  
         mueveEnemigo();
-        IAenemigo();
+        //IAenemigo();
     }
 
     public void dibujaEnemigo(){
@@ -45,7 +45,7 @@ public class Enemigo extends Personaje{
     public void mueveEnemigo(){
     }
     
-    public void IAenemigo(){
+    /*public void IAenemigo(){
         key = Greenfoot.getKey();
         int x = getX();
         int y = getY();
@@ -62,7 +62,7 @@ public class Enemigo extends Personaje{
             frameContainer.setFrameStill(1);
         }*/
         
-        setLocation(x,y);
+      /*  setLocation(x,y);
     }
     
     public void perseguir(int xB, int x, int yB, int y){
@@ -103,6 +103,6 @@ public class Enemigo extends Personaje{
         if(DireccionY==1){
             this.y = y;
         }
-    }
+    }*/
     
 }
