@@ -36,10 +36,8 @@ public class Mundo extends World
         rola.setVolume(40);
         rola.playLoop();
 
-=======
+
         addObject(new Hud(),350,550);
-        
->>>>>>> 8091edb7d923a8aeab29e7ecfc85afa9528d39ad
         rola[0].setVolume(40);
         rola[1].setVolume(40);
         rola[0].playLoop();
@@ -47,24 +45,17 @@ public class Mundo extends World
         rola[0].setVolume(40);
         rola[1].setVolume(40);
         rola[0].playLoop();
-<<<<<<< HEAD
-
-=======
->>>>>>> 8091edb7d923a8aeab29e7ecfc85afa9528d39ad
     }
     public void dibujaEnemigos(int x, int y){
         while(numEnemigos > enemigos.size()){
             addObject(new Enemigo(),x,y);
             enemigos.add(new Enemigo());
         }
-<<<<<<< HEAD
-    }*/
+    }
 
     
     public static int[][] getMapa(){
         return mapa;
-=======
->>>>>>> 8091edb7d923a8aeab29e7ecfc85afa9528d39ad
     }
     
     public void generaMapa(){

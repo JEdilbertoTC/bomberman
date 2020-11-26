@@ -2,6 +2,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.io.*;
 
 public class Records extends Boton{
+    public Records(){
+        setImage("images/Records.png");
+    }
+    
     public void act(){
         LeeFichero();
     }
