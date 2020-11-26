@@ -16,10 +16,12 @@ public class Menu extends World{
     private void prepare(){
         
         BotonStart botonStart = new BotonStart();
-        //ComoJugar comoJugar = new ComoJugar();
-        //addObject(comoJugar,204,250);
-        //Records records = new Records();
-        //addObject(records, 300,200);
+        ComoJugar comoJugar = new ComoJugar();
+        addObject(comoJugar,204,250);
+        Records records = new Records();
+        addObject(records, 204,200);
+        BotonSalir salir = new BotonSalir();
+        addObject(salir, 204,300);
         addObject(botonStart,204,168);
 
     }
