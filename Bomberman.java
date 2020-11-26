@@ -209,10 +209,6 @@ public class Bomberman extends Personaje{
         } 
     }
 
-    /*
-=======
-
->>>>>>> 8091edb7d923a8aeab29e7ecfc85afa9528d39ad
     public boolean tocadoPorEnemigo(){
         boolean bandera = false;
         Actor Enemigo;
@@ -230,14 +226,11 @@ public class Bomberman extends Personaje{
             removeTouching(Mejora.class);
         }
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-    
     public int getVida(){
         return vida;
     }
-    */
-=======
+    
+
 
     public void verificaVidaExplosion(){
         Actor explosion = null;
@@ -265,5 +258,4 @@ public class Bomberman extends Personaje{
         } 
     }
 
->>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
 }

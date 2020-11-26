@@ -77,7 +77,6 @@ public class Enemigo extends Personaje{
         } else {
         frameContainer.setFrameStill(1);
         }*/
-<<<<<<< HEAD
         
       /*  setLocation(x,y);
 =======
@@ -164,8 +163,5 @@ public class Enemigo extends Personaje{
 <<<<<<< HEAD
     }*/
     
-=======
-    }
 
->>>>>>> 8091edb7d923a8aeab29e7ecfc85afa9528d39ad
-}
+    }
