@@ -7,9 +7,10 @@ comment2.target=void\ act()
 comment3.params=
 comment3.target=void\ dibujaEnemigo()
 comment4.params=
-comment4.target=void\ IAenemigo()
+comment4.target=void\ mueveEnemigo()
 comment5.params=xB\ x\ yB\ y
 comment5.target=void\ perseguir(int,\ int,\ int,\ int)
+comment5.text=\ \ setLocation(x,y);\r\n\=\=\=\=\=\=\=\r\n\r\n\ \ \ \ \ \ \ \ setLocation(x,y);\r\n>>>>>>>\ 8091edb7d923a8aeab29e7ecfc85afa9528d39ad\r\n\ \ \ \ }\r\n
 comment6.params=
 comment6.target=void\ muevete()
 comment7.params=cambio

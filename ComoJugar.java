@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class ComoJugar extends Boton{
 
     public ComoJugar(){
-        GreenfootImage instrucciones = new GreenfootImage("images/comoJugar.png");
-        instrucciones.scale(200,30);
+        GreenfootImage instrucciones = new GreenfootImage("images/ComoJugar.png");
+        instrucciones.scale(200,300);
         setImage(instrucciones);
     }
 

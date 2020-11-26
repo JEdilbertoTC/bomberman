@@ -32,16 +32,8 @@ public class Enemigo extends Personaje{
     }
 
     public void act(){
-
-        setLocation(getX()+dx, getY());
-        dx = 1;
         dibujaEnemigo();  
-        mueveEnemigo();
-        //IAenemigo();
-
-        dibujaEnemigo();
         muevete();
-
     }
 
     public void dibujaEnemigo(){
@@ -58,7 +50,6 @@ public class Enemigo extends Personaje{
     }
     
     /*public void IAenemigo(){
-=======
 
     public void IAenemigo(){
 >>>>>>> 8091edb7d923a8aeab29e7ecfc85afa9528d39ad
@@ -84,7 +75,7 @@ public class Enemigo extends Personaje{
         setLocation(x,y);
 >>>>>>> 8091edb7d923a8aeab29e7ecfc85afa9528d39ad
     }
-
+*/
     public void perseguir(int xB, int x, int yB, int y){
         if(xB<x){
             this.x = x;
@@ -160,8 +151,7 @@ public class Enemigo extends Personaje{
         if(DireccionY==1){
             this.y = y;
         }
-<<<<<<< HEAD
-    }*/
+    }
     
 
     }
