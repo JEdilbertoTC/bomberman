@@ -43,15 +43,21 @@ public class Bomberman extends Personaje{
     }
 
     public void act(){
-        String tecla = Greenfoot.getKey();
-        setLocation(getX() + dx, getY() + dy);
-        mueveBomberman();
-        verificaBomba(tecla); 
-        checaParedes();
-        verificaMejora();
-        if(tocadoPorEnemigo()){
-            vidas--;
-            setLocation(30,30);
+        if(vidas > 0){
+            String tecla = Greenfoot.getKey();
+            setLocation(getX() + dx, getY() + dy);
+            mueveBomberman();
+            verificaBomba(tecla); 
+            checaParedes();
+            verificaMejora();
+            if(tocadoPorEnemigo()){
+                vidas--;
+                setLocation(30,30);
+            }
+            verificaVidaExplosion();
+        } else {
+            Greenfoot.setWorld(new GameOver());
+            Menu.rola.pause();
         }
     }
 
@@ -214,11 +220,37 @@ public class Bomberman extends Personaje{
         }
         return bandera;
     }
-    
+
     public void verificaMejora(){
         if(isTouching(Mejora.class)){
             removeTouching(Mejora.class);
         }
+    }
+
+    public void verificaVidaExplosion(){
+        Actor explosion = null;
+
+        switch(direccion){
+            case ARRIBA:
+            explosion = (Explosion)getOneObjectAtOffset(6, -18,Explosion.class);//3
+            break;
+
+            case ABAJO:
+            explosion = (Explosion)getOneObjectAtOffset(6, 19, Explosion.class);
+            break;
+
+            case DERECHA:
+            explosion = (Explosion)getOneObjectAtOffset(15,12, Explosion.class);
+            break;
+
+            case IZQUIERDA:
+            explosion = (Explosion)getOneObjectAtOffset(-15, 13, Explosion.class);
+            break;
+        }
+        if(explosion != null){
+            vidas--;
+            setLocation(30, 30);
+        } 
     }
 
 }
