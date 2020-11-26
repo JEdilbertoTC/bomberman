@@ -61,7 +61,7 @@ public class Explosion extends Personaje{
     }
 
     public void verificaExplosion(){
-        if(tiempoExplosion > 100){
+        if(tiempoExplosion > 70){
             getWorld().removeObject(this);
         }
         tiempoExplosion++;

@@ -7,7 +7,11 @@ public class Records extends Boton{
     }
     
     public void act(){
-        LeeFichero();
+        if(Greenfoot.mouseClicked(this)){
+            LeeFichero();
+            Greenfoot.setWorld(new Puntuaciones());
+            Menu.rola.pause();
+        }
     }
 
     public void LeeFichero (){

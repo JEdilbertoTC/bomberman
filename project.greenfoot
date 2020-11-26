@@ -1,12 +1,14 @@
 #Greenfoot project file
 class.BotonSkip.image=skip.png
 class.BotonStart.image=start.png
+class.GameOver.image=GameOver.png
 class.Instrucciones.image=instrucciones.jpg
 class.Menu.image=Menu.jpg
 class.Solido.image=MuroFijo.png
 dependency1.from=Mundo
 dependency1.to=Bomberman
 dependency1.type=UsesDependency
+<<<<<<< HEAD
 dependency10.from=Bomberman
 dependency10.to=Bomba
 dependency10.type=UsesDependency
@@ -36,10 +38,42 @@ dependency18.to=Instrucciones
 dependency18.type=UsesDependency
 dependency19.from=BotonSkip
 dependency19.to=Mundo
+=======
+dependency10.from=GameOver
+dependency10.to=VolverAJugar
+dependency10.type=UsesDependency
+dependency11.from=Enemigo
+dependency11.to=Muro
+dependency11.type=UsesDependency
+dependency12.from=Enemigo
+dependency12.to=Bomberman
+dependency12.type=UsesDependency
+dependency13.from=Bomberman
+dependency13.to=Bomba
+dependency13.type=UsesDependency
+dependency14.from=Bomberman
+dependency14.to=GameOver
+dependency14.type=UsesDependency
+dependency15.from=Bomberman
+dependency15.to=Muro
+dependency15.type=UsesDependency
+dependency16.from=Bomberman
+dependency16.to=Explosion
+dependency16.type=UsesDependency
+dependency17.from=Bomberman
+dependency17.to=Menu
+dependency17.type=UsesDependency
+dependency18.from=Bomberman
+dependency18.to=Mejora
+dependency18.type=UsesDependency
+dependency19.from=ExVertical
+dependency19.to=Destruible
+>>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
 dependency19.type=UsesDependency
 dependency2.from=Mundo
 dependency2.to=Hud
 dependency2.type=UsesDependency
+<<<<<<< HEAD
 dependency20.from=BotonSkip
 dependency20.to=Menu
 dependency20.type=UsesDependency
@@ -64,9 +98,65 @@ dependency26.type=UsesDependency
 dependency27.from=Cronometro
 dependency27.to=Mundo
 dependency27.type=UsesDependency
+=======
+dependency20.from=ExDerecha
+dependency20.to=Destruible
+dependency20.type=UsesDependency
+dependency21.from=ExDerecha
+dependency21.to=Bomberman
+dependency21.type=UsesDependency
+dependency22.from=ExIzquierda
+dependency22.to=Destruible
+dependency22.type=UsesDependency
+dependency23.from=BotonStart
+dependency23.to=Menu
+dependency23.type=UsesDependency
+dependency24.from=BotonStart
+dependency24.to=Mundo
+dependency24.type=UsesDependency
+dependency25.from=VolverAJugar
+dependency25.to=Mundo
+dependency25.type=UsesDependency
+dependency26.from=VolverAJugar
+dependency26.to=Menu
+dependency26.type=UsesDependency
+dependency27.from=BotonSkip
+dependency27.to=Instrucciones
+dependency27.type=UsesDependency
+dependency28.from=BotonSkip
+dependency28.to=Mundo
+dependency28.type=UsesDependency
+dependency29.from=BotonSkip
+dependency29.to=Menu
+dependency29.type=UsesDependency
+>>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
 dependency3.from=Mundo
 dependency3.to=Enemigo
 dependency3.type=UsesDependency
+<<<<<<< HEAD
+=======
+dependency30.from=Hud
+dependency30.to=Bomberman
+dependency30.type=UsesDependency
+dependency31.from=Bomba
+dependency31.to=Explosion
+dependency31.type=UsesDependency
+dependency32.from=Bomba
+dependency32.to=ExIzquierda
+dependency32.type=UsesDependency
+dependency33.from=Bomba
+dependency33.to=ExDerecha
+dependency33.type=UsesDependency
+dependency34.from=Bomba
+dependency34.to=ExVertical
+dependency34.type=UsesDependency
+dependency35.from=Bomba
+dependency35.to=Bomberman
+dependency35.type=UsesDependency
+dependency36.from=Cronometro
+dependency36.to=Mundo
+dependency36.type=UsesDependency
+>>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
 dependency4.from=Mundo
 dependency4.to=Cronometro
 dependency4.type=UsesDependency
@@ -90,8 +180,13 @@ editor.fx.0.width=816
 editor.fx.0.x=275
 editor.fx.0.y=-4
 height=744
+<<<<<<< HEAD
 package.numDependencies=27
 package.numTargets=27
+=======
+package.numDependencies=36
+package.numTargets=29
+>>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
 project.charset=UTF-8
 publish.hasSource=false
 publish.locked=true
@@ -135,10 +230,14 @@ target12.width=80
 target12.x=0
 target12.y=0
 target13.height=50
+<<<<<<< HEAD
 target13.name=Boton
+=======
+target13.name=VolverAJugar
+>>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
 target13.showInterface=false
 target13.type=ClassTarget
-target13.width=80
+target13.width=90
 target13.x=0
 target13.y=0
 target14.height=50
@@ -149,35 +248,55 @@ target14.width=80
 target14.x=0
 target14.y=0
 target15.height=50
+<<<<<<< HEAD
 target15.name=Menu
+=======
+target15.name=ComoJugar
+>>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
 target15.showInterface=false
 target15.type=ClassTarget
-target15.width=80
+target15.width=130
 target15.x=0
 target15.y=0
 target16.height=50
+<<<<<<< HEAD
 target16.name=BotonSkip
+=======
+target16.name=Menu
+>>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
 target16.showInterface=false
 target16.type=ClassTarget
 target16.width=80
 target16.x=0
 target16.y=0
 target17.height=50
+<<<<<<< HEAD
 target17.name=Records
+=======
+target17.name=BotonSkip
+>>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
 target17.showInterface=false
 target17.type=ClassTarget
 target17.width=80
 target17.x=0
 target17.y=0
 target18.height=50
+<<<<<<< HEAD
 target18.name=ExVertical
+=======
+target18.name=Records
+>>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
 target18.showInterface=false
 target18.type=ClassTarget
 target18.width=80
 target18.x=0
 target18.y=0
 target19.height=50
+<<<<<<< HEAD
 target19.name=Muro
+=======
+target19.name=ExVertical
+>>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
 target19.showInterface=false
 target19.type=ClassTarget
 target19.width=80
@@ -191,61 +310,112 @@ target2.width=80
 target2.x=0
 target2.y=0
 target20.height=50
+<<<<<<< HEAD
 target20.name=Cronometro
+=======
+target20.name=Muro
+>>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
 target20.showInterface=false
 target20.type=ClassTarget
 target20.width=80
 target20.x=0
 target20.y=0
 target21.height=50
+<<<<<<< HEAD
 target21.name=ExDerecha
+=======
+target21.name=Cronometro
+>>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
 target21.showInterface=false
 target21.type=ClassTarget
 target21.width=80
 target21.x=0
 target21.y=0
 target22.height=50
+<<<<<<< HEAD
 target22.name=Explosion
+=======
+target22.name=ExDerecha
+>>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
 target22.showInterface=false
 target22.type=ClassTarget
 target22.width=90
 target22.x=0
 target22.y=0
 target23.height=50
+<<<<<<< HEAD
 target23.name=ExIzquierda
+=======
+target23.name=Explosion
+>>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
 target23.showInterface=false
 target23.type=ClassTarget
-target23.width=80
+target23.width=90
 target23.x=0
 target23.y=0
 target24.height=50
+<<<<<<< HEAD
 target24.name=Suelo
+=======
+target24.name=GameOver
+>>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
 target24.showInterface=false
 target24.type=ClassTarget
 target24.width=80
 target24.x=0
 target24.y=0
 target25.height=50
+<<<<<<< HEAD
 target25.name=Destruible
+=======
+target25.name=ExIzquierda
+>>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
 target25.showInterface=false
 target25.type=ClassTarget
 target25.width=80
 target25.x=0
 target25.y=0
 target26.height=50
+<<<<<<< HEAD
 target26.name=Solido
+=======
+target26.name=Suelo
+>>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
 target26.showInterface=false
 target26.type=ClassTarget
 target26.width=80
 target26.x=0
 target26.y=0
 target27.height=50
+<<<<<<< HEAD
 target27.name=MVida
 target27.showInterface=false
 target27.type=ClassTarget
 target27.width=90
 target27.x=0
 target27.y=0
+=======
+target27.name=Destruible
+target27.showInterface=false
+target27.type=ClassTarget
+target27.width=80
+target27.x=0
+target27.y=0
+target28.height=50
+target28.name=Solido
+target28.showInterface=false
+target28.type=ClassTarget
+target28.width=80
+target28.x=0
+target28.y=0
+target29.height=50
+target29.name=MVida
+target29.showInterface=false
+target29.type=ClassTarget
+target29.width=90
+target29.x=0
+target29.y=0
+>>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
 target3.height=50
 target3.name=Mundo
 target3.showInterface=false

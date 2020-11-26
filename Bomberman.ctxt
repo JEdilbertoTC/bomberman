@@ -2,6 +2,8 @@
 comment0.target=Bomberman
 comment1.params=
 comment1.target=Bomberman()
+comment10.params=
+comment10.target=void\ verificaVidaExplosion()
 comment2.params=
 comment2.target=void\ act()
 comment3.params=
@@ -21,5 +23,9 @@ comment8.params=
 comment8.target=boolean\ tocadoPorEnemigo()
 comment9.params=
 comment9.target=void\ verificaMejora()
+<<<<<<< HEAD
 numComments=10
 >>>>>>> 8091edb7d923a8aeab29e7ecfc85afa9528d39ad
+=======
+numComments=11
+>>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
