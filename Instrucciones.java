@@ -8,8 +8,8 @@ public class Instrucciones extends Menu{
     
     private void prepare(){
 
-        BotonSkip skip = new BotonSkip();
-        addObject(skip,850,550);
+        BotonStart botonStart = new BotonStart();
+        addObject(botonStart,850,550);
 
     }
 

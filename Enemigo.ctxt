@@ -7,10 +7,6 @@ comment2.target=void\ act()
 comment3.params=
 comment3.target=void\ dibujaEnemigo()
 comment4.params=
-<<<<<<< HEAD
-comment4.target=void\ mueveEnemigo()
-numComments=5
-=======
 comment4.target=void\ IAenemigo()
 comment5.params=xB\ x\ yB\ y
 comment5.target=void\ perseguir(int,\ int,\ int,\ int)
@@ -19,4 +15,3 @@ comment6.target=void\ muevete()
 comment7.params=cambio
 comment7.target=void\ mueveAleatorio(int)
 numComments=8
->>>>>>> 8091edb7d923a8aeab29e7ecfc85afa9528d39ad

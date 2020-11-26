@@ -16,16 +16,8 @@ comment6.params=
 comment6.target=void\ cambiaSprites()
 comment7.params=
 comment7.target=void\ checaParedes()
-<<<<<<< HEAD
-numComments=8
-=======
 comment8.params=
 comment8.target=boolean\ tocadoPorEnemigo()
 comment9.params=
 comment9.target=void\ verificaMejora()
-<<<<<<< HEAD
-numComments=10
->>>>>>> 8091edb7d923a8aeab29e7ecfc85afa9528d39ad
-=======
 numComments=11
->>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab

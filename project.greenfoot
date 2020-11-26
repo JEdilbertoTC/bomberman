@@ -1,5 +1,4 @@
 #Greenfoot project file
-class.BotonSalir.image=Salir.png
 class.BotonSkip.image=skip.png
 class.BotonStart.image=start.png
 class.GameOver.image=GameOver.png
@@ -9,195 +8,96 @@ class.Solido.image=MuroFijo.png
 dependency1.from=Mundo
 dependency1.to=Bomberman
 dependency1.type=UsesDependency
-<<<<<<< HEAD
-dependency10.from=Menu
-dependency10.to=Records
-=======
-<<<<<<< HEAD
-dependency10.from=Bomberman
-dependency10.to=Bomba
-dependency10.type=UsesDependency
-dependency11.from=Bomberman
-dependency11.to=Muro
-dependency11.type=UsesDependency
-dependency12.from=ExVertical
-dependency12.to=Destruible
-dependency12.type=UsesDependency
-dependency13.from=ExDerecha
-dependency13.to=Destruible
-dependency13.type=UsesDependency
-dependency14.from=ExDerecha
-dependency14.to=Bomberman
-dependency14.type=UsesDependency
-dependency15.from=ExIzquierda
-dependency15.to=Destruible
-dependency15.type=UsesDependency
-dependency16.from=BotonStart
-dependency16.to=Menu
-dependency16.type=UsesDependency
-dependency17.from=BotonStart
-dependency17.to=Mundo
-dependency17.type=UsesDependency
-dependency18.from=BotonSkip
-dependency18.to=Instrucciones
-dependency18.type=UsesDependency
-dependency19.from=BotonSkip
-dependency19.to=Mundo
-=======
 dependency10.from=GameOver
 dependency10.to=VolverAJugar
->>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
 dependency10.type=UsesDependency
-dependency11.from=GameOver
-dependency11.to=VolverAJugar
+dependency11.from=Enemigo
+dependency11.to=Muro
 dependency11.type=UsesDependency
 dependency12.from=Enemigo
-dependency12.to=Muro
+dependency12.to=Bomberman
 dependency12.type=UsesDependency
-dependency13.from=Enemigo
-dependency13.to=Bomberman
+dependency13.from=Bomberman
+dependency13.to=Bomba
 dependency13.type=UsesDependency
 dependency14.from=Bomberman
-dependency14.to=Bomba
+dependency14.to=GameOver
 dependency14.type=UsesDependency
 dependency15.from=Bomberman
-dependency15.to=GameOver
+dependency15.to=Muro
 dependency15.type=UsesDependency
 dependency16.from=Bomberman
-dependency16.to=Muro
+dependency16.to=Explosion
 dependency16.type=UsesDependency
 dependency17.from=Bomberman
-dependency17.to=Explosion
+dependency17.to=Menu
 dependency17.type=UsesDependency
 dependency18.from=Bomberman
-dependency18.to=Menu
+dependency18.to=Mejora
 dependency18.type=UsesDependency
-<<<<<<< HEAD
-dependency19.from=Bomberman
-dependency19.to=Mejora
-=======
 dependency19.from=ExVertical
 dependency19.to=Destruible
->>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
->>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
 dependency19.type=UsesDependency
 dependency2.from=Mundo
-dependency2.to=Hud
+dependency2.to=Enemigo
 dependency2.type=UsesDependency
-<<<<<<< HEAD
-dependency20.from=ExVertical
-=======
-<<<<<<< HEAD
-dependency20.from=BotonSkip
-dependency20.to=Menu
-dependency20.type=UsesDependency
-dependency21.from=Hud
-dependency21.to=Bomberman
-dependency21.type=UsesDependency
-dependency22.from=Bomba
-dependency22.to=Explosion
-dependency22.type=UsesDependency
-dependency23.from=Bomba
-dependency23.to=ExIzquierda
-dependency23.type=UsesDependency
-dependency24.from=Bomba
-dependency24.to=ExDerecha
-dependency24.type=UsesDependency
-dependency25.from=Bomba
-dependency25.to=ExVertical
-dependency25.type=UsesDependency
-dependency26.from=Bomba
-dependency26.to=Bomberman
-dependency26.type=UsesDependency
-dependency27.from=Cronometro
-dependency27.to=Mundo
-dependency27.type=UsesDependency
-=======
 dependency20.from=ExDerecha
->>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
 dependency20.to=Destruible
 dependency20.type=UsesDependency
 dependency21.from=ExDerecha
-dependency21.to=Destruible
+dependency21.to=Bomberman
 dependency21.type=UsesDependency
-dependency22.from=ExDerecha
-dependency22.to=Bomberman
+dependency22.from=ExIzquierda
+dependency22.to=Destruible
 dependency22.type=UsesDependency
-dependency23.from=ExIzquierda
-dependency23.to=Destruible
+dependency23.from=BotonStart
+dependency23.to=Menu
 dependency23.type=UsesDependency
 dependency24.from=BotonStart
-dependency24.to=Menu
+dependency24.to=Mundo
 dependency24.type=UsesDependency
-dependency25.from=BotonStart
+dependency25.from=VolverAJugar
 dependency25.to=Mundo
 dependency25.type=UsesDependency
 dependency26.from=VolverAJugar
-dependency26.to=Mundo
+dependency26.to=Menu
 dependency26.type=UsesDependency
-dependency27.from=VolverAJugar
-dependency27.to=Menu
+dependency27.from=BotonSkip
+dependency27.to=Instrucciones
 dependency27.type=UsesDependency
-dependency28.from=ComoJugar
-dependency28.to=Instrucciones
+dependency28.from=BotonSkip
+dependency28.to=Mundo
 dependency28.type=UsesDependency
-dependency29.from=ComoJugar
+dependency29.from=BotonSkip
 dependency29.to=Menu
 dependency29.type=UsesDependency
->>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
 dependency3.from=Mundo
-dependency3.to=Enemigo
+dependency3.to=Cronometro
 dependency3.type=UsesDependency
-<<<<<<< HEAD
-dependency30.from=BotonSkip
-dependency30.to=Instrucciones
-=======
-<<<<<<< HEAD
-=======
 dependency30.from=Hud
 dependency30.to=Bomberman
->>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
 dependency30.type=UsesDependency
-dependency31.from=BotonSkip
-dependency31.to=Mundo
+dependency31.from=Bomba
+dependency31.to=Explosion
 dependency31.type=UsesDependency
-dependency32.from=BotonSkip
-dependency32.to=Menu
+dependency32.from=Bomba
+dependency32.to=ExIzquierda
 dependency32.type=UsesDependency
-dependency33.from=Records
-dependency33.to=Puntuaciones
+dependency33.from=Bomba
+dependency33.to=ExDerecha
 dependency33.type=UsesDependency
-dependency34.from=Records
-dependency34.to=Menu
+dependency34.from=Bomba
+dependency34.to=ExVertical
 dependency34.type=UsesDependency
-dependency35.from=Hud
+dependency35.from=Bomba
 dependency35.to=Bomberman
 dependency35.type=UsesDependency
-dependency36.from=Bomba
-dependency36.to=Explosion
+dependency36.from=Cronometro
+dependency36.to=Mundo
 dependency36.type=UsesDependency
-<<<<<<< HEAD
-dependency37.from=Bomba
-dependency37.to=ExIzquierda
-dependency37.type=UsesDependency
-dependency38.from=Bomba
-dependency38.to=ExDerecha
-dependency38.type=UsesDependency
-dependency39.from=Bomba
-dependency39.to=ExVertical
-dependency39.type=UsesDependency
-=======
->>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
->>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
 dependency4.from=Mundo
-dependency4.to=Cronometro
+dependency4.to=Hud
 dependency4.type=UsesDependency
-dependency40.from=Bomba
-dependency40.to=Bomberman
-dependency40.type=UsesDependency
-dependency41.from=Cronometro
-dependency41.to=Mundo
-dependency41.type=UsesDependency
 dependency5.from=Mundo
 dependency5.to=Suelo
 dependency5.type=UsesDependency
@@ -210,26 +110,16 @@ dependency7.type=UsesDependency
 dependency8.from=Menu
 dependency8.to=BotonStart
 dependency8.type=UsesDependency
-dependency9.from=Menu
-dependency9.to=ComoJugar
+dependency9.from=Instrucciones
+dependency9.to=BotonSkip
 dependency9.type=UsesDependency
-editor.fx.0.height=739
-editor.fx.0.width=816
-editor.fx.0.x=275
-editor.fx.0.y=-4
+editor.fx.0.height=636
+editor.fx.0.width=1106
+editor.fx.0.x=52
+editor.fx.0.y=60
 height=744
-<<<<<<< HEAD
-package.numDependencies=41
-package.numTargets=32
-=======
-<<<<<<< HEAD
-package.numDependencies=27
-package.numTargets=27
-=======
 package.numDependencies=36
 package.numTargets=29
->>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
->>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
 project.charset=UTF-8
 publish.hasSource=false
 publish.locked=true
@@ -252,381 +142,199 @@ target1.width=90
 target1.x=0
 target1.y=0
 target10.height=50
-<<<<<<< HEAD
-target10.name=MBomba
-=======
-target10.name=Mejora
->>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
+target10.name=Personaje
 target10.showInterface=false
 target10.type=ClassTarget
-target10.width=90
+target10.width=80
 target10.x=0
 target10.y=0
 target11.height=50
-<<<<<<< HEAD
-target11.name=Mejora
-=======
-target11.name=Personaje
->>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
+target11.name=Objeto
 target11.showInterface=false
 target11.type=ClassTarget
 target11.width=80
 target11.x=0
 target11.y=0
 target12.height=50
-<<<<<<< HEAD
-target12.name=BotonSalir
-=======
-target12.name=Objeto
->>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
+target12.name=Boton
 target12.showInterface=false
 target12.type=ClassTarget
 target12.width=80
 target12.x=0
 target12.y=0
 target13.height=50
-<<<<<<< HEAD
-target13.name=Personaje
-=======
-<<<<<<< HEAD
-target13.name=Boton
-=======
 target13.name=VolverAJugar
->>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
->>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
 target13.showInterface=false
 target13.type=ClassTarget
-target13.width=80
+target13.width=90
 target13.x=0
 target13.y=0
 target14.height=50
-target14.name=Objeto
+target14.name=Hud
 target14.showInterface=false
 target14.type=ClassTarget
 target14.width=80
 target14.x=0
 target14.y=0
 target15.height=50
-<<<<<<< HEAD
-target15.name=Boton
-=======
-<<<<<<< HEAD
-target15.name=Menu
-=======
 target15.name=ComoJugar
->>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
->>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
 target15.showInterface=false
 target15.type=ClassTarget
-target15.width=80
+target15.width=130
 target15.x=0
 target15.y=0
 target16.height=50
-<<<<<<< HEAD
-target16.name=VolverAJugar
-=======
-<<<<<<< HEAD
-target16.name=BotonSkip
-=======
 target16.name=Menu
->>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
->>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
 target16.showInterface=false
 target16.type=ClassTarget
-target16.width=90
+target16.width=80
 target16.x=0
 target16.y=0
 target17.height=50
-<<<<<<< HEAD
-target17.name=Hud
-=======
-<<<<<<< HEAD
-target17.name=Records
-=======
 target17.name=BotonSkip
->>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
->>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
 target17.showInterface=false
 target17.type=ClassTarget
 target17.width=80
 target17.x=0
 target17.y=0
 target18.height=50
-<<<<<<< HEAD
-target18.name=ComoJugar
-=======
-<<<<<<< HEAD
-target18.name=ExVertical
-=======
 target18.name=Records
->>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
->>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
 target18.showInterface=false
 target18.type=ClassTarget
-target18.width=130
+target18.width=80
 target18.x=0
 target18.y=0
 target19.height=50
-<<<<<<< HEAD
-target19.name=Menu
-=======
-<<<<<<< HEAD
-target19.name=Muro
-=======
 target19.name=ExVertical
->>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
->>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
 target19.showInterface=false
 target19.type=ClassTarget
 target19.width=80
 target19.x=0
 target19.y=0
 target2.height=50
-<<<<<<< HEAD
-target2.name=Puntuaciones
-=======
-target2.name=Mapa
->>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
+target2.name=Mundo
 target2.showInterface=false
 target2.type=ClassTarget
-target2.width=80
+target2.width=90
 target2.x=0
 target2.y=0
 target20.height=50
-<<<<<<< HEAD
-target20.name=BotonSkip
-=======
-<<<<<<< HEAD
-target20.name=Cronometro
-=======
 target20.name=Muro
->>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
->>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
 target20.showInterface=false
 target20.type=ClassTarget
 target20.width=80
 target20.x=0
 target20.y=0
 target21.height=50
-<<<<<<< HEAD
-target21.name=Records
-=======
-<<<<<<< HEAD
-target21.name=ExDerecha
-=======
 target21.name=Cronometro
->>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
->>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
 target21.showInterface=false
 target21.type=ClassTarget
 target21.width=80
 target21.x=0
 target21.y=0
 target22.height=50
-<<<<<<< HEAD
-target22.name=ExVertical
-=======
-<<<<<<< HEAD
-target22.name=Explosion
-=======
 target22.name=ExDerecha
->>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
->>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
 target22.showInterface=false
 target22.type=ClassTarget
-target22.width=90
+target22.width=80
 target22.x=0
 target22.y=0
 target23.height=50
-<<<<<<< HEAD
-target23.name=Muro
-=======
-<<<<<<< HEAD
-target23.name=ExIzquierda
-=======
 target23.name=Explosion
->>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
->>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
 target23.showInterface=false
 target23.type=ClassTarget
-target23.width=80
+target23.width=90
 target23.x=0
 target23.y=0
 target24.height=50
-<<<<<<< HEAD
-target24.name=Cronometro
-=======
-<<<<<<< HEAD
-target24.name=Suelo
-=======
 target24.name=GameOver
->>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
->>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
 target24.showInterface=false
 target24.type=ClassTarget
 target24.width=80
 target24.x=0
 target24.y=0
 target25.height=50
-<<<<<<< HEAD
-target25.name=ExDerecha
-=======
-<<<<<<< HEAD
-target25.name=Destruible
-=======
 target25.name=ExIzquierda
->>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
->>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
 target25.showInterface=false
 target25.type=ClassTarget
 target25.width=80
 target25.x=0
 target25.y=0
 target26.height=50
-<<<<<<< HEAD
-target26.name=Explosion
-=======
-<<<<<<< HEAD
-target26.name=Solido
-=======
 target26.name=Suelo
->>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
->>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
 target26.showInterface=false
 target26.type=ClassTarget
-target26.width=90
+target26.width=80
 target26.x=0
 target26.y=0
 target27.height=50
-<<<<<<< HEAD
-target27.name=GameOver
-=======
-<<<<<<< HEAD
-target27.name=MVida
-target27.showInterface=false
-target27.type=ClassTarget
-target27.width=90
-target27.x=0
-target27.y=0
-=======
 target27.name=Destruible
->>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
 target27.showInterface=false
 target27.type=ClassTarget
 target27.width=80
 target27.x=0
 target27.y=0
 target28.height=50
-target28.name=ExIzquierda
+target28.name=Solido
 target28.showInterface=false
 target28.type=ClassTarget
 target28.width=80
 target28.x=0
 target28.y=0
 target29.height=50
-target29.name=Suelo
+target29.name=MVida
 target29.showInterface=false
 target29.type=ClassTarget
-target29.width=80
+target29.width=90
 target29.x=0
 target29.y=0
->>>>>>> 943074f04703829dfc9291c0eff1ef68b40cd0ab
 target3.height=50
-<<<<<<< HEAD
-target3.name=Mapa
-=======
-target3.name=Mundo
->>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
+target3.name=MCalavera
 target3.showInterface=false
 target3.type=ClassTarget
-target3.width=90
+target3.width=80
 target3.x=0
 target3.y=0
-target30.height=50
-target30.name=Destruible
-target30.showInterface=false
-target30.type=ClassTarget
-target30.width=80
-target30.x=0
-target30.y=0
-target31.height=50
-target31.name=Solido
-target31.showInterface=false
-target31.type=ClassTarget
-target31.width=80
-target31.x=0
-target31.y=0
-target32.height=50
-target32.name=MVida
-target32.showInterface=false
-target32.type=ClassTarget
-target32.width=90
-target32.x=0
-target32.y=0
 target4.height=50
-<<<<<<< HEAD
-target4.name=Mundo
-=======
-target4.name=MCalavera
->>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
+target4.name=Enemigo
 target4.showInterface=false
 target4.type=ClassTarget
-target4.width=90
+target4.width=80
 target4.x=0
 target4.y=0
 target5.height=50
-<<<<<<< HEAD
-target5.name=MCalavera
-=======
-target5.name=Enemigo
->>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
+target5.name=Bomberman
 target5.showInterface=false
 target5.type=ClassTarget
-target5.width=80
+target5.width=90
 target5.x=0
 target5.y=0
 target6.height=50
-<<<<<<< HEAD
-target6.name=Enemigo
-=======
-target6.name=Bomberman
->>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
+target6.name=BotonStart
 target6.showInterface=false
 target6.type=ClassTarget
 target6.width=80
 target6.x=0
 target6.y=0
 target7.height=50
-<<<<<<< HEAD
-target7.name=Bomberman
-=======
-target7.name=BotonStart
->>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
+target7.name=Bomba
 target7.showInterface=false
 target7.type=ClassTarget
-target7.width=90
+target7.width=80
 target7.x=0
 target7.y=0
 target8.height=50
-<<<<<<< HEAD
-target8.name=BotonStart
-=======
-target8.name=Bomba
->>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
+target8.name=MBomba
 target8.showInterface=false
 target8.type=ClassTarget
 target8.width=80
 target8.x=0
 target8.y=0
 target9.height=50
-<<<<<<< HEAD
-target9.name=Bomba
-=======
-target9.name=MBomba
->>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
+target9.name=Mejora
 target9.showInterface=false
 target9.type=ClassTarget
-target9.width=90
+target9.width=80
 target9.x=0
 target9.y=0
 version=3.0.0

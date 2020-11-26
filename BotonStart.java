@@ -13,7 +13,7 @@ public class BotonStart extends Boton
 
         if(Greenfoot.mouseClicked(this)){
             Greenfoot.setWorld(new Mundo());
-            Menu.rola.pause();
+            //Menu.rola.pause();
         }
     }    
 }

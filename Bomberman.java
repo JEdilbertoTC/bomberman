@@ -226,11 +226,6 @@ public class Bomberman extends Personaje{
             removeTouching(Mejora.class);
         }
     }
-    public int getVida(){
-        return vida;
-    }
-    
-
 
     public void verificaVidaExplosion(){
         Actor explosion = null;
