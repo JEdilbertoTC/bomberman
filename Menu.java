@@ -18,10 +18,15 @@ public class Menu extends World{
         BotonStart botonStart = new BotonStart();
         ComoJugar comoJugar = new ComoJugar();
         addObject(comoJugar,204,250);
+<<<<<<< HEAD
         Records records = new Records();
         addObject(records, 204,200);
         BotonSalir salir = new BotonSalir();
         addObject(salir, 204,300);
+=======
+        //Records records = new Records();
+        //addObject(records, 300,200);
+>>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
         addObject(botonStart,204,168);
 
     }

@@ -2,11 +2,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.io.*;
 
 public class Records extends Boton{
+<<<<<<< HEAD
     
     public Records(){
         GreenfootImage records = new GreenfootImage("images/Records.png");
         records.scale(200,30);
         setImage(records);
+=======
+    public Records(){
+        setImage("images/Records.png");
+>>>>>>> ff5ed21f3664c3a422286f571ef80ca2afa9f3a2
     }
     
     public void act(){

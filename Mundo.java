@@ -6,7 +6,10 @@ public class Mundo extends World
     private final int filas = 33; // Tamaño j
     public int mapa[][];
     private Bomberman bomberman = new Bomberman();
+    public static GreenfootSound rola = new GreenfootSound("sounds/MusicaFondo.wav");
+    Hud hud = new Hud();
     public static GreenfootSound rola[] = new GreenfootSound[2];
+
     private LinkedList<Enemigo> enemigos = new LinkedList<Enemigo>();
     private int numEnemigos = 1;
     public Mundo()
@@ -22,8 +25,19 @@ public class Mundo extends World
         //dibujaEnemigos();
         addObject(new Bomberman(), 30, 30);
         addObject(new Cronometro(), 0, 0);
+
+        addObject(new Enemigo(), 300,300);
+
+        //Creacion del HUD//
+        //bomberman.setVida(vida);
+        //hud.hudStatus(vida);
+        //addObject(hud,520,750);
+
+        rola.setVolume(40);
+        rola.playLoop();
+
+
         addObject(new Hud(),350,550);
-        
         rola[0].setVolume(40);
         rola[1].setVolume(40);
         rola[0].playLoop();
@@ -37,6 +51,11 @@ public class Mundo extends World
             addObject(new Enemigo(),x,y);
             enemigos.add(new Enemigo());
         }
+    }
+
+    
+    public static int[][] getMapa(){
+        return mapa;
     }
     
     public void generaMapa(){
