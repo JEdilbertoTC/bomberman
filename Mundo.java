@@ -4,6 +4,9 @@ public class Mundo extends World
 {   
     private final int columnas = 29;//Tamaño i
     private final int filas = 33; // Tamaño j
+    private final int FIJO = 1;
+    private final int SUELO = 2;
+    private final int DESTRUIBLE = 3;
     public int mapa[][];
     private Bomberman bomberman = new Bomberman();
     public static GreenfootSound rola[] = new GreenfootSound[2];
@@ -43,9 +46,9 @@ public class Mundo extends World
         for(int i = 0; i < columnas; i++){
             for(int j = 0; j < filas;j++){
                 if((i==0) ||(j==0) || (i==columnas-1) || (j==filas-1)){
-                    mapa[i][j] = 1; //muro fijo
+                    mapa[i][j] = FIJO; 
                 }else if(i%2 == 0 && j%2 == 0){ // Muros interiores del mapa
-                    mapa[i][j] = 1; 
+                    mapa[i][j] = FIJO; 
                 }else if((i ==1 && j == 1) || (i ==2 && j==1) || (i==1 && j==2)){//Para las posiciones iniciales del jugador
                     mapa[i][j] = 0;
                 }else{
@@ -73,12 +76,12 @@ public class Mundo extends World
         for(int i = 0; i < columnas; i++){
             x = 0;
             for(int j = 0; j < filas;j++){
-                if(mapa[i][j] == 1){
+                if(mapa[i][j] == FIJO){
                     addObject(new Solido(),x,y);
-                }else if(mapa[i][j] ==3){
+                }else if(mapa[i][j] ==DESTRUIBLE){
                     addObject(new Destruible(),x,y);
                 }else if(mapa[i][j] != 0 && mapa[i][j] !=3 && mapa[i][j] != 1 && mapa[i][j] ==2){
-                    dibujaEnemigos(Greenfoot.getRandomNumber(getWidth()),Greenfoot.getRandomNumber(getHeight()));
+                    dibujaEnemigos(new Random().nextInt(getWidth()),new Random().nextInt(getHeight()));
                 }
                 x+= 30;
             }
