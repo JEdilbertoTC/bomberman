@@ -5,7 +5,7 @@ public class BotonStart extends Boton
     Menu menu;
     public BotonStart(){
         GreenfootImage start = new GreenfootImage("images/start.png");
-        start.scale(300,300);
+        start.scale(100,20);
         setImage(start);
     }
 

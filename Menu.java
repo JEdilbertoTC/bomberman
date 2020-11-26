@@ -6,7 +6,7 @@ public class Menu extends World{
     
     public Menu(){    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(1000, 600, 1);
+        super(900, 600, 1);
         Greenfoot.start();
         rola.setVolume(40);
         rola.playLoop();
@@ -15,13 +15,9 @@ public class Menu extends World{
 
     private void prepare(){
         
-        BotonStart botonStart = new BotonStart();
-        ComoJugar comoJugar = new ComoJugar();
-        addObject(comoJugar,204,250);
-        Records records = new Records();
-        addObject(records, 300,200);
-        addObject(botonStart,204,168);
-
+        addObject(new BotonStart(),450,140);
+        addObject(new ComoJugar(),450,190);
+        addObject(new Records(), 450,240);
     }
 
     public void pausaMusica(){

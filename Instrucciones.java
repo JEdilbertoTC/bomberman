@@ -1,19 +1,16 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-public class Instrucciones extends Menu{
-    
+public class Instrucciones extends World{
+
     public Instrucciones(){
+        super(900,600,1);
         prepare();
     }
-    
+
     private void prepare(){
 
-        BotonStart botonStart = new BotonStart();
-        addObject(botonStart,850,550);
+        addObject(new BotonStart(),850,550);
 
     }
 
-    public void pausaMusica(){
-        rola.stop();
-    }
 }

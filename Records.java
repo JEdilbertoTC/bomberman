@@ -3,8 +3,8 @@ import java.io.*;
 
 public class Records extends Boton{
     public Records(){
-        GreenfootImage records = new GreenfootImage("images/Records.png");
-        records.scale(200,300);
+        GreenfootImage records = new GreenfootImage("images/records.png");
+        records.scale(100,20);
         setImage(records);
     }
     
