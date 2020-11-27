@@ -2,8 +2,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 public class Mundo extends World
 {   
-    private final int columnas = 29;//Tamaño i
-    private final int filas = 33; // Tamaño j
+    private final int columnas = 29;
+    private final int filas = 33;
     private final int FIJO = 1;
     private final int SUELO = 2;
     private final int DESTRUIBLE = 3;
@@ -80,7 +80,7 @@ public class Mundo extends World
                     addObject(new Solido(),x,y);
                 }else if(mapa[i][j] ==DESTRUIBLE){
                     addObject(new Destruible(),x,y);
-                }else if(mapa[i][j] != 0 && mapa[i][j] !=3 && mapa[i][j] != 1 && mapa[i][j] ==2){
+                }else if(mapa[i][j] != 0 && mapa[i][j] !=DESTRUIBLE && mapa[i][j] != FIJO && mapa[i][j] ==2){
                     dibujaEnemigos(new Random().nextInt(getWidth()),new Random().nextInt(getHeight()));
                 }
                 x+= 30;
