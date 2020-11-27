@@ -13,6 +13,7 @@ public class VolverAJugar extends Boton{
 
             Greenfoot.setWorld(new Mundo());
             Menu.rola.pause();
+            GameOver.rola.pause();
         }
     }    
 }
