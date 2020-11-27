@@ -10,8 +10,8 @@ public class Bomberman extends Personaje{
     private GreenfootImage bomberman[][];
     private Direccion direccion = Direccion.DERECHA;
     public static LinkedList<Bomba> bombas = new LinkedList<Bomba>();
-    protected static int limiteBombas;
-    protected static int vidas;
+    private static int limiteBombas;
+    private static int vidas;
     public Bomberman(){
         limiteBombas = 1;
         vidas = 3;
@@ -57,7 +57,8 @@ public class Bomberman extends Personaje{
             verificaVidaExplosion();
         } else {
             Greenfoot.setWorld(new GameOver());
-            Menu.rola.pause();
+            Mundo.rola[0].pause();
+            Mundo.rola[1].pause();
         }
     }
 
@@ -248,9 +249,17 @@ public class Bomberman extends Personaje{
             break;
         }
         if(explosion != null){
-            vidas--;
+            setVidas(-1);
             setLocation(30, 30);
         } 
+    }
+    
+    public static int getVidas(){
+        return vidas;
+    }
+    
+    public static void setVidas(int vida){
+        vidas+= vida;
     }
 
 }

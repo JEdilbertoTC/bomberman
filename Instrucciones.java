@@ -8,8 +8,8 @@ public class Instrucciones extends World{
     }
 
     private void prepare(){
-        addObject(new Regresar(),800,400);
-        addObject(new BotonStart(),800,550);
+        addObject(new Regresar(),800,550);
+        addObject(new BotonStart(),600,550);
 
     }
 

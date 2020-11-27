@@ -4,7 +4,7 @@ public class BotonSkip extends Boton
 {
     Instrucciones instruccion;
     public BotonSkip(){
-        setImage("images/skip.png");
+        setImage("images/BOTONES/skip.png");
     }
     public void act() 
     {

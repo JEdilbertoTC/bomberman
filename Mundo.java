@@ -10,21 +10,21 @@ public class Mundo extends World
     public int mapa[][];
     private Bomberman bomberman = new Bomberman();
     public static GreenfootSound rola[] = new GreenfootSound[2];
-    private LinkedList<Enemigo> enemigos = new LinkedList<Enemigo>();
-    private int numEnemigos = 1;
+    public static LinkedList<Enemigo> enemigos;
+    public static int numEnemigos = 1;
     public Mundo()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels  
         super(900, 600, 1);
-        
+        enemigos = new LinkedList<Enemigo>();
         rola[0] = new GreenfootSound("sounds/MusicaFondo.wav");
         rola[1] = new GreenfootSound("sounds/Time_Running_Out.wav");
         mapa = new int [columnas][filas];
         generaMapa();
         dibujaMapa();
-        //dibujaEnemigos();
         addObject(new Bomberman(), 30, 30);
         addObject(new Cronometro(), 0, 0);
+        addObject(new Puntaje(),0,0);
         addObject(new Hud(),350,550);
         
         rola[0].setVolume(40);

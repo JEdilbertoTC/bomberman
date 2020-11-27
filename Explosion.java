@@ -49,6 +49,7 @@ public class Explosion extends Personaje{
     public void act(){
         animaExplosion(0);
         verificaExplosion();
+        //verificaEnemigo(0, 5);
     }
 
     public void animaExplosion(int i){
@@ -63,11 +64,18 @@ public class Explosion extends Personaje{
     public void verificaExplosion(){
         if(tiempoExplosion > 70){
             getWorld().removeObject(this);
+            
         }
         tiempoExplosion++;
     }
-
-    public void quitaVida(){
+    
+    public void verificaEnemigo(int dx, int dy){
+        Actor enemigo = null;
+        enemigo = (Enemigo)getOneObjectAtOffset(dx, dy, Enemigo.class);
+        if(enemigo != null){
+            Mundo.enemigos.removeFirst();
+            getWorld().removeObject(enemigo);
+        }
         
     }
 }

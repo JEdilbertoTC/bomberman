@@ -3,7 +3,7 @@ import java.lang.Math;
 import java.util.*;
 
 public class Enemigo extends Personaje{
-    /*---Random---*/
+    
     private String key;
     private final int DERECHA = 1;
     private final int IZQUIERDA = 2;
@@ -34,6 +34,11 @@ public class Enemigo extends Personaje{
     public void act(){
         dibujaEnemigo();  
         muevete();
+        tocadoPorExplosion();
+        if(Mundo.enemigos.size()<=0){
+            Mundo.numEnemigos++;
+            Greenfoot.setWorld(new Mundo());
+        }
     }
 
     public void dibujaEnemigo(){
@@ -43,54 +48,6 @@ public class Enemigo extends Personaje{
             delaySprite = 0;
         }
         delaySprite++;
-    }
-
-    
-    public void mueveEnemigo(){
-    }
-    
-    /*public void IAenemigo(){
-
-    public void IAenemigo(){
->>>>>>> 8091edb7d923a8aeab29e7ecfc85afa9528d39ad
-        key = Greenfoot.getKey();
-        int x = getX();
-        int y = getY();
-        Actor bomberman = getWorld().getObjects(Bomberman.class).get(0);
-        int xBomberman = bomberman.getX();
-        int yBomberman = bomberman.getY();
-        //mueveAleatorio(15);      
-        //perseguir(xBomberman, x, yBomberman, y);
-
-        /*--- Controles de frameStill ---
-        if(key==null){
-        frameContainer.setFrameStill(0);
-        } else {
-        frameContainer.setFrameStill(1);
-        }*/
-        
-      /*  setLocation(x,y);
-=======
-
-        setLocation(x,y);
->>>>>>> 8091edb7d923a8aeab29e7ecfc85afa9528d39ad
-    }
-*/
-    public void perseguir(int xB, int x, int yB, int y){
-        if(xB<x){
-            this.x = x;
-            DireccionX= -1;
-        }
-        else{
-            this.x = x;
-            DireccionX= 1;
-        }
-        if(yB<y){
-            this.y = y;
-        }
-        else{
-            this.y = y;
-        }
     }
 
     public void muevete(){
@@ -105,19 +62,19 @@ public class Enemigo extends Personaje{
             break;
 
             case IZQUIERDA:
-            muro = (Muro)getOneObjectAtOffset(-15, 13, Muro.class);
+            muro = (Muro)getOneObjectAtOffset(-15, 12, Muro.class);
             dx = -1;
             dy = 0;
             break;
-            
+
             case ARRIBA:
-            muro = (Muro)getOneObjectAtOffset(6, -10,Muro.class);//3
+            muro = (Muro)getOneObjectAtOffset(-7, -15,Muro.class);
             dx = 0;
             dy = -1;
             break;
 
             case ABAJO:
-            muro = (Muro)getOneObjectAtOffset(6, 15, Muro.class);
+            muro = (Muro)getOneObjectAtOffset(7, 15, Muro.class);
             dx = 0;
             dy = 1;
             break;
@@ -152,6 +109,15 @@ public class Enemigo extends Personaje{
             this.y = y;
         }
     }
-    
 
+    public void tocadoPorExplosion(){
+        Actor enemigo = null;
+        enemigo = (Explosion)getOneObjectAtOffset(0, 15, Explosion.class);
+        if(enemigo != null){
+            Puntaje.setPuntuacion(1000);
+            Mundo.enemigos.removeFirst();
+            getWorld().removeObject(this);
+        }
     }
+
+}

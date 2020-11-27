@@ -3,7 +3,7 @@ import java.io.*;
 
 public class Records extends Boton{
     public Records(){
-        GreenfootImage records = new GreenfootImage("images/records.png");
+        GreenfootImage records = new GreenfootImage("images/BOTONES/records.png");
         records.scale(100,20);
         setImage(records);
     }
@@ -12,7 +12,6 @@ public class Records extends Boton{
         if(Greenfoot.mouseClicked(this)){
             LeeFichero();
             Greenfoot.setWorld(new Puntuaciones());
-            Menu.rola.pause();
         }
     }
 
