@@ -57,10 +57,11 @@ public class Bomberman extends Personaje{
             if(tocaCalavera()){
                 vidas--;
                 setLocation(0,0);
-            }
-            if(tocaVida()){
-                vidas++;
-                setLocation(0,0);
+            }else{
+                if(tocaVida()){
+                    vidas++;
+                    setLocation(0,0);
+                }
             }
             verificaVidaExplosion();
         } else {
@@ -69,8 +70,8 @@ public class Bomberman extends Personaje{
             Mundo.rola[1].pause();
         }
     }
-    
-    public void BombermanQuieto(){
+
+    public void bombermanQuieto(){
         if(dx == 0  && dy == 0){
             switch(direccion){
                 case IZQUIERDA:
@@ -112,7 +113,7 @@ public class Bomberman extends Personaje{
             dx = 1;
             direccion = Direccion.DERECHA;
         } else{
-            BombermanQuieto();
+            bombermanQuieto();
         }
     }
 
@@ -229,31 +230,15 @@ public class Bomberman extends Personaje{
         }
         return bandera;
     }
-    
+
     public boolean tocaCalavera(){
-        boolean bandera = false;
-        Actor MCalavera;
-        MCalavera = getOneObjectAtOffset(0,-10,MCalavera.class);
-        if(MCalavera != null){
-            World detect;
-            detect = getWorld();
-            bandera = true;
-        }
-        return bandera;
+        return getOneObjectAtOffset(0,-10,MejoraVida.class) != null;
     }
+
 
     public boolean tocaVida(){
-        boolean bandera = false;
-        Actor MVida;
-        MVida = getOneObjectAtOffset(0,-10,MVida.class);
-        if(MVida != null){
-            World detect;
-            detect = getWorld();
-            bandera = true;
-        }
-        return bandera;
+        return getOneObjectAtOffset(0,-10,MejoraVida.class) != null;
     }
-
 
     public void verificaMejora(){
         if(isTouching(Mejora.class)){
@@ -286,11 +271,11 @@ public class Bomberman extends Personaje{
             setLocation(30, 30);
         } 
     }
-    
+
     public static int getVidas(){
         return vidas;
     }
-    
+
     public static void setVidas(int vida){
         vidas+= vida;
     }

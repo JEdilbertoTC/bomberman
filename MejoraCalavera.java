@@ -1,6 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-public class MCalavera extends Mejora{
+public class MejoraCalavera extends Mejora{
 
 
     public void act() {
