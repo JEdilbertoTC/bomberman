@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
-public class Mundo extends World
-{   
+public class Mundo extends World{   
+    
     private final int columnas = 29;
     private final int filas = 33;
     private final int FIJO = 1;
