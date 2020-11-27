@@ -7,16 +7,14 @@ public class Bomberman extends Personaje{
     private final int IZQUIERDA = 2;
     private final int ARRIBA = 0;
     private final int ABAJO = 3;
-    public static int puntuacion;
     private GreenfootImage bomberman[][];
     private Direccion direccion = Direccion.DERECHA;
     public static LinkedList<Bomba> bombas = new LinkedList<Bomba>();
-    protected static int limiteBombas;
-    protected static int vidas;
+    private static int limiteBombas;
+    private static int vidas;
     public Bomberman(){
         limiteBombas = 1;
         vidas = 3;
-        puntuacion = 0;
         sprites = new GreenfootImage[4][4];
         sprites[ARRIBA][0] = new GreenfootImage("images/BOMBERMAN/ParadoArriba.png");
         sprites[ARRIBA][1] = new GreenfootImage("images/BOMBERMAN/atras2.png");
@@ -251,9 +249,17 @@ public class Bomberman extends Personaje{
             break;
         }
         if(explosion != null){
-            vidas--;
+            setVidas(-1);
             setLocation(30, 30);
         } 
+    }
+    
+    public static int getVidas(){
+        return vidas;
+    }
+    
+    public static void setVidas(int vida){
+        vidas+= vida;
     }
 
 }

@@ -12,6 +12,6 @@ public class Hud extends Actor
     }
     
     public void hudStatus(){
-        setImage("HUD/HUD"+Bomberman.vidas+".png");
+        setImage("HUD/HUD"+Bomberman.getVidas()+".png");
     }
 }

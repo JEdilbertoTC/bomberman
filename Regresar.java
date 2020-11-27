@@ -8,10 +8,10 @@ public class Regresar extends Boton{
         setImage(start);
     }
     
-    public void act() 
-    {
+    public void act() {
         if(Greenfoot.mouseClicked(this)){
             Greenfoot.setWorld(new Menu());
         }
-    }    
+    }
+    
 }
