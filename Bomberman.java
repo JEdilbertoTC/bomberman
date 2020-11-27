@@ -54,6 +54,14 @@ public class Bomberman extends Personaje{
                 vidas--;
                 setLocation(30,30);
             }
+            if(tocaCalavera()){
+                vidas--;
+                setLocation(0,0);
+            }
+            if(tocaVida()){
+                vidas++;
+                setLocation(0,0);
+            }
             verificaVidaExplosion();
         } else {
             Greenfoot.setWorld(new GameOver());
@@ -61,7 +69,7 @@ public class Bomberman extends Personaje{
             Mundo.rola[1].pause();
         }
     }
-
+    
     public void BombermanQuieto(){
         if(dx == 0  && dy == 0){
             switch(direccion){
@@ -221,6 +229,31 @@ public class Bomberman extends Personaje{
         }
         return bandera;
     }
+    
+    public boolean tocaCalavera(){
+        boolean bandera = false;
+        Actor MCalavera;
+        MCalavera = getOneObjectAtOffset(0,-10,MCalavera.class);
+        if(MCalavera != null){
+            World detect;
+            detect = getWorld();
+            bandera = true;
+        }
+        return bandera;
+    }
+
+    public boolean tocaVida(){
+        boolean bandera = false;
+        Actor MVida;
+        MVida = getOneObjectAtOffset(0,-10,MVida.class);
+        if(MVida != null){
+            World detect;
+            detect = getWorld();
+            bandera = true;
+        }
+        return bandera;
+    }
+
 
     public void verificaMejora(){
         if(isTouching(Mejora.class)){
