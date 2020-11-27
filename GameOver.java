@@ -2,7 +2,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.io.*;
 
 public class GameOver extends World{
+    
     public static GreenfootSound rola = new GreenfootSound("sounds/gameOver.wav");
+   
     public GameOver(){
         super(900, 600, 1);
         guardaPuntuacion();
@@ -13,23 +15,11 @@ public class GameOver extends World{
     }
 
     public void guardaPuntuacion (){
-        FileWriter fichero = null;
-        PrintWriter pw = null;
-        try
-        {
-            fichero = new FileWriter("puntaje.txt");
-            pw = new PrintWriter(fichero);
+        try(FileWriter fichero = new FileWriter(new File("puntaje.txt"),true)){
+            PrintWriter pw = new PrintWriter(fichero);
             pw.println(Puntaje.getPuntuacion());
-
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            try {
-                if (null != fichero)
-                    fichero.close();
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
         }
     }
 } 
