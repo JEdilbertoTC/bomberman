@@ -13,6 +13,7 @@ public class ExIzquierda extends Explosion{
         Destruible destruible = null;
         destruible = (Destruible)getOneObjectAtOffset(-15, 0,Destruible.class);
         if(destruible != null){
+            Bomberman.puntuacion+= 100;
             getWorld().removeObject(destruible);
         }
     }

@@ -46,6 +46,7 @@ public class Bomba extends Muro{
             getWorld().addObject(new ExVertical(),getX(),getY()+20);
             getWorld().addObject(new ExVertical(),getX(),getY()-20);
             Bomberman.bombas.removeFirst();
+            
             getWorld().removeObject(this);    
         }
         tiempoExplosion++;

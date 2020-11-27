@@ -25,6 +25,7 @@ public class Mundo extends World
         //dibujaEnemigos();
         addObject(new Bomberman(), 30, 30);
         addObject(new Cronometro(), 0, 0);
+        addObject(new Puntaje(),0,0);
         addObject(new Hud(),350,550);
         
         rola[0].setVolume(40);

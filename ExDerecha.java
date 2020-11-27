@@ -15,6 +15,7 @@ public class ExDerecha extends Explosion{
         actor = (Bomberman)getOneObjectAtOffset(5, 0,Bomberman.class);
         
         if(destruible != null){
+            Bomberman.puntuacion+= 100;
             getWorld().removeObject(destruible);
         }
     }
