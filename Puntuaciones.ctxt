@@ -2,4 +2,8 @@
 comment0.target=Puntuaciones
 comment1.params=
 comment1.target=Puntuaciones()
-numComments=2
+comment2.params=
+comment2.target=java.util.List\ list()
+comment3.params=records
+comment3.target=void\ sort(java.util.List)
+numComments=4

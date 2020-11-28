@@ -10,7 +10,7 @@ public class Puntaje extends Actor{
         puntuacion+= puntos;
     }
     
-    public int getPuntuacion(){
+    public static int getPuntuacion(){
         return puntuacion;
     }
 }
