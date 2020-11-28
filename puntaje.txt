@@ -5,3 +5,8 @@
 1300,nombre
 1300,nombre
 0,nombre
+0,nombre
+0,nombre
+0,nombre
+100,nombre
+0,nombre

@@ -15,10 +15,9 @@ public class Bomba extends Muro{
         bomba[0] = new GreenfootImage("images/BOMBA/bomba1.png");
         bomba[1] = new GreenfootImage("images/BOMBA/bomba2.png");
         bomba[2] = new GreenfootImage("images/BOMBA/bomba3.png");
-        bomba[0].scale(20,20);
-        bomba[2].scale(20,20);
-        bomba[1].scale(20,20);
-        
+        bomba[0].scale(25,25);
+        bomba[2].scale(25,25);
+        bomba[1].scale(25,25);
     }
 
     public void act(){
@@ -38,7 +37,7 @@ public class Bomba extends Muro{
     }
 
     public void verificaExplosion(){
-        if(tiempoExplosion > 220){
+        if(tiempoExplosion > 200){
             tiempoExplosion = 0;
             getWorld().addObject(new Explosion(), getX(),getY());
             getWorld().addObject(new ExIzquierda(),getX()-20,getY());

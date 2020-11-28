@@ -3,53 +3,56 @@ import java.util.*;
 
 public class Explosion extends Personaje{
     private int tiempoExplosion;
+    private final int ENMEDIO = 0;
+    private final int DERECHO = 1;
+    private final int IZQUIERDA = 2;
+    private final int VERTICAL = 3;
     public Explosion(){
         sprites = new GreenfootImage[4][4];
-        sprites[0][0] = new GreenfootImage("images/EXPLOSION/explosionEnMedio1.png");
-        sprites[0][1] = new GreenfootImage("images/EXPLOSION/explosionEnMedio2.png");
-        sprites[0][2] = new GreenfootImage("images/EXPLOSION/explosionEnMedio3.png");
-        sprites[0][3] = new GreenfootImage("images/EXPLOSION/explosionEnMedio4.png");
+        sprites[ENMEDIO][0] = new GreenfootImage("images/EXPLOSION/explosionEnMedio1.png");
+        sprites[ENMEDIO][1] = new GreenfootImage("images/EXPLOSION/explosionEnMedio2.png");
+        sprites[ENMEDIO][2] = new GreenfootImage("images/EXPLOSION/explosionEnMedio3.png");
+        sprites[ENMEDIO][3] = new GreenfootImage("images/EXPLOSION/explosionEnMedio4.png");
 
-        sprites[1][0] = new GreenfootImage("images/EXPLOSION/explosionBDerecho1.png");
-        sprites[1][1] = new GreenfootImage("images/EXPLOSION/explosionBDerecho2.png");
-        sprites[1][2] = new GreenfootImage("images/EXPLOSION/explosionBDerecho3.png");
-        sprites[1][3] = new GreenfootImage("images/EXPLOSION/explosionBDerecho4.png");
+        sprites[DERECHO][0] = new GreenfootImage("images/EXPLOSION/explosionBDerecho1.png");
+        sprites[DERECHO][1] = new GreenfootImage("images/EXPLOSION/explosionBDerecho2.png");
+        sprites[DERECHO][2] = new GreenfootImage("images/EXPLOSION/explosionBDerecho3.png");
+        sprites[DERECHO][3] = new GreenfootImage("images/EXPLOSION/explosionBDerecho4.png");
 
-        sprites[2][0] = new GreenfootImage("images/EXPLOSION/explosionIzquierda1.png");
-        sprites[2][1] = new GreenfootImage("images/EXPLOSION/explosionIzquierda2.png");
-        sprites[2][2] = new GreenfootImage("images/EXPLOSION/explosionIzquierda3.png");
-        sprites[2][3] = new GreenfootImage("images/EXPLOSION/explosionIzquierda4.png");
+        sprites[IZQUIERDA][0] = new GreenfootImage("images/EXPLOSION/explosionIzquierda1.png");
+        sprites[IZQUIERDA][1] = new GreenfootImage("images/EXPLOSION/explosionIzquierda2.png");
+        sprites[IZQUIERDA][2] = new GreenfootImage("images/EXPLOSION/explosionIzquierda3.png");
+        sprites[IZQUIERDA][3] = new GreenfootImage("images/EXPLOSION/explosionIzquierda4.png");
 
-        sprites[3][0] = new GreenfootImage("images/EXPLOSION/explosionVertical1.png");
-        sprites[3][1] = new GreenfootImage("images/EXPLOSION/explosionVertical2.png");
-        sprites[3][2] = new GreenfootImage("images/EXPLOSION/explosionVertical2.png");
-        sprites[3][3] = new GreenfootImage("images/EXPLOSION/explosionVertical3.png");
+        sprites[VERTICAL][0] = new GreenfootImage("images/EXPLOSION/explosionVertical1.png");
+        sprites[VERTICAL][1] = new GreenfootImage("images/EXPLOSION/explosionVertical2.png");
+        sprites[VERTICAL][2] = new GreenfootImage("images/EXPLOSION/explosionVertical2.png");
+        sprites[VERTICAL][3] = new GreenfootImage("images/EXPLOSION/explosionVertical3.png");
 
-        sprites[0][0].scale(20,20);
-        sprites[0][1].scale(20,20);
-        sprites[0][2].scale(20,20);
-        sprites[0][3].scale(20,20);
+        sprites[ENMEDIO][0].scale(20,20);
+        sprites[ENMEDIO][1].scale(20,20);
+        sprites[ENMEDIO][2].scale(20,20);
+        sprites[ENMEDIO][3].scale(20,20);
 
-        sprites[2][0].scale(50,20);
-        sprites[2][1].scale(50,20);
-        sprites[2][2].scale(50,20);
-        sprites[2][3].scale(50,20);
+        sprites[IZQUIERDA][0].scale(45,20);
+        sprites[IZQUIERDA][1].scale(45,20);
+        sprites[IZQUIERDA][2].scale(45,20);
+        sprites[IZQUIERDA][3].scale(45,20);
 
-        sprites[1][0].scale(53,20);
-        sprites[1][1].scale(53,20);
-        sprites[1][2].scale(53,20);
-        sprites[1][3].scale(53,20);
+        sprites[DERECHO][0].scale(45,20);
+        sprites[DERECHO][1].scale(45,20);
+        sprites[DERECHO][2].scale(45,20);
+        sprites[DERECHO][3].scale(45,20);
 
-        sprites[3][0].scale(25,50);
-        sprites[3][1].scale(25,50);
-        sprites[3][2].scale(25,50);
-        sprites[3][3].scale(25,50);
+        sprites[VERTICAL][0].scale(25,48);
+        sprites[VERTICAL][1].scale(25,48);
+        sprites[VERTICAL][2].scale(25,48);
+        sprites[VERTICAL][3].scale(25,48);
     }
 
     public void act(){
         animaExplosion(0);
         verificaExplosion();
-        //verificaEnemigo(0, 5);
     }
 
     public void animaExplosion(int i){
@@ -62,13 +65,13 @@ public class Explosion extends Personaje{
     }
 
     public void verificaExplosion(){
-        if(tiempoExplosion > 70){
+        if(tiempoExplosion > 50){
             getWorld().removeObject(this);
-            
+
         }
         tiempoExplosion++;
     }
-    
+
     public void verificaEnemigo(int dx, int dy){
         Actor enemigo = null;
         enemigo = (Enemigo)getOneObjectAtOffset(dx, dy, Enemigo.class);
@@ -76,6 +79,13 @@ public class Explosion extends Personaje{
             Mundo.enemigos.removeFirst();
             getWorld().removeObject(enemigo);
         }
-        
+
+    }
+
+    public void verificaMuros(){
+        if(isTouching(Destruible.class)){
+            removeTouching(Destruible.class);
+            Puntaje.setPuntuacion(100);
+        }  
     }
 }

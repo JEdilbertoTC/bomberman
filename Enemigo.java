@@ -27,7 +27,7 @@ public class Enemigo extends Personaje{
         sprites[0][4] = new GreenfootImage("images/ENEMIGO/enemigo5.png");
         sprites[0][5] = new GreenfootImage("images/ENEMIGO/enemigo6.png");
         for(int i = 0; i< 6;i++){
-            sprites[0][i].scale(25,25);
+            sprites[0][i].scale(30,30);
         }
     }
 
@@ -53,28 +53,28 @@ public class Enemigo extends Personaje{
     public void muevete(){
         dx = dy = 0;
         Actor muro = null;
-
+            
         switch(direccion){
             case DERECHA: 
-            muro = (Muro)getOneObjectAtOffset(15,12,Muro.class);
+            muro = (Muro)getOneObjectAtOffset(15,12, Muro.class);
             dx = 1;
             dy = 0;
             break;
 
             case IZQUIERDA:
-            muro = (Muro)getOneObjectAtOffset(-15, 12, Muro.class);
+            muro = (Muro)getOneObjectAtOffset(-15, 13, Muro.class);
             dx = -1;
             dy = 0;
             break;
 
             case ARRIBA:
-            muro = (Muro)getOneObjectAtOffset(-7, -15,Muro.class);
+            muro = (Muro)getOneObjectAtOffset(6, -10,Muro.class);
             dx = 0;
             dy = -1;
             break;
-
+            
             case ABAJO:
-            muro = (Muro)getOneObjectAtOffset(7, 15, Muro.class);
+            muro = (Muro)getOneObjectAtOffset(6, 19, Muro.class);
             dx = 0;
             dy = 1;
             break;
@@ -86,34 +86,8 @@ public class Enemigo extends Personaje{
         setLocation(getX()+dx, getY()+dy);
     }
 
-    public void mueveAleatorio(int cambio){
-
-        if(CambiaDireccion==0){
-            DireccionX = Direccion.nextInt(2); //Numero aleatorio entre 0 y 1
-            DireccionY = Direccion.nextInt(2); //Numero aleatorio entre 0 y 1
-            CambiaDireccion=cambio;
-        }
-        else{
-            CambiaDireccion--;
-        }
-        if(DireccionX==0){
-            this.x = x;
-        }
-        if(DireccionX==1){
-            this.x = x;
-        }
-        if(DireccionY==0){
-            this.y = y;
-        }
-        if(DireccionY==1){
-            this.y = y;
-        }
-    }
-
     public void tocadoPorExplosion(){
-        Actor enemigo = null;
-        enemigo = (Explosion)getOneObjectAtOffset(0, 15, Explosion.class);
-        if(enemigo != null){
+        if(isTouching(Explosion.class)){
             Puntaje.setPuntuacion(1000);
             Mundo.enemigos.removeFirst();
             getWorld().removeObject(this);

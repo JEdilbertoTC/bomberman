@@ -2,6 +2,4 @@
 comment0.target=ExIzquierda
 comment1.params=
 comment1.target=void\ act()
-comment2.params=
-comment2.target=void\ verificaMuros()
-numComments=3
+numComments=2

@@ -10,4 +10,6 @@ comment4.params=
 comment4.target=void\ verificaExplosion()
 comment5.params=dx\ dy
 comment5.target=void\ verificaEnemigo(int,\ int)
-numComments=6
+comment6.params=
+comment6.target=void\ verificaMuros()
+numComments=7
