@@ -34,20 +34,20 @@ public class Explosion extends Personaje{
         sprites[ENMEDIO][2].scale(20,20);
         sprites[ENMEDIO][3].scale(20,20);
 
-        sprites[IZQUIERDA][0].scale(45,20);
-        sprites[IZQUIERDA][1].scale(45,20);
-        sprites[IZQUIERDA][2].scale(45,20);
-        sprites[IZQUIERDA][3].scale(45,20);
+        sprites[IZQUIERDA][0].scale(40,20);
+        sprites[IZQUIERDA][1].scale(40,20);
+        sprites[IZQUIERDA][2].scale(40,20);
+        sprites[IZQUIERDA][3].scale(40,20);
 
-        sprites[DERECHO][0].scale(45,20);
-        sprites[DERECHO][1].scale(45,20);
-        sprites[DERECHO][2].scale(45,20);
-        sprites[DERECHO][3].scale(45,20);
+        sprites[DERECHO][0].scale(40,20);
+        sprites[DERECHO][1].scale(40,20);
+        sprites[DERECHO][2].scale(40,20);
+        sprites[DERECHO][3].scale(40,20);
 
-        sprites[VERTICAL][0].scale(25,48);
-        sprites[VERTICAL][1].scale(25,48);
-        sprites[VERTICAL][2].scale(25,48);
-        sprites[VERTICAL][3].scale(25,48);
+        sprites[VERTICAL][0].scale(20,45);
+        sprites[VERTICAL][1].scale(20,45);
+        sprites[VERTICAL][2].scale(20,45);
+        sprites[VERTICAL][3].scale(20,45);
     }
 
     public void act(){

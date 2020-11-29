@@ -27,7 +27,7 @@ public class Enemigo extends Personaje{
         sprites[0][4] = new GreenfootImage("images/ENEMIGO/enemigo5.png");
         sprites[0][5] = new GreenfootImage("images/ENEMIGO/enemigo6.png");
         for(int i = 0; i< 6;i++){
-            sprites[0][i].scale(30,30);
+            sprites[0][i].scale(25,25);
         }
     }
 

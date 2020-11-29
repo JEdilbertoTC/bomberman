@@ -233,26 +233,7 @@ public class Bomberman extends Personaje{
     }
 
     public void verificaVidaExplosion(){
-        Actor explosion = null;
-
-        switch(direccion){
-            case ARRIBA:
-            explosion = (Explosion)getOneObjectAtOffset(6, -18,Explosion.class);//3
-            break;
-
-            case ABAJO:
-            explosion = (Explosion)getOneObjectAtOffset(6, 19, Explosion.class);
-            break;
-
-            case DERECHA:
-            explosion = (Explosion)getOneObjectAtOffset(15,12, Explosion.class);
-            break;
-
-            case IZQUIERDA:
-            explosion = (Explosion)getOneObjectAtOffset(-15, 13, Explosion.class);
-            break;
-        }
-        if(explosion != null){
+        if(isTouching(Explosion.class)){
             setVidas(-1);
             setLocation(30, 30);
         } 
