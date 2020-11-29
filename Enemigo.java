@@ -5,6 +5,7 @@ import java.util.*;
 public class Enemigo extends Personaje{
     
     private String key;
+
     private final int DERECHA = 1;
     private final int IZQUIERDA = 2;
     private final int ARRIBA = 0;

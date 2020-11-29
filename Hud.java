@@ -12,7 +12,6 @@ public class Hud extends Actor{
     }
     
     public void act(){
-        System.out.println(Bomberman.getVidas());
         hudStatus();
     }
     

@@ -11,7 +11,7 @@ public class Puntuaciones extends World{
     private final int limitePuntuaciones = 6;
     private int incremento = 0;
     private int incrementoY = 0;
-    int i = 0;
+    private int i = 0;
     
     public Puntuaciones(){    
         super(900, 600, 1);

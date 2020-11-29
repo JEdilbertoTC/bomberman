@@ -31,7 +31,8 @@ public class Mundo extends World{
         addObject(new Bomberman(), 30, 30);
         addObject(new Cronometro(), 0, 0);
         addObject(new Puntaje(),0,0);
-        addObject(new Hud(),350,550);
+        addObject(new Hud(),810,50);
+        addObject(new Nivel(), 0, 0);
 
         rola[CANCION_INICIO].setVolume(40);
         rola[CANCION_POCO_TIEMPO].setVolume(40);

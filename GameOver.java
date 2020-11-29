@@ -14,8 +14,9 @@ public class GameOver extends World{
     }
 
     public void guardaPuntuacion (){
+        GameRecord gameRecord = new GameRecord();
         try(FileWriter writer = new FileWriter(new File("puntaje.txt"),true)){
-            writer.write(Puntaje.getPuntuacion()+","+"nombre"+System.lineSeparator());
+            writer.write(gameRecord.getScore()+","+"nombre"+System.lineSeparator());
         } catch (IOException e) {
             e.printStackTrace();
         }
