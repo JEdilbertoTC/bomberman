@@ -4,6 +4,7 @@ public class Mejora extends Actor{
     protected GreenfootImage sprites [][];
     protected int delaySprite;
     protected int currentSprite;
+    protected static final int NUMERO_MEJORAS = 3;
     protected final int MEJORA_CALAVERA = 0;
     protected final int MEJORA_VIDA = 1;
     protected final int MEJORA_BOMBA = 2;

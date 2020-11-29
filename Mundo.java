@@ -10,19 +10,24 @@ public class Mundo extends World{
     private Bomberman bomberman = new Bomberman();
     public static GreenfootSound rola[] = new GreenfootSound[2];
     public static LinkedList<Enemigo> enemigos;
+    public static LinkedList<Mejora> mejoras;
     public static int numEnemigos = 1;
+    public static int numMejoras = numEnemigos;
     public static final int CANCION_INICIO = 0;
     public static final int CANCION_POCO_TIEMPO = 0;
 
     public Mundo(){    
         super(900, 600, 1);
         enemigos = new LinkedList<Enemigo>();
+        mejoras = new LinkedList<Mejora>();
         rola[CANCION_INICIO] = new GreenfootSound("sounds/MusicaFondo.wav");
         rola[CANCION_POCO_TIEMPO] = new GreenfootSound("sounds/Time_Running_Out.wav");
         mapa = new int [COLUMNAS][FILAS];
         generaMapa();
+        dibujaBase();
+        dibujaMejoras();
         dibujaMapa();
-        dibujaEnemigos();
+        dibujaEnemigos();  
         addObject(new Bomberman(), 30, 30);
         addObject(new Cronometro(), 0, 0);
         addObject(new Puntaje(),0,0);
@@ -44,6 +49,19 @@ public class Mundo extends World{
             if((mapa[yEnemigo][xEnemigo]!=DESTRUIBLE)&&(mapa[yEnemigo][xEnemigo]!=SOLIDO)&&(mapa[yEnemigo][xEnemigo]==SUELO)){
                 addObject(new Enemigo(),xEnemigo*30,yEnemigo*30);
                 enemigos.add(new Enemigo());
+            }
+        }
+    }
+    
+    public void dibujaMejoras(){
+        while(numMejoras > mejoras.size()){
+            int xMejora = new Random().nextInt(FILAS);
+            int yMejora = new Random().nextInt(COLUMNAS);
+            if((mapa[yMejora][xMejora]==DESTRUIBLE)&&(mapa[yMejora][xMejora]!=SOLIDO)&&(mapa[yMejora][xMejora]!=SUELO)){
+                SelectorDeMejoras selector = new SelectorDeMejoras();
+                Mejora opcion = selector.selector(new Random().nextInt(Mejora.NUMERO_MEJORAS));
+                addObject(opcion,xMejora*30,yMejora*30);
+                mejoras.add(new Mejora());
             }
         }
     }
@@ -77,7 +95,6 @@ public class Mundo extends World{
     }
 
     public void dibujaMapa(){
-        dibujaBase();
         int x, y =0;
         for(int i = 0; i < COLUMNAS; i++){
             x = 0;

@@ -11,3 +11,12 @@
 100,nombre
 0,nombre
 400,nombre
+100,nombre
+100,nombre
+300,nombre
+500,nombre
+0,nombre
+100,nombre
+200,nombre
+0,nombre
+0,nombre

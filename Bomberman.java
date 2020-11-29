@@ -9,12 +9,13 @@ public class Bomberman extends Personaje{
     private final int ABAJO = 3;
     private GreenfootImage bomberman[][];
     private Direccion direccion = Direccion.DERECHA;
-    public static LinkedList<Bomba> bombas = new LinkedList<Bomba>();
-    private static int limiteBombas;
-    private static int vidas;
+    protected static LinkedList<Bomba> bombas = new LinkedList<Bomba>();
+    protected static int limiteBombas;
+    protected static int vidas;
+
     public Bomberman(){
         limiteBombas = 1;
-        vidas = 3;
+        vidas = 1;
         sprites = new GreenfootImage[4][4];
         sprites[ARRIBA][0] = new GreenfootImage("images/BOMBERMAN/ParadoArriba.png");
         sprites[ARRIBA][1] = new GreenfootImage("images/BOMBERMAN/atras2.png");
@@ -61,7 +62,7 @@ public class Bomberman extends Personaje{
             Mundo.rola[Mundo.CANCION_POCO_TIEMPO].pause();
         }
     }
-    
+
     public boolean tieneVidas(){
         return vidas >0;
     }
@@ -228,6 +229,14 @@ public class Bomberman extends Personaje{
 
     public void verificaMejora(){
         if(isTouching(Mejora.class)){
+            if(isTouching(MejoraBomba.class)){
+                limiteBombas++;
+            } else if(isTouching(MejoraCalavera.class)){
+                setVidas(-1);
+            }else if(isTouching(MejoraVida.class)){
+                setVidas(1);
+            }
+            Puntaje.setPuntuacion(1000);
             removeTouching(Mejora.class);
         }
     }
@@ -238,13 +247,17 @@ public class Bomberman extends Personaje{
             setLocation(30, 30);
         } 
     }
-    
+
     public static int getVidas(){
         return vidas;
     }
-    
+
     public static void setVidas(int vida){
         vidas+= vida;
+    }
+
+    public static void setBombas(int bomba){
+        limiteBombas+= bomba;
     }
 
 }
