@@ -10,7 +10,6 @@ public class VolverAJugar extends Boton{
 
     public void act() {
         if(Greenfoot.mouseClicked(this)){
-
             Greenfoot.setWorld(new Mundo());
             Menu.rola.pause();
             GameOver.rola.pause();

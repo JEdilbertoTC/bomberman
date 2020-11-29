@@ -3,9 +3,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Cronometro extends Actor
 {
     private final int SEGUNDO = 60;
-    private final int MINUTO = 60*60;
+    private final int MINUTO = SEGUNDO*60;
     private int minutos = 0;
-    private int tiempoLimite = MINUTO*2; //2 Minutos
+    private int tiempoLimite = MINUTO*2;
     private int segundos = 0;
     public void act() {
         reloj();

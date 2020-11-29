@@ -4,7 +4,7 @@ public class Boton extends Actor
 {
     private boolean mouseOver = false;
     private static int MAX_TRANS = 255;
-    
+
     public void checkMouse(){
 
         if(Greenfoot.mouseDragged(null)){
@@ -15,8 +15,7 @@ public class Boton extends Actor
         if(mouseOver){
             adjustTransparency(MAX_TRANS/3);
 
-        }
-        else{
+        }else{
             adjustTransparency(255);
         }
     }

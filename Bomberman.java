@@ -43,7 +43,7 @@ public class Bomberman extends Personaje{
     }
 
     public void act(){
-        if(vidas > 0){
+        if(tieneVidas()){
             String tecla = Greenfoot.getKey();
             setLocation(getX() + dx, getY() + dy);
             mueveBomberman();
@@ -57,12 +57,16 @@ public class Bomberman extends Personaje{
             verificaVidaExplosion();
         } else {
             Greenfoot.setWorld(new GameOver());
-            Mundo.rola[0].pause();
-            Mundo.rola[1].pause();
+            Mundo.rola[Mundo.CANCION_INICIO].pause();
+            Mundo.rola[Mundo.CANCION_POCO_TIEMPO].pause();
         }
     }
+    
+    public boolean tieneVidas(){
+        return vidas >0;
+    }
 
-    public void BombermanQuieto(){
+    public void bombermanQuieto(){
         if(dx == 0  && dy == 0){
             switch(direccion){
                 case IZQUIERDA:
@@ -104,7 +108,7 @@ public class Bomberman extends Personaje{
             dx = 1;
             direccion = Direccion.DERECHA;
         } else{
-            BombermanQuieto();
+            bombermanQuieto();
         }
     }
 

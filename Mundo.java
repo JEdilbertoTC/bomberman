@@ -1,3 +1,4 @@
+
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 public class Mundo extends World{   
@@ -12,13 +13,15 @@ public class Mundo extends World{
     public static GreenfootSound rola[] = new GreenfootSound[2];
     public static LinkedList<Enemigo> enemigos;
     public static int numEnemigos = 1;
+    public static final int CANCION_INICIO = 0;
+    public static final int CANCION_POCO_TIEMPO = 0;
     public Mundo()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels  
         super(900, 600, 1);
         enemigos = new LinkedList<Enemigo>();
-        rola[0] = new GreenfootSound("sounds/MusicaFondo.wav");
-        rola[1] = new GreenfootSound("sounds/Time_Running_Out.wav");
+        rola[CANCION_INICIO] = new GreenfootSound("sounds/MusicaFondo.wav");
+        rola[CANCION_POCO_TIEMPO] = new GreenfootSound("sounds/Time_Running_Out.wav");
         mapa = new int [columnas][filas];
         generaMapa();
         dibujaMapa();
@@ -27,13 +30,13 @@ public class Mundo extends World{
         addObject(new Puntaje(),0,0);
         addObject(new Hud(),350,550);
         
-        rola[0].setVolume(40);
-        rola[1].setVolume(40);
-        rola[0].playLoop();
+        rola[CANCION_INICIO].setVolume(40);
+        rola[CANCION_POCO_TIEMPO].setVolume(40);
+        rola[CANCION_INICIO].playLoop();
 
-        rola[0].setVolume(40);
-        rola[1].setVolume(40);
-        rola[0].playLoop();
+        rola[CANCION_INICIO].setVolume(40);
+        rola[CANCION_POCO_TIEMPO].setVolume(40);
+        rola[CANCION_INICIO].playLoop();
     }
     public void dibujaEnemigos(int x, int y){
         while(numEnemigos > enemigos.size()){

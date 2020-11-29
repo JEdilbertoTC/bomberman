@@ -7,13 +7,4 @@ public class ExIzquierda extends Explosion{
         verificaMuros();
         verificaExplosion();
     }    
-    
-    public void verificaMuros(){
-        Destruible destruible = null;
-        destruible = (Destruible)getOneObjectAtOffset(-15, 0,Destruible.class);
-        if(destruible != null){
-            Puntaje.setPuntuacion(100);
-            getWorld().removeObject(destruible);
-        }
-    }
 }

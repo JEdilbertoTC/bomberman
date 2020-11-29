@@ -10,12 +10,12 @@ public class Mejora extends Actor{
     public Mejora(){
         
         sprites = new GreenfootImage[3][2];
-        sprites[0][0] = new GreenfootImage("POWERUPS/pCalavera1.png");
-        sprites[0][1] = new GreenfootImage("POWERUPS/pCalavera2.png");
-        sprites[1][0] = new GreenfootImage("POWERUPS/pVida1.png");
-        sprites[1][1] = new GreenfootImage("POWERUPS/pVida2.png");
-        sprites[2][0] = new GreenfootImage("POWERUPS/pBomba1.png");
-        sprites[2][1] = new GreenfootImage("POWERUPS/pBomba2.png");
+        sprites[MEJORA_CALAVERA][0] = new GreenfootImage("POWERUPS/pCalavera1.png");
+        sprites[MEJORA_CALAVERA][1] = new GreenfootImage("POWERUPS/pCalavera2.png");
+        sprites[MEJORA_VIDA][0] = new GreenfootImage("POWERUPS/pVida1.png");
+        sprites[MEJORA_VIDA][1] = new GreenfootImage("POWERUPS/pVida2.png");
+        sprites[MEJORA_BOMBA][0] = new GreenfootImage("POWERUPS/pBomba1.png");
+        sprites[MEJORA_BOMBA][1] = new GreenfootImage("POWERUPS/pBomba2.png");
         
         for(int i = 0; i< 3; i++){
             for(int j = 0; j < 2; j++){

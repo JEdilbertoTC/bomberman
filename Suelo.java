@@ -8,7 +8,7 @@ public class Suelo extends Actor{
     }
     
     public void dibujamuro(){
-        //sprite.scale(30,30);
+        sprite.scale(30,30);
         setImage(sprite);
     }   
 }
