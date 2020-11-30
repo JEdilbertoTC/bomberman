@@ -2,7 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*; 
 
 public class Bomberman extends Personaje{
-    
+
     private final int DERECHA = 1;
     private final int IZQUIERDA = 2;
     private final int ARRIBA = 0;
@@ -13,15 +13,17 @@ public class Bomberman extends Personaje{
     private int limiteBombas;
     private int vidas;
     private int puntuacion;
+    public String nombre;
 
     private Bomberman(){
         limiteBombas = 1;
         vidas = 1;
         puntuacion = 0;
+        nombre = "";
         sprites = new GreenfootImage[4][4];
         bombas = new LinkedList<Bomba>();
         direccion = Direccion.DERECHA;
-        
+
         sprites[ARRIBA][0] = new GreenfootImage("images/BOMBERMAN/ParadoArriba.png");
         sprites[ARRIBA][1] = new GreenfootImage("images/BOMBERMAN/atras2.png");
         sprites[ARRIBA][2] = new GreenfootImage("images/BOMBERMAN/atras3.png");
@@ -50,7 +52,6 @@ public class Bomberman extends Personaje{
 
     public void act(){
         if(tieneVidas()){
-            System.out.println(bombas.size());
             String tecla = Greenfoot.getKey();
             setLocation(getX() + dx, getY() + dy);
             mueveBomberman();
@@ -63,17 +64,27 @@ public class Bomberman extends Personaje{
             }
             verificaVidaExplosion();
         } else {
-            instanciaBomberman = new Bomberman();
-            Greenfoot.setWorld(new GameOver());
-            Mundo.rola[Mundo.CANCION_INICIO].pause();
-            Mundo.rola[Mundo.CANCION_POCO_TIEMPO].pause();
+            getWorld().showText("INGRESA NICKNAME: ", 350, 250);
+            String tecla = Greenfoot.getKey();
+            if(tecla != null  && tecla != "backspace" && tecla != "enter"){
+                nombre += tecla;
+            }
+            if(tecla == "backspace" && nombre.length()> 0)
+                nombre = nombre.substring(0, nombre.length()-1);
+            getWorld().showText(nombre, 500, 250);
+            if(tecla == "enter"){
+                Greenfoot.setWorld(new GameOver());
+                instanciaBomberman = new Bomberman();
+                Mundo.rola[Mundo.CANCION_INICIO].pause();
+                Mundo.rola[Mundo.CANCION_POCO_TIEMPO].pause();
+            }
         }
     }
-
+    
     public boolean tieneVidas(){
         return vidas >0;
     }
-    
+
     public boolean seEstaMoviendo(){
         return dx == 0 || dy == 0;
     }
@@ -258,6 +269,7 @@ public class Bomberman extends Personaje{
             setLocation(30, 30);
         } 
     }
+
     public int getVidas(){
         return vidas;
     }
@@ -265,26 +277,31 @@ public class Bomberman extends Personaje{
     public void sumaVidas(int vida){
         vidas+= vida;
     }
-    
+
     public int getPuntuacion(){
         return puntuacion;
     }
+
     public void setBombas(int bomba){
         limiteBombas+= bomba;
     }
-    
+
     public void sumaPuntuacion(int puntuacion){
         this.puntuacion += puntuacion;
     }
-    
+
     public LinkedList<Bomba> getBombas(){
         return bombas;
     }
-    
+
     public static Bomberman getInstancia(){
         if(instanciaBomberman == null){
             return new Bomberman();
         }
         return instanciaBomberman;
+    }
+    
+    public String getNombre(){
+        return nombre;
     }
 }

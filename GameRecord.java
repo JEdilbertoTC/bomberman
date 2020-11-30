@@ -1,15 +1,23 @@
 import java.util.Objects;
 
 public class GameRecord {
-    private static String playerName;
+    private String playerName;
     private int score;
-
+    private static GameRecord referenciaGameRecord;
+    
+    public static GameRecord getReferencia(){
+        if(referenciaGameRecord == null){
+            return new GameRecord();
+        }
+        return referenciaGameRecord;
+    }
     public GameRecord(int score, String playerName) {
         this.playerName = playerName;
         this.score = score;
     }
 
     public GameRecord() {
+        
     }
 
     public static void setPlayerName(String playerName) {
