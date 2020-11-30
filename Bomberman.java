@@ -2,18 +2,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*; 
 
 public class Bomberman extends Personaje{
-
+    private static Bomberman bomberman;
     private final int DERECHA = 1;
     private final int IZQUIERDA = 2;
     private final int ARRIBA = 0;
     private final int ABAJO = 3;
-    private GreenfootImage bomberman[][];
     private Direccion direccion;
     private LinkedList<Bomba> bombas;
     private int limiteBombas;
     private int vidas;
     private int puntuacion;
-    public String nombre;
+    private String nombre;
+    private int tiempoExplosion = 0;
 
     private Bomberman(){
         limiteBombas = 1;
@@ -23,22 +23,18 @@ public class Bomberman extends Personaje{
         sprites = new GreenfootImage[4][4];
         bombas = new LinkedList<Bomba>();
         direccion = Direccion.DERECHA;
-
         sprites[ARRIBA][0] = new GreenfootImage("images/BOMBERMAN/ParadoArriba.png");
         sprites[ARRIBA][1] = new GreenfootImage("images/BOMBERMAN/atras2.png");
         sprites[ARRIBA][2] = new GreenfootImage("images/BOMBERMAN/atras3.png");
         sprites[ARRIBA][3] = new GreenfootImage("images/BOMBERMAN/atras4.png");
-
         sprites[DERECHA][0] = new GreenfootImage("images/BOMBERMAN/vueltaDerecha.png");
         sprites[DERECHA][1] = new GreenfootImage("images/BOMBERMAN/paradoDerecha.png");
         sprites[DERECHA][2] = new GreenfootImage("images/BOMBERMAN/derecha1.png");
         sprites[DERECHA][3] = new GreenfootImage("images/BOMBERMAN/derecha2.png");
-
         sprites[IZQUIERDA][0] = new GreenfootImage("images/BOMBERMAN/vueltaIzquierda.png");
         sprites[IZQUIERDA][1] = new GreenfootImage("images/BOMBERMAN/paradoIzquierda.png");
         sprites[IZQUIERDA][2] = new GreenfootImage("images/BOMBERMAN/izquierda1.png");
         sprites[IZQUIERDA][3] = new GreenfootImage("images/BOMBERMAN/izquierda2.png");
-
         sprites[ABAJO][0] = new GreenfootImage("images/BOMBERMAN/paradoAbajo.png");    
         sprites[ABAJO][1] = new GreenfootImage("images/BOMBERMAN/abajo1.png");
         sprites[ABAJO][2] = new GreenfootImage("images/BOMBERMAN/abajo2.png");
@@ -55,7 +51,8 @@ public class Bomberman extends Personaje{
             String tecla = Greenfoot.getKey();
             setLocation(getX() + dx, getY() + dy);
             mueveBomberman();
-            verificaBomba(tecla); 
+            verificaBomba(tecla);
+            quitaBombas();
             checaParedes();
             verificaMejora();
             if(tocadoPorEnemigo()){
@@ -74,15 +71,15 @@ public class Bomberman extends Personaje{
             getWorld().showText(nombre, 500, 250);
             if(tecla == "enter"){
                 Greenfoot.setWorld(new GameOver());
-                instanciaBomberman = new Bomberman();
+                bomberman = null;
                 Mundo.rola[Mundo.CANCION_INICIO].pause();
                 Mundo.rola[Mundo.CANCION_POCO_TIEMPO].pause();
             }
         }
     }
-    
+
     public boolean tieneVidas(){
-        return vidas >0;
+        return vidas > 0;
     }
 
     public boolean seEstaMoviendo(){
@@ -95,16 +92,12 @@ public class Bomberman extends Personaje{
                 case IZQUIERDA:
                 setImage(sprites[IZQUIERDA][1]);
                 break;
-
                 case DERECHA:
                 setImage(sprites[DERECHA][1]);
-
                 break;
-
                 case ARRIBA:
                 setImage(sprites[ARRIBA][0]);
                 break;
-
                 case ABAJO:
                 setImage(sprites[ABAJO][0]);
                 break;
@@ -118,15 +111,12 @@ public class Bomberman extends Personaje{
         if(Greenfoot.isKeyDown("up")){
             dy = -1;
             direccion = Direccion.ARRIBA;
-
         } else if(Greenfoot.isKeyDown("down")){
             dy = 1;
             direccion = Direccion.ABAJO;
-
         } else if(Greenfoot.isKeyDown("left")){
             dx = -1;
             direccion = Direccion.IZQUIERDA;
-
         } else if(Greenfoot.isKeyDown("right")){
             dx = 1;
             direccion = Direccion.DERECHA;
@@ -137,20 +127,17 @@ public class Bomberman extends Personaje{
 
     public void verificaBomba(String tecla){
         if(tecla == "space"){
-            if(bombas.size() < limiteBombas ){
+            if(bombas.size() < limiteBombas){
                 switch(direccion){
                     case IZQUIERDA:
                     getWorld().addObject(new Bomba(), getX(),getY()+3);
                     break;
-
                     case DERECHA:
                     getWorld().addObject(new Bomba(), getX(),getY()+5);
                     break;
-
                     case ARRIBA:
                     getWorld().addObject(new Bomba(), getX(),getY()+3);
                     break;
-
                     case ABAJO:
                     getWorld().addObject(new Bomba(), getX(),getY()+3);
                     break;
@@ -158,14 +145,21 @@ public class Bomberman extends Personaje{
                 bombas.add(new Bomba());
             }
         }
+    }
 
+    public void quitaBombas(){
+        if(bombas.size()> 0){
+            if(tiempoExplosion > 110){
+                bombas.removeFirst();
+                tiempoExplosion = 0;
+            }
+            tiempoExplosion++;
+        }
     }
 
     public void cambiaSprites(){
-
         if(seEstaMoviendo()){
             switch(direccion){
-
                 case IZQUIERDA:
                 if(delaySprite >= 7){
                     currentSprite = ((++currentSprite) % 4);
@@ -174,10 +168,8 @@ public class Bomberman extends Personaje{
                     }
                     setImage(sprites[IZQUIERDA][currentSprite]);
                     delaySprite = 0;
-
                 }
                 break;
-
                 case DERECHA:
                 if(delaySprite >= 7){
                     currentSprite = ((++currentSprite) % 4);
@@ -188,7 +180,6 @@ public class Bomberman extends Personaje{
                     delaySprite = 0;
                 }
                 break;
-
                 case ARRIBA:
                 if(delaySprite >= 7){
                     currentSprite = (++currentSprite) % 4;
@@ -196,7 +187,6 @@ public class Bomberman extends Personaje{
                     delaySprite = 0;
                 }
                 break;
-
                 case ABAJO:
                 if(delaySprite >= 7){
                     currentSprite = ((++currentSprite) % 4);
@@ -214,20 +204,16 @@ public class Bomberman extends Personaje{
 
     public void checaParedes(){
         Actor muro = null;
-
         switch(direccion){
             case ARRIBA:
             muro = (Muro)getOneObjectAtOffset(6, -10,Muro.class);//3
             break;
-
             case ABAJO:
             muro = (Muro)getOneObjectAtOffset(6, 19, Muro.class);
             break;
-
             case DERECHA:
             muro = (Muro)getOneObjectAtOffset(15,12, Muro.class);
             break;
-
             case IZQUIERDA:
             muro = (Muro)getOneObjectAtOffset(-15, 13, Muro.class);
             break;
@@ -252,7 +238,7 @@ public class Bomberman extends Personaje{
     public void verificaMejora(){
         if(isTouching(Mejora.class)){
             if(isTouching(MejoraBomba.class)){
-                limiteBombas++;
+                incrementarLimiteBombas(1);
             } else if(isTouching(MejoraCalavera.class)){
                 sumaVidas(-1);
             }else if(isTouching(MejoraVida.class)){
@@ -282,7 +268,7 @@ public class Bomberman extends Personaje{
         return puntuacion;
     }
 
-    public void setBombas(int bomba){
+    public void incrementarLimiteBombas(int bomba){
         limiteBombas+= bomba;
     }
 
@@ -290,17 +276,13 @@ public class Bomberman extends Personaje{
         this.puntuacion += puntuacion;
     }
 
-    public LinkedList<Bomba> getBombas(){
-        return bombas;
-    }
-
-    public static Bomberman getInstancia(){
-        if(instanciaBomberman == null){
+    public static Bomberman getInstance(){
+        if(bomberman == null){
             return new Bomberman();
         }
-        return instanciaBomberman;
+        return bomberman;
     }
-    
+
     public String getNombre(){
         return nombre;
     }

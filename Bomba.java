@@ -2,7 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 
 public class Bomba extends Muro{
-    private Bomberman instanciaBomberman = Bomberman.getInstancia();
+    private Bomberman bomberman = Bomberman.getInstance();
     private GreenfootImage bomba[];
     private int currentSprite;
     private int delaySprite;
@@ -17,7 +17,6 @@ public class Bomba extends Muro{
         bomba[2] = new GreenfootImage("images/BOMBA/bomba3.png");
         bomba[0].scale(25,25);
         bomba[2].scale(25,25);
-        bomba[1].scale(25,25);
     }
 
     public void act(){
@@ -33,7 +32,6 @@ public class Bomba extends Muro{
         }
         tiempoExplosion++;
         delaySprite++;
-
     }
 
     public void verificaExplosion(){
@@ -44,8 +42,7 @@ public class Bomba extends Muro{
             getWorld().addObject(new ExDerecha(),getX()+20,getY());
             getWorld().addObject(new ExVertical(),getX(),getY()+20);
             getWorld().addObject(new ExVertical(),getX(),getY()-20);
-            instanciaBomberman.getBombas().removeFirst();
-            getWorld().removeObject(this);       
+            getWorld().removeObject(this);
         }
         tiempoExplosion++;
     }

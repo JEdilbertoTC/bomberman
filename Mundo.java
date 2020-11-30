@@ -27,7 +27,7 @@ public class Mundo extends World{
         dibujaMejoras();
         dibujaMapa();
         dibujaEnemigos();  
-        addObject(Bomberman.getInstancia(), 30, 30);
+        addObject(Bomberman.getInstance(), 30, 30);
         addObject(new Cronometro(), 0, 0);
         addObject(new Puntaje(),0,0);
         addObject(new Hud(),810,50);

@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Hud extends Actor{
     
     private GreenfootImage sprites[];
-    protected Bomberman hud = Bomberman.getInstancia();
+    protected Bomberman hud = Bomberman.getInstance();
     public Hud(){
         sprites = new GreenfootImage[4];
         sprites[0] = new GreenfootImage("images/HUD/HUD0.png");

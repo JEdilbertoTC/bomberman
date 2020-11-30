@@ -7,6 +7,7 @@ public class Explosion extends Personaje{
     private final int DERECHO = 1;
     private final int IZQUIERDA = 2;
     private final int VERTICAL = 3;
+    private Bomberman bomberman = Bomberman.getInstance();
     public Explosion(){
         sprites = new GreenfootImage[4][4];
         sprites[ENMEDIO][0] = new GreenfootImage("images/EXPLOSION/explosionEnMedio1.png");
@@ -84,7 +85,7 @@ public class Explosion extends Personaje{
     public void verificaMuros(){
         if(isTouching(Destruible.class)){
             removeTouching(Destruible.class);
-            instanciaBomberman.sumaPuntuacion(100);
+            bomberman.sumaPuntuacion(100);
         }  
     }
 }

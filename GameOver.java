@@ -4,7 +4,7 @@ import java.io.*;
 public class GameOver extends World{
     
     public static GreenfootSound rola = new GreenfootSound("sounds/gameOver.wav");
-    private Bomberman instancia = Bomberman.getInstancia();
+    private Bomberman instancia = Bomberman.getInstance();
     public GameOver(){
         super(900, 600, 1);
         guardaPuntuacion();
