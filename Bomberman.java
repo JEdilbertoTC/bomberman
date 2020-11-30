@@ -287,4 +287,8 @@ public class Bomberman extends Personaje{
         }
         return instanciaBomberman;
     }
+    public static int getBombas(){
+        return vidas;
+    }
+
 }
