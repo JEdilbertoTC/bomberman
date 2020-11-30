@@ -67,7 +67,6 @@ public class Explosion extends Personaje{
     public void verificaExplosion(){
         if(tiempoExplosion > 50){
             getWorld().removeObject(this);
-
         }
         tiempoExplosion++;
     }
@@ -85,7 +84,7 @@ public class Explosion extends Personaje{
     public void verificaMuros(){
         if(isTouching(Destruible.class)){
             removeTouching(Destruible.class);
-            Puntaje.setPuntuacion(100);
+            instanciaBomberman.sumaPuntuacion(100);
         }  
     }
 }
