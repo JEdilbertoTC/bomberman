@@ -7,6 +7,7 @@ comment10.target=void\ checaParedes()
 comment11.params=
 comment11.target=boolean\ tocadoPorEnemigo()
 comment12.params=
+
 comment12.target=void\ verificaMejora()
 comment13.params=
 comment13.target=void\ verificaVidaExplosion()
@@ -22,6 +23,15 @@ comment18.params=puntuacion
 comment18.target=void\ sumaPuntuacion(int)
 comment19.params=
 comment19.target=java.util.LinkedList\ getBombas()
+
+comment12.target=int\ getVidas()
+comment13.params=vida
+comment13.target=void\ setVidas(int)
+comment14.params=bomba
+comment14.target=void\ setBombas(int)
+comment15.params=
+comment15.target=int\ getBombas()
+
 comment2.params=
 comment2.target=void\ act()
 comment20.params=
@@ -43,3 +53,7 @@ comment8.target=void\ verificaBomba(java.lang.String)
 comment9.params=
 comment9.target=void\ cambiaSprites()
 numComments=22
+
+comment9.target=boolean\ tocadoPorEnemigo()
+numComments=16
+

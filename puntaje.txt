@@ -1,1 +1,10 @@
+
 500,edilberto
+
+100,nombre
+100,nombre
+0,nombre
+200,nombre0,nombre
+0,nombre
+0,nombre
+
