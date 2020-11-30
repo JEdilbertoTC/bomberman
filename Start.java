@@ -1,9 +1,9 @@
 import greenfoot.*; 
 
-public class BotonStart extends Boton
+public class Start extends Boton
 {
     Menu menu;
-    public BotonStart(){
+    public Start(){
         GreenfootImage start = new GreenfootImage("images/BOTONES/start.png");
         start.scale(100,20);
         setImage(start);

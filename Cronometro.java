@@ -21,8 +21,8 @@ public class Cronometro extends Hud{
             
         }
         if(tiempoLimite < SEGUNDO*40){
-            Mundo.rola[1].playLoop();
-            Mundo.rola[0].stop();
+            Mundo.rola[Mundo.CANCION_POCO_TIEMPO].playLoop();
+            Mundo.rola[Mundo.CANCION_INICIO].stop();
         }
         if(tiempoLimite == 0)
             Greenfoot.stop();

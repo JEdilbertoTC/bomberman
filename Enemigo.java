@@ -5,19 +5,18 @@ import java.util.*;
 public class Enemigo extends Personaje{
     
     private String key;
-
     private final int DERECHA = 1;
     private final int IZQUIERDA = 2;
     private final int ARRIBA = 0;
     private final int ABAJO = 3;
     private int direccion = DERECHA;
 
-    protected Random Direccion;
-    protected int DireccionX;
-    protected int DireccionY;
-    protected int CambiaDireccion=0;
-    protected int x;
-    protected int y;
+    private Random Direccion;
+    private int DireccionX;
+    private int DireccionY;
+    private int CambiaDireccion=0;
+    private int x;
+    private int y;
 
     public Enemigo(){
         sprites = new GreenfootImage[1][6];
@@ -89,7 +88,7 @@ public class Enemigo extends Personaje{
 
     public void tocadoPorExplosion(){
         if(isTouching(Explosion.class)){
-            Puntaje.setPuntuacion(1000);
+            instanciaBomberman.sumaPuntuacion(1000);
             Mundo.enemigos.removeFirst();
             getWorld().removeObject(this);
         }
