@@ -259,5 +259,9 @@ public class Bomberman extends Personaje{
     public static void setBombas(int bomba){
         limiteBombas+= bomba;
     }
+    
+    public static int getBombas(){
+        return vidas;
+    }
 
 }
