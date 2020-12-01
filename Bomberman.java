@@ -284,6 +284,10 @@ public class Bomberman extends Personaje{
         }
         return bomberman;
     }
+    
+    public int getBombas(){
+        return limiteBombas;
+    }
 
     public String getNombre(){
         return nombre;
