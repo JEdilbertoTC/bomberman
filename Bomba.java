@@ -16,6 +16,7 @@ public class Bomba extends Muro{
         bomba[1] = new GreenfootImage("images/BOMBA/bomba2.png");
         bomba[2] = new GreenfootImage("images/BOMBA/bomba3.png");
         bomba[0].scale(25,25);
+        bomba[1].scale(25,25);
         bomba[2].scale(25,25);
     }
 
