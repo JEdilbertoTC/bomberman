@@ -84,7 +84,7 @@ public class Explosion extends Personaje{
 
     public void verificaMuros(){
         if(isTouching(Destruible.class)){
-            bomberman.sumaPuntuacion(100);
+            bomberman.sumaPuntuacion(Bomberman.PUNTOS_MURO);
             removeTouching(Destruible.class);
         }  
     }

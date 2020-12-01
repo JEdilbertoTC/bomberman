@@ -15,6 +15,8 @@ public class Bomberman extends Personaje{
     private String nombre;
     private int tiempoExplosion = 0;
     private final int PUNTOS_MEJORA = 10000;
+    public static final int PUNTOS_MURO = 100;
+    public static final int PUNTOS_ENEMIGO = 1000;
 
     private Bomberman(){
         limiteBombas = 1;
@@ -49,7 +51,6 @@ public class Bomberman extends Personaje{
 
     public void act(){
         if(tieneVidas()){
-            System.out.println(puntuacion);
             String tecla = Greenfoot.getKey();
             setLocation(getX() + dx, getY() + dy);
             mueveBomberman();

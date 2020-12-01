@@ -88,7 +88,7 @@ public class Enemigo extends Personaje{
 
     public void tocadoPorExplosion(){
         if(isTouching(Explosion.class)){
-            bomberman.sumaPuntuacion(1000);
+            bomberman.sumaPuntuacion(Bomberman.PUNTOS_ENEMIGO);
             Mundo.enemigos.removeFirst();
             getWorld().removeObject(this);
         }
