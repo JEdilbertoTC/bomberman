@@ -14,6 +14,7 @@ public class Bomberman extends Personaje{
     private int puntuacion;
     private String nombre;
     private int tiempoExplosion = 0;
+    private final int PUNTOS_MEJORA = 10000;
 
     private Bomberman(){
         limiteBombas = 1;
@@ -244,7 +245,7 @@ public class Bomberman extends Personaje{
             }else if(isTouching(MejoraVida.class)){
                 sumaVidas(1);
             }
-            sumaPuntuacion(10000);
+            sumaPuntuacion(PUNTOS_MEJORA);
             removeTouching(Mejora.class);
         }
     }
