@@ -15,7 +15,7 @@ public class Puntuaciones extends World{
     
     public Puntuaciones(){    
         super(900, 600, 1);
-        addObject(new BotonStart(),100,550);
+        addObject(new Start(),100,550);
         addObject(new Regresar(),300,549);
         List<GameRecord> gameRecords =  list();
         getBackground().drawRect(40, 130, 420, 290);

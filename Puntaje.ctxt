@@ -2,8 +2,4 @@
 comment0.target=Puntaje
 comment1.params=
 comment1.target=void\ act()
-comment2.params=puntos
-comment2.target=void\ setPuntuacion(int)
-comment3.params=
-comment3.target=int\ getPuntuacion()
-numComments=4
+numComments=2

@@ -7,14 +7,13 @@ public class Mundo extends World{
     private final int SUELO = 2;
     private final int DESTRUIBLE = 3;
     public int mapa[][];
-    private Bomberman bomberman = new Bomberman();
     public static GreenfootSound rola[] = new GreenfootSound[2];
     public static LinkedList<Enemigo> enemigos;
     public static LinkedList<Mejora> mejoras;
     public static int numEnemigos = 1;
     public static int numMejoras = numEnemigos;
     public static final int CANCION_INICIO = 0;
-    public static final int CANCION_POCO_TIEMPO = 0;
+    public static final int CANCION_POCO_TIEMPO = 1;
 
     public Mundo(){    
         super(900, 600, 1);
@@ -28,7 +27,7 @@ public class Mundo extends World{
         dibujaMejoras();
         dibujaMapa();
         dibujaEnemigos();  
-        addObject(new Bomberman(), 30, 30);
+        addObject(Bomberman.getInstancia(), 30, 30);
         addObject(new Cronometro(), 0, 0);
         addObject(new Puntaje(),0,0);
         addObject(new Hud(),810,50);
