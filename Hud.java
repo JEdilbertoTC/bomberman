@@ -1,36 +1,22 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class Hud extends Actor{
-
     
     private GreenfootImage sprites[];
-    protected Bomberman hud = Bomberman.getInstancia();
-
-
-    private GreenfootImage sprites[][];
-
+    protected Bomberman hud = Bomberman.getInstance();
     public Hud(){
-        int N=4;
-        sprites = new GreenfootImage[N][N];
-        int i,j;
-
-        for(i=0;i<N;i++){
-            for(j=0;j<N;j++){
-                sprites[i][j] = new GreenfootImage("images/HUD/HUD"+i+"-"+j+".png");
-            }
-        }
+        sprites = new GreenfootImage[4];
+        sprites[0] = new GreenfootImage("images/HUD/HUD0.png");
+        sprites[1] = new GreenfootImage("images/HUD/HUD1.png");
+        sprites[2] = new GreenfootImage("images/HUD/HUD2.png");
+        sprites[3] = new GreenfootImage("images/HUD/HUD3.png");
     }
-
+    
     public void act(){
         hudStatus();
     }
-
+    
     public void hudStatus(){
-
         setImage(sprites[hud.getVidas()]);
-
-        setImage(sprites[Bomberman.getVidas()][Bomberman.getBombas()]);
-
     }
-
 }

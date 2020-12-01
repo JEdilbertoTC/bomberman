@@ -10,7 +10,7 @@ public class Enemigo extends Personaje{
     private final int ARRIBA = 0;
     private final int ABAJO = 3;
     private int direccion = DERECHA;
-
+    private Bomberman bomberman = Bomberman.getInstance();
     private Random Direccion;
     private int DireccionX;
     private int DireccionY;
@@ -88,7 +88,7 @@ public class Enemigo extends Personaje{
 
     public void tocadoPorExplosion(){
         if(isTouching(Explosion.class)){
-            instanciaBomberman.sumaPuntuacion(1000);
+            bomberman.sumaPuntuacion(1000);
             Mundo.enemigos.removeFirst();
             getWorld().removeObject(this);
         }
