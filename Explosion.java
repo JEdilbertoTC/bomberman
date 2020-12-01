@@ -45,10 +45,10 @@ public class Explosion extends Personaje{
         sprites[DERECHO][2].scale(40,20);
         sprites[DERECHO][3].scale(40,20);
 
-        sprites[VERTICAL][0].scale(20,45);
-        sprites[VERTICAL][1].scale(20,45);
-        sprites[VERTICAL][2].scale(20,45);
-        sprites[VERTICAL][3].scale(20,45);
+        sprites[VERTICAL][0].scale(20,40);
+        sprites[VERTICAL][1].scale(20,40);
+        sprites[VERTICAL][2].scale(20,40);
+        sprites[VERTICAL][3].scale(20,40);
     }
 
     public void act(){
@@ -84,8 +84,8 @@ public class Explosion extends Personaje{
 
     public void verificaMuros(){
         if(isTouching(Destruible.class)){
-            removeTouching(Destruible.class);
             bomberman.sumaPuntuacion(100);
+            removeTouching(Destruible.class);
         }  
     }
 }

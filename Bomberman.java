@@ -2,7 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*; 
 
 public class Bomberman extends Personaje{
-    private static Bomberman bomberman;
+    private static Bomberman bomberman = new Bomberman();
     private final int DERECHA = 1;
     private final int IZQUIERDA = 2;
     private final int ARRIBA = 0;
@@ -49,6 +49,7 @@ public class Bomberman extends Personaje{
 
     public void act(){
         if(tieneVidas()){
+            System.out.println(puntuacion);
             String tecla = Greenfoot.getKey();
             setLocation(getX() + dx, getY() + dy);
             mueveBomberman();
@@ -273,8 +274,8 @@ public class Bomberman extends Personaje{
         limiteBombas+= bomba;
     }
 
-    public void sumaPuntuacion(int puntuacion){
-        this.puntuacion += puntuacion;
+    public void sumaPuntuacion(int puntos){
+        puntuacion += puntos;
     }
 
     public static Bomberman getInstance(){
