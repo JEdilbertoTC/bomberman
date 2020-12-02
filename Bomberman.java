@@ -61,7 +61,7 @@ public class Bomberman extends Personaje{
         limiteBombas = 1;
         vidas = 1;
         puntuacion = 0;
-        nombre = "";
+        nombre = " ";
         sprites = new GreenfootImage[4][4];
         bombas = new LinkedList<Bomba>();
         direccion = Direccion.DERECHA;

@@ -4,7 +4,7 @@ public class Cronometro extends Hud{
     private final int SEGUNDO = 60;
     private final int MINUTO = SEGUNDO*60;
     private int minutos = 0;
-    private int tiempoLimite = MINUTO*2;
+    private int tiempoLimite = MINUTO * 2;
     private int segundos = 0;
     public void act() {
         reloj();
@@ -24,7 +24,8 @@ public class Cronometro extends Hud{
             Mundo.rola[Mundo.CANCION_POCO_TIEMPO].playLoop();
             Mundo.rola[Mundo.CANCION_INICIO].stop();
         }
-        if(tiempoLimite == 0)
-            Greenfoot.stop();
+        if(tiempoLimite == 0){
+            Greenfoot.setWorld(new GameOver());
+        }
     }
 }
