@@ -17,7 +17,46 @@ public class Bomberman extends Personaje{
     private final int PUNTOS_MEJORA = 10000;
     public static final int PUNTOS_MURO = 100;
     public static final int PUNTOS_ENEMIGO = 1000;
-
+    private static Hashtable teclasNoValidas = new Hashtable();
+    static {
+        teclasNoValidas.put("down", "down");
+        teclasNoValidas.put("up", "up");
+        teclasNoValidas.put("left", "left");
+        teclasNoValidas.put("right", "right");
+        teclasNoValidas.put("space", "space");
+        teclasNoValidas.put("enter", "enter");
+        teclasNoValidas.put("tab", "tab");
+        teclasNoValidas.put("f1", "f1");
+        teclasNoValidas.put("f2", "f2");
+        teclasNoValidas.put("f3", "f3");
+        teclasNoValidas.put("f4", "f4");
+        teclasNoValidas.put("f5", "f5");
+        teclasNoValidas.put("f6", "f6");
+        teclasNoValidas.put("f7", "f7");
+        teclasNoValidas.put("f8", "f8");
+        teclasNoValidas.put("f9", "f9");
+        teclasNoValidas.put("f10", "f10");
+        teclasNoValidas.put("f11", "f12");
+        teclasNoValidas.put("shift", "shift");
+        teclasNoValidas.put("num lock", "num lock");
+        teclasNoValidas.put("home", "home");
+        teclasNoValidas.put("caps lock", "caps lock");
+        teclasNoValidas.put("control", "control");
+        teclasNoValidas.put("alt", "alt");
+        teclasNoValidas.put("windows", "windows");
+        teclasNoValidas.put("delete", "delete");
+        teclasNoValidas.put("end", "end");
+        teclasNoValidas.put("page down", "page down");
+        teclasNoValidas.put("insert", "insert");
+        teclasNoValidas.put("page up", "page up");
+        teclasNoValidas.put("print screen", "print screen");
+        teclasNoValidas.put("scroll lock", "scroll lock");
+        teclasNoValidas.put("pause", "pause");
+        teclasNoValidas.put("backspace", "backspace");
+        teclasNoValidas.put("alt graph", "alt graph");
+        teclasNoValidas.put("context menu", "context menu");
+        teclasNoValidas.put("escape", "escape");
+    }
     private Bomberman(){
         limiteBombas = 1;
         vidas = 1;
@@ -66,12 +105,12 @@ public class Bomberman extends Personaje{
         } else {
             getWorld().showText("INGRESA NICKNAME: ", 350, 250);
             String tecla = Greenfoot.getKey();
-            if(tecla != null  && tecla != "backspace" && tecla != "enter"){
+            if(tecla != null &&!teclasNoValidas.contains(tecla)&& nombre.length()<5){
                 nombre += tecla;
             }
             if(tecla == "backspace" && nombre.length()> 0)
                 nombre = nombre.substring(0, nombre.length()-1);
-            getWorld().showText(nombre, 500, 250);
+            getWorld().showText(nombre, 480, 250);
             if(tecla == "enter"){
                 Greenfoot.setWorld(new GameOver());
                 bomberman = null;
