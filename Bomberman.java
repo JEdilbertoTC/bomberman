@@ -108,10 +108,10 @@ public class Bomberman extends Personaje{
             if(tecla != null &&!teclasNoValidas.contains(tecla)&& nombre.length()<5){
                 nombre += tecla;
             }
-            if(tecla.equals("backspace") && nombre.length()> 0)
+            if(tecla == "backspace" && nombre.length()> 0)
                 nombre = nombre.substring(0, nombre.length()-1);
             getWorld().showText(nombre, 480, 250);
-            if(tecla.equals("enter")){
+            if(tecla == "enter"){
                 Greenfoot.setWorld(new GameOver());
                 bomberman = null;
                 Mundo.rola[Mundo.CANCION_INICIO].pause();
@@ -168,7 +168,7 @@ public class Bomberman extends Personaje{
     }
 
     public void verificaBomba(String tecla){
-        if(tecla.equals("space")){
+        if(tecla =="space"){
             if(bombas.size() < limiteBombas){
                 switch(direccion){
                     case IZQUIERDA:
