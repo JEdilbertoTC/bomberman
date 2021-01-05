@@ -108,12 +108,12 @@ public class Bomberman extends Personaje{
             if(tecla != null &&!teclasNoValidas.contains(tecla)&& nombre.length()<5){
                 nombre += tecla;
             }
-            if(tecla == "backspace" && nombre.length()> 0)
+            if(tecla =="backspace" && nombre.length()> 0)
                 nombre = nombre.substring(0, nombre.length()-1);
             getWorld().showText(nombre, 480, 250);
-            if(tecla == "enter"){
+            if(tecla =="enter"){
                 Greenfoot.setWorld(new GameOver());
-                bomberman = null;
+                bomberman = new Bomberman();
                 Mundo.rola[Mundo.CANCION_INICIO].pause();
                 Mundo.rola[Mundo.CANCION_POCO_TIEMPO].pause();
             }

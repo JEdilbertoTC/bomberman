@@ -14,7 +14,7 @@ public class Mundo extends World{
     public static int numMejoras = numEnemigos;
     public static final int CANCION_INICIO = 0;
     public static final int CANCION_POCO_TIEMPO = 1;
-
+    private Bomberman bomberman = Bomberman.getInstance();
     public Mundo(){    
         super(900, 600, 1);
         enemigos = new LinkedList<Enemigo>();
@@ -27,7 +27,7 @@ public class Mundo extends World{
         dibujaMejoras();
         dibujaMapa();
         dibujaEnemigos();  
-        addObject(Bomberman.getInstance(), 30, 30);
+        addObject(bomberman, 30, 30);
         addObject(new Cronometro(), 0, 0);
         addObject(new Puntaje(),0,0);
         addObject(new Hud(),810,50);
@@ -35,10 +35,8 @@ public class Mundo extends World{
 
         rola[CANCION_INICIO].setVolume(40);
         rola[CANCION_POCO_TIEMPO].setVolume(40);
-        rola[CANCION_INICIO].playLoop();
-
-        rola[CANCION_INICIO].setVolume(40);
-        rola[CANCION_POCO_TIEMPO].setVolume(40);
+        rola[CANCION_INICIO].pause();
+        rola[CANCION_POCO_TIEMPO].pause();
         rola[CANCION_INICIO].playLoop();
     }
 

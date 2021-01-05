@@ -8,6 +8,8 @@ public class GameOver extends World{
     public GameOver(){
         super(900, 600, 1);
         guardaPuntuacion();
+        Mundo.rola[Mundo.CANCION_INICIO].pause();
+        Mundo.rola[Mundo.CANCION_POCO_TIEMPO].pause();
         rola.setVolume(60);
         rola.playLoop();
         addObject(new VolverAJugar(), 350, 550);
